@@ -14,7 +14,7 @@ export default defineNuxtConfig({
   },
   ssr: true,
   compatibilityDate: '2026-04-18',
-  modules: ['@nuxtjs/tailwindcss', '@nuxt/image', '@nuxt/content', '@nuxtjs/i18n'],
+  modules: ['@nuxtjs/tailwindcss', '@nuxt/image', '@nuxt/content', '@nuxtjs/i18n', './modules/llms'],
   i18n: {
     baseUrl: 'https://kura-finance.com',
     defaultLocale: 'en',

@@ -50,3 +50,16 @@ CI (`.github/workflows/ci.yml`): `npm ci` → `typecheck` → `build` on `main` 
 - After a bad MIME incident, **purge Cloudflare cache** for `/_nuxt/*` (poisoned `200 text/html` responses may have been cached with long TTL).
 - `/investors` uses `cache-control: public, max-age=0, must-revalidate`.
 - Alternate Node host: `NITRO_PRESET=node_server npm run build` then `node .output/server/index.mjs` (not the primary production path).
+
+## LLM-readable exports
+
+`modules/llms.ts` runs during `npm run build`. It converts each prerendered page to Markdown and writes, into `dist/`:
+
+| Path | Content |
+|------|---------|
+| `/llms.txt` | Index per [llmstxt.org](https://llmstxt.org): company status, key facts, and a link to every page's Markdown version |
+| `/llms-full.txt` | All English pages in one Markdown file |
+| `/zh-TW/llms-full.txt` | All Traditional Chinese pages in one Markdown file |
+| `/<path>.md` | Markdown version of each page (`/index.md` for the home page) |
+
+The Markdown is generated from the rendered HTML (`<main>` only), so it needs no separate maintenance. Each HTML page links to its Markdown version with `<link rel="alternate" type="text/markdown">`, and `robots.txt` points to `llms.txt`. The section order in `llms.txt` is set by `SECTIONS` in `modules/llms.ts`; add new routes there.

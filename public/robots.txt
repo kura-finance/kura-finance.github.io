@@ -5,3 +5,7 @@ Disallow: /_nuxt/
 Disallow: /community
 
 Sitemap: https://kura-finance.com/sitemap.xml
+
+# Plain-text site summary and full-text export for AI assistants (https://llmstxt.org)
+# https://kura-finance.com/llms.txt
+# https://kura-finance.com/llms-full.txt
