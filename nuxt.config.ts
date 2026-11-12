@@ -99,8 +99,9 @@ export default defineNuxtConfig({
       autoSubfolderIndex: false,
     },
     compressPublicAssets: true,
-    // Only invoke the Pages Function for dynamic surfaces. Everything else
-    // (including /_nuxt/*) is static. Missing static files must 404 — without
+    // Every page is prerendered, so the Pages Function serves no content.
+    // Cloudflare requires at least one include rule; `/api/*` has no handlers
+    // and returns 404. Everything else (including /_nuxt/*) is static. Missing static files must 404 — without
     // public/404.html Cloudflare Pages SPA-falls-back to index.html (text/html)
     // for missing .js URLs and browsers throw MIME errors.
     cloudflare: {
@@ -123,7 +124,7 @@ export default defineNuxtConfig({
     '/**': {
       headers: {
         'Content-Security-Policy':
-          "default-src 'self'; script-src 'self' 'unsafe-inline' https://static.cloudflareinsights.com; connect-src 'self' https://api.kura-finance.com https://static.cloudflareinsights.com https://cloudflareinsights.com; img-src 'self' data: https:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; frame-ancestors 'none'; base-uri 'self'; object-src 'none'",
+          "default-src 'self'; script-src 'self' 'unsafe-inline' https://static.cloudflareinsights.com; connect-src 'self' https://static.cloudflareinsights.com https://cloudflareinsights.com; img-src 'self' data: https:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; frame-ancestors 'none'; base-uri 'self'; object-src 'none'",
         // HTML / document responses: never long-cache (chunk hashes rotate each deploy).
         'cache-control': 'public, max-age=0, must-revalidate',
       },

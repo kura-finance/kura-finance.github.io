@@ -11,7 +11,7 @@
 | Build output | `dist/` |
 | Node | **22.22.2** (see `.nvmrc` / `package.json` engines) |
 
-Static marketing routes are **prerendered**. `/investors` and `/api/*` run as **Pages Functions**.
+All routes are **prerendered**, including `/investors`, `/sitemap.xml` and `/feed.xml`. No route depends on a backend.
 
 ## Build & deploy
 
@@ -46,7 +46,7 @@ CI (`.github/workflows/ci.yml`): `npm ci` → `typecheck` → `build` on `main` 
 - Do **not** use long HTML SWR for marketing pages after deploys: hashed `/_nuxt` assets rotate; stale HTML pointing at missing chunks breaks the site.
 - HTML responses use `Cache-Control: public, max-age=0, must-revalidate` (`public/_headers` + `routeRules`).
 - **`public/404.html` is required.** Without it, Cloudflare Pages treats the site as an SPA and serves `index.html` (`200 text/html`) for missing URLs — including stale `/_nuxt/*.js` hashes — which causes browser MIME errors.
-- Pages Function routes are limited to `/api/*` and `/investors` (`nitro.cloudflare.pages.routes`, `defaultRoutes: false`). All other paths are static.
+- The Pages Function is limited to `/api/*` (`nitro.cloudflare.pages.routes`, `defaultRoutes: false`), which has no handlers and returns 404. Cloudflare requires at least one include rule. All other paths are static.
 - After a bad MIME incident, **purge Cloudflare cache** for `/_nuxt/*` (poisoned `200 text/html` responses may have been cached with long TTL).
 - `/investors` uses `cache-control: public, max-age=0, must-revalidate`.
 - Alternate Node host: `NITRO_PRESET=node_server npm run build` then `node .output/server/index.mjs` (not the primary production path).

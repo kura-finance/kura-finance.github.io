@@ -8,7 +8,7 @@
 |-------|-------------|-------|
 | Marketing brand / copy | Medium | Tampering damages trust |
 | Legal page integrity | High | Misstatement → compliance risk |
-| Investor metrics | High | Confidential commercial data |
+| Business report | Medium | Public, unaudited operating data; tampering misstates the record |
 | Build pipeline / deploy credentials | Critical | Not stored in git |
 | User PII via this site | Low | Contact forms are mailto; no app accounts here |
 
@@ -18,7 +18,6 @@
 |-----------|----------|
 | Script kiddie / defacement | Replace homepage / inject scripts |
 | SEO / phishing mimic | Clone branding off-site (out of repo scope) |
-| Curious internet user | Scrape `/investors` metrics |
 | Supply-chain attacker | Compromised npm dependency at build |
 
 ## Mitigations
@@ -26,7 +25,7 @@
 | Threat | Mitigation |
 |--------|------------|
 | XSS / clickjacking | CSP (`frame-ancestors 'none'`), limited `script-src` |
-| HTML/JS cache poisoning after deploy | Hashed `/_nuxt` assets; HTML `must-revalidate` on `/investors` |
+| HTML/JS cache poisoning after deploy | Hashed `/_nuxt` assets; HTML `must-revalidate` on all pages |
 | Accidental secret commit | `.gitignore` for `.env*`; no production secrets in tree |
 | Dead / unused assets confusing reviews | Pruned unused public images and orphan components |
 

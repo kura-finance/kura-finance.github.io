@@ -8,7 +8,7 @@
 In scope for coordinated disclosure:
 
 - The **Kura Landing Page** as deployed at `kura-finance.com` (or a buyer’s licensed deployment of this codebase)
-- Client-side CSP, caching behavior, and investor API proxy surfaces in this repository
+- Client-side CSP and caching behavior in this repository
 
 Out of scope unless separately contracted:
 
