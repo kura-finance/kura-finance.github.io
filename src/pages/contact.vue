@@ -11,8 +11,7 @@ usePageSeo({
 })
 
 const channels = computed(() => [
-  { ...{ title: t('contact.channels.general.title'), description: t('contact.channels.general.description') }, email: 'hello@kura-finance.com' },
-  { ...{ title: t('contact.channels.support.title'), description: t('contact.channels.support.description') }, email: 'support@kura-finance.com' },
+  { title: t('contact.channels.legal.title'), description: t('contact.channels.legal.description'), email: 'legal@kura-finance.com' },
 ])
 </script>
 
@@ -25,7 +24,7 @@ const channels = computed(() => [
     />
 
     <main class="marketing-container pb-20 md:pb-28">
-      <div class="grid md:grid-cols-2 gap-5 max-w-3xl mb-14">
+      <div class="grid gap-5 max-w-xl mb-14">
         <div v-for="channel in channels" :key="channel.title" class="card-surface p-7">
           <h2 class="text-lg font-semibold mb-2">{{ channel.title }}</h2>
           <p class="text-sm text-kura-text-secondary leading-relaxed mb-4">{{ channel.description }}</p>

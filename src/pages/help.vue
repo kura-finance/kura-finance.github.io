@@ -9,20 +9,13 @@
     <main class="marketing-container max-w-xl pb-20 md:pb-28">
       <div class="card-surface p-8 md:p-10 space-y-6 text-center">
         <p class="text-sm text-kura-text-secondary">{{ t('help.contactUs') }}</p>
-        <div class="flex flex-col gap-4">
-          <a
-            href="mailto:support@kura-finance.com"
-            class="text-lg font-semibold text-kura-primary hover:text-kura-primary-dark transition-colors"
-          >
-            support@kura-finance.com
-          </a>
-          <a
-            href="mailto:hello@kura-finance.com"
-            class="text-lg font-semibold text-kura-primary hover:text-kura-primary-dark transition-colors"
-          >
-            hello@kura-finance.com
-          </a>
-        </div>
+        <a
+          href="mailto:legal@kura-finance.com"
+          class="block text-lg font-semibold text-kura-primary hover:text-kura-primary-dark transition-colors"
+        >
+          legal@kura-finance.com
+        </a>
+        <p class="text-sm text-kura-text-secondary leading-relaxed">{{ t('help.noSupport') }}</p>
         <div class="pt-4 flex flex-col sm:flex-row gap-3 justify-center">
           <NuxtLinkLocale to="/docs" class="btn-secondary text-sm">{{ t('help.docs') }}</NuxtLinkLocale>
           <NuxtLinkLocale to="/" class="btn-primary text-sm">{{ t('help.home') }}</NuxtLinkLocale>
@@ -41,7 +34,7 @@ const { t } = useI18n()
 
 usePageSeo({
   title: () => t('help.seo.title'),
-  description: () => t('help.seo.description', { support: 'support@kura-finance.com', hello: 'hello@kura-finance.com' }),
+  description: () => t('help.seo.description', { legal: 'legal@kura-finance.com' }),
   path: '/help',
   keywords: () => t('help.seo.keywords'),
 })

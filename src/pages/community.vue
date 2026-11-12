@@ -10,7 +10,7 @@
     <main class="marketing-container max-w-xl pb-20 md:pb-28 text-center">
       <div class="card-surface p-8 md:p-10 space-y-6">
         <p class="text-sm text-kura-text-secondary leading-relaxed">
-          {{ t('community.connect', { email: 'hello@kura-finance.com' }) }}
+          {{ t('community.connect', { email: 'legal@kura-finance.com' }) }}
         </p>
         <div class="flex flex-col sm:flex-row gap-3 justify-center">
           <a
