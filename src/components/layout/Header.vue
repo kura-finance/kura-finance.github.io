@@ -121,13 +121,15 @@
         </nav>
 
         <div class="flex items-center justify-end gap-2 sm:gap-3 flex-shrink-0">
-          <NuxtLink
-            to="/download"
+          <a
+            :href="SHUTDOWN.githubUrl"
+            target="_blank"
+            rel="noopener noreferrer"
             class="hidden md:inline-flex header-cta"
             @click="closeAll"
           >
-            Get Account
-          </NuxtLink>
+            Source code
+          </a>
 
           <button
             type="button"
@@ -332,9 +334,15 @@
             >Pricing</NuxtLink>
 
             <div class="pt-4">
-              <NuxtLink to="/download" class="header-cta header-cta--mobile" @click="closeMobile">
-                Get Account
-              </NuxtLink>
+              <a
+                :href="SHUTDOWN.githubUrl"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="header-cta header-cta--mobile"
+                @click="closeMobile"
+              >
+                Source code
+              </a>
             </div>
           </nav>
         </div>
@@ -346,6 +354,7 @@
 <script setup lang="ts">
 import { ref, computed, watch, onMounted, onUnmounted } from 'vue'
 import { brandIconOnDarkUrl, brandIconUrl } from '~/utils/brand'
+import { SHUTDOWN } from '~/utils/site'
 const isMobileMenuOpen = ref(false)
 const activeDropdown = ref<string | null>(null)
 const activeMobileSubmenu = ref<string | null>(null)
@@ -367,7 +376,6 @@ const mobileProductCategories = [
     title: 'Cards & Spending',
     links: [
       { name: 'Kura Card', to: '/kura-card' },
-      { name: 'Join Waitlist', to: '/card-waitlist' },
     ],
   },
   {
@@ -415,7 +423,7 @@ const mobileResourceColumns = [
       { name: 'Help center', to: '/help' },
       { name: 'Community', to: '/community' },
       { name: 'Contact us', to: '/contact' },
-      { name: 'Investors', to: '/investors' },
+      { name: 'Business Report', to: '/investors' },
     ],
   },
 ]

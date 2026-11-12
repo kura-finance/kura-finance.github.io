@@ -6,7 +6,7 @@ definePageMeta({
 usePageSeo({
   title: 'Kura Card',
   description:
-    'Spend your balance anywhere Visa is accepted. 0.5% cashback on eligible spend and 0% foreign exchange fees — join the waitlist in the app.',
+    'Spend your balance anywhere Visa is accepted. 0.5% cashback on eligible spend and 0% foreign exchange fees — the card was planned but never launched, and the waitlist is closed.',
   path: '/kura-card',
   keywords: 'Kura Card, debit card, spend globally, cashback, financial account',
 })
@@ -74,12 +74,11 @@ const onboardingSteps = [
     <main class="marketing-container pb-20 md:pb-28">
       <section class="mb-14 md:mb-16">
         <div class="rounded-3xl border border-kura-primary/20 bg-kura-primary/5 p-8 md:p-10 text-center max-w-2xl mx-auto">
-          <p class="section-label mb-3">Waitlist</p>
-          <h2 class="text-2xl md:text-3xl font-bold mb-4 tracking-tight">Join the Kura Card waitlist</h2>
-          <p class="text-kura-text-secondary leading-relaxed mb-6">
-            Kura Card is coming soon. Download the app to reserve your spot and be first to spend from your Kura account worldwide.
+          <p class="section-label mb-3">Discontinued</p>
+          <h2 class="text-2xl md:text-3xl font-bold mb-4 tracking-tight">The Kura Card never launched</h2>
+          <p class="text-kura-text-secondary leading-relaxed">
+            Kura ran a waitlist and evaluated card partners, but no card was ever issued. The waitlist is closed and no cards will be issued. This page is kept as a record of what was planned.
           </p>
-          <NuxtLink to="/download" class="btn-primary">Join waitlist in app</NuxtLink>
         </div>
       </section>
 

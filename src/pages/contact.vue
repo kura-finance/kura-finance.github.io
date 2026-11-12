@@ -58,9 +58,9 @@ const channels = [
           </li>
           <li>
             <NuxtLink to="/investors" class="text-kura-primary hover:text-kura-primary-dark transition-colors font-medium">
-              Investors →
+              Business Report →
             </NuxtLink>
-            — funding and company updates
+            — operating record and lessons learned
           </li>
         </ul>
       </section>

@@ -248,28 +248,26 @@ export const FEATURE_PAGES = {
 
   'card-waitlist': {
     seo: {
-      title: 'Join the Kura Card Waitlist',
-      description: 'Reserve your spot for Kura Card — spend your balance anywhere Visa is accepted with 0.5% cashback and 0% FX fees.',
+      title: 'Kura Card Waitlist (Closed)',
+      description: 'The Kura Card waitlist is closed. The card was planned with 0.5% cashback and 0% FX fees but never launched.',
       path: '/card-waitlist',
       keywords: 'Kura Card waitlist, debit card, Visa, cashback, global spending',
     },
     hero: {
       eyebrow: 'Cards & Spending',
-      title: 'Join the Kura Card waitlist',
-      description: 'Kura Card is coming soon. Download the app to reserve your spot and be first to spend from your Kura account worldwide.',
-      tags: ['Waitlist', 'Visa', '0.5% cashback'],
+      title: 'The Kura Card waitlist is closed',
+      description: 'Kura ran a waitlist for a card that never launched. This page is kept as a record of what was planned.',
+      tags: ['Discontinued', 'Visa', '0.5% cashback'],
     },
     callout: {
-      label: 'Waitlist',
-      title: 'Reserve your spot in the app',
-      description: 'Download Kura, open your account, and join the waitlist to get early access when Kura Card launches.',
-      ctaLabel: 'Join waitlist in app',
-      ctaTo: '/download',
+      label: 'Discontinued',
+      title: 'No cards will be issued',
+      description: 'Kura evaluated card partners but no card was ever issued. The waitlist no longer accepts sign-ups.',
     },
     sections: [
       {
         label: 'Benefits',
-        title: 'Built into every Kura Card',
+        title: 'What the Kura Card was planned to offer',
         columns: 2,
         features: [
           { title: '0.5% cashback', description: 'Earn on eligible spend — automatically applied to your balance.' },

@@ -39,7 +39,7 @@ import { brandIconOnDarkUrl } from '~/utils/brand'
         <div class="space-y-4">
           <h4 class="font-semibold text-sm uppercase tracking-widest text-kura-ink-muted">Company</h4>
           <ul class="space-y-2">
-            <li><NuxtLink to="/investors" class="text-sm text-kura-ink-subtle hover:text-white transition-colors">Investors</NuxtLink></li>
+            <li><NuxtLink to="/investors" class="text-sm text-kura-ink-subtle hover:text-white transition-colors">Business Report</NuxtLink></li>
             <li><NuxtLink to="/about" class="text-sm text-kura-ink-subtle hover:text-white transition-colors">About</NuxtLink></li>
             <li><NuxtLink to="/contact" class="text-sm text-kura-ink-subtle hover:text-white transition-colors">Contact</NuxtLink></li>
             <li><NuxtLink to="/blog" class="text-sm text-kura-ink-subtle hover:text-white transition-colors">Blog</NuxtLink></li>

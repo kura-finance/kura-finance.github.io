@@ -14,9 +14,9 @@
           </p>
 
           <div class="flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-5">
-            <NuxtLink to="/download" class="btn-primary">
-              Download App
-            </NuxtLink>
+            <a :href="githubUrl" target="_blank" rel="noopener noreferrer" class="btn-primary">
+              View source code
+            </a>
             <a
               :href="webAppUrl"
               target="_blank"
@@ -43,7 +43,9 @@
 </template>
 
 <script setup lang="ts">
-import { WEB_APP_URL } from '~/utils/site'
+import { SHUTDOWN, WEB_APP_URL } from '~/utils/site'
+
+const githubUrl = SHUTDOWN.githubUrl
 
 const webAppUrl = WEB_APP_URL
 </script>

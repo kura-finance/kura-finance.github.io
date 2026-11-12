@@ -67,7 +67,7 @@ const columns: Array<{
       { name: 'Help center', to: '/help' },
       { name: 'Community', to: '/community' },
       { name: 'Contact us', to: '/contact' },
-      { name: 'Investors', to: '/investors' },
+      { name: 'Business Report', to: '/investors' },
     ],
   },
 ]

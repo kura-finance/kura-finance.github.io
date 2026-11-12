@@ -224,8 +224,8 @@ const milestones = [
             <NuxtLink to="/compliance" class="btn-primary">
               Trust Center
             </NuxtLink>
-            <NuxtLink to="/download" class="btn-secondary">
-              Get Account
+            <NuxtLink to="/investors" class="btn-secondary">
+              Business Report
             </NuxtLink>
           </div>
         </div>

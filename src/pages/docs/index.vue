@@ -34,9 +34,9 @@
         <h2 class="text-2xl font-bold tracking-tight mb-5">Investors</h2>
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
           <DocLinkCard
-            title="Investor Metrics"
-            description="Live revenue, waitlist, subscription, and SCA AUM figures from the Kura platform."
-            category="Platform Insights"
+            title="Business Report"
+            description="Operating record, business model, timeline, and lessons learned from Kura."
+            category="Archive"
             to="/investors"
           />
         </div>

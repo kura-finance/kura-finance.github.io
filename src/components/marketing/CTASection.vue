@@ -3,24 +3,18 @@
     <div class="marketing-container">
       <div class="max-w-2xl mx-auto text-center">
         <h2 class="headline-xl text-display-sm md:text-display-md mb-6">
-          {{ title }}
+          Kura has ceased operations.
         </h2>
         <p class="prose-lead mb-12 max-w-lg mx-auto">
-          {{ description }}
+          This site is kept as an archive of what Kura offered. The features described here are no longer available. What remains is an open-source wallet that is not maintained.
         </p>
         <div class="flex flex-col sm:flex-row gap-4 justify-center">
-          <a v-if="isExternalLink(primaryTo)" :href="primaryTo" target="_blank" rel="noopener noreferrer" class="btn-primary">
-            {{ primaryLabel }}
-          </a>
-          <NuxtLink v-else :to="primaryTo" class="btn-primary">
-            {{ primaryLabel }}
+          <NuxtLink to="/investors" class="btn-primary">
+            Read the business report
           </NuxtLink>
-          <a v-if="secondaryTo && isExternalLink(secondaryTo)" :href="secondaryTo" target="_blank" rel="noopener noreferrer" class="btn-secondary">
-            {{ secondaryLabel }}
+          <a :href="SHUTDOWN.githubUrl" target="_blank" rel="noopener noreferrer" class="btn-secondary">
+            View source code
           </a>
-          <NuxtLink v-else-if="secondaryTo" :to="secondaryTo" class="btn-secondary">
-            {{ secondaryLabel }}
-          </NuxtLink>
         </div>
       </div>
     </div>
@@ -28,24 +22,16 @@
 </template>
 
 <script setup lang="ts">
-import { WEB_APP_URL, isExternalLink } from '~/utils/site'
+import { SHUTDOWN } from '~/utils/site'
 
-withDefaults(
-  defineProps<{
-    title?: string
-    description?: string
-    primaryLabel?: string
-    primaryTo?: string
-    secondaryLabel?: string
-    secondaryTo?: string
-  }>(),
-  {
-    title: 'The future of money starts here.',
-    description: 'Join Kura and experience finance designed for the internet generation.',
-    primaryLabel: 'Download Kura',
-    primaryTo: '/download',
-    secondaryLabel: 'Pro Dashboard',
-    secondaryTo: WEB_APP_URL,
-  },
-)
+// Pages still pass their original promotional copy. Since Kura ceased
+// operations the section always renders the archive message instead.
+defineProps<{
+  title?: string
+  description?: string
+  primaryLabel?: string
+  primaryTo?: string
+  secondaryLabel?: string
+  secondaryTo?: string
+}>()
 </script>

@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { ref, computed } from 'vue'
-import { WEB_APP_URL } from '~/utils/site'
 
 definePageMeta({
   layout: 'default',
@@ -125,15 +124,6 @@ const displayPlans = computed(() =>
   })),
 )
 
-const handlePlanAction = (planName: string) => {
-  if (planName === 'Basic') {
-    navigateTo('/download')
-    return
-  }
-  if (import.meta.client) {
-    window.open(WEB_APP_URL, '_blank', 'noopener,noreferrer')
-  }
-}
 </script>
 
 <template>
@@ -192,13 +182,9 @@ const handlePlanAction = (planName: string) => {
                 </div>
               </div>
 
-              <button
-                class="w-full px-4 py-2.5 rounded-full text-sm font-semibold transition-all duration-300 mb-6 shrink-0"
-                :class="plan.highlighted ? 'btn-primary !w-full' : 'btn-secondary !w-full'"
-                @click="handlePlanAction(plan.name)"
-              >
-                {{ plan.cta }}
-              </button>
+              <p class="w-full px-4 py-2.5 rounded-full text-sm font-semibold text-center mb-6 shrink-0 border border-kura-border text-kura-text-secondary">
+                No longer available
+              </p>
 
               <div class="space-y-4 pt-4 border-t border-kura-border flex-grow">
                 <div v-for="(feature, featureIndex) in plan.features" :key="featureIndex" class="flex items-start gap-2.5">
@@ -252,11 +238,6 @@ const handlePlanAction = (planName: string) => {
       </section>
     </main>
 
-    <CTASection
-      primary-label="Download Kura"
-      primary-to="/download"
-      secondary-label="Pro Dashboard"
-      :secondary-to="WEB_APP_URL"
-    />
+    <CTASection />
   </div>
 </template>

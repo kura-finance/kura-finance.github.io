@@ -43,7 +43,7 @@ const STATIC_ROUTES: SitemapEntry[] = [
   { loc: absoluteUrl('/docs'), lastmod: '2026-06-22', changefreq: 'monthly', priority: 0.75 },
   { loc: absoluteUrl('/help'), lastmod: '2026-06-22', changefreq: 'monthly', priority: 0.7 },
   { loc: absoluteUrl('/contact'), lastmod: '2026-06-22', changefreq: 'monthly', priority: 0.7 },
-  { loc: absoluteUrl('/investors'), lastmod: '2026-06-23', changefreq: 'daily', priority: 0.7 },
+  { loc: absoluteUrl('/investors'), lastmod: '2026-11-12', changefreq: 'yearly', priority: 0.7 },
   { loc: absoluteUrl('/docs/stock-countries'), lastmod: '2026-06-22', changefreq: 'monthly', priority: 0.65 },
   { loc: absoluteUrl('/docs/on-off-ramp-countries'), lastmod: '2026-06-22', changefreq: 'monthly', priority: 0.65 },
   { loc: absoluteUrl('/compliance'), lastmod: '2026-07-16', changefreq: 'monthly', priority: 0.55 },

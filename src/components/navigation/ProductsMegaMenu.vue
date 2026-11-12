@@ -9,8 +9,8 @@
         <p class="products-mega__hero-desc">
           Save, spend, invest, and earn from one beautiful account — at every stage of your financial life.
         </p>
-        <NuxtLink to="/download" class="products-mega__cta" @click="$emit('close')">
-          Download the app
+        <NuxtLink to="/investors" class="products-mega__cta" @click="$emit('close')">
+          Read the business report
           <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 17L17 7M17 7H7M17 7v10" />
           </svg>
@@ -71,7 +71,6 @@ const categories = [
     description: 'Spend your balance anywhere Visa is accepted.',
     links: [
       { name: 'Kura Card', to: '/kura-card' },
-      { name: 'Join Waitlist', to: '/card-waitlist' },
     ],
   },
   {

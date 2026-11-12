@@ -8,7 +8,7 @@ definePageMeta({
 usePageSeo({
   title: 'Download',
   description:
-    'Download Kura for iPhone and Android. Available on the App Store and Google Play — one account to save, spend, invest, earn, and move money globally.',
+    'Kura has ceased operations. The open-source wallet app is no longer maintained, and store listings may be removed at any time.',
   path: '/download',
   keywords: 'download Kura, Kura app iOS, App Store, Kura Android, Google Play',
 })
@@ -17,13 +17,13 @@ usePageSeo({
 <template>
   <div class="w-full text-kura-text bg-kura-background">
     <PageHero
-      eyebrow="Get started"
+      eyebrow="Archive"
       title="Download Kura"
-      description="One account to save, spend, invest, earn, and move money globally — beautifully designed and ready in minutes."
+      description="Kura has ceased operations. The app is an open-source wallet that is no longer maintained. It accepts no new sign-ups or deposits, and the store listings below may be removed at any time."
     >
       <div class="flex flex-wrap gap-3">
         <NuxtLink to="#stores" class="btn-primary">
-          Get the app
+          Store listings
         </NuxtLink>
         <a
           :href="WEB_APP_URL"
@@ -51,7 +51,7 @@ usePageSeo({
           </div>
           <h2 class="text-xl font-bold mb-2 group-hover:text-kura-primary transition-colors">Download for iPhone</h2>
           <p class="text-sm text-kura-text-secondary mb-6 leading-relaxed">
-            Kura is live on the App Store. Download on your iPhone or iPad and set up your account in minutes.
+            The App Store listing for the unmaintained wallet app. It may be removed at any time.
           </p>
           <span class="btn-primary text-sm gap-2">
             Download on the App Store
@@ -74,7 +74,7 @@ usePageSeo({
           </div>
           <h2 class="text-xl font-bold mb-2 group-hover:text-kura-primary transition-colors">Download for Android</h2>
           <p class="text-sm text-kura-text-secondary mb-6 leading-relaxed">
-            Get Kura on Google Play. Your financial account, card waitlist, and portfolio — all in one app.
+            The Google Play listing for the unmaintained wallet app. It may be removed at any time.
           </p>
           <span class="btn-primary text-sm gap-2">
             Get it on Google Play
@@ -103,7 +103,7 @@ usePageSeo({
 
       <section class="card-surface rounded-3xl p-8 md:p-10 text-center bg-kura-surface">
         <p class="text-sm text-kura-text-secondary leading-relaxed max-w-2xl mx-auto">
-          Kura is a product of Kura Finance LLC, a software company — not a bank. Card and payment services are provided through regulated partners. Investing involves risk, including possible loss of principal.
+          Kura was a product of Kura Finance LLC, a software company — not a bank. The company has been dissolved and has ceased operations. Card, payment, and investing services are no longer available, and the remaining wallet is not maintained.
         </p>
         <NuxtLink to="/help" class="inline-block mt-6 text-kura-primary hover:text-kura-primary-dark transition-colors font-semibold text-sm">
           Need help? Contact support →
