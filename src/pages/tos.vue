@@ -259,7 +259,8 @@
           </p>
           <p class="text-kura-text-secondary leading-relaxed mt-3">
             Contact:
-            <a href="mailto:legal@kura-finance.com" class="text-kura-primary hover:text-kura-accent">legal@kura-finance.com</a>.
+            <a href="mailto:legal@kura-finance.com" class="text-kura-primary hover:text-kura-accent">legal@kura-finance.com</a>
+            · Mailing: Kura Finance LLC, 1007 N Orange St. 4th Floor 5629, Wilmington, DE 19801.
             There is no support team; we may not respond to support requests.
           </p>
         </section>

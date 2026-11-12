@@ -20,7 +20,7 @@
         <section>
           <h2 class="text-2xl font-bold text-kura-text mb-4">1. Who We Are</h2>
           <p class="text-kura-text-secondary leading-relaxed">
-            Controller: Kura Finance LLC, a Wyoming limited liability company, which operates the Service. Privacy contact:
+            Controller: Kura Finance LLC, a Wyoming limited liability company, which operates the Service. Mailing address: 1007 N Orange St. 4th Floor 5629, Wilmington, DE 19801. Privacy contact:
             <a href="mailto:privacy@kura-finance.com" class="text-kura-primary hover:text-kura-accent">privacy@kura-finance.com</a>.
           </p>
           <p class="text-kura-text-secondary leading-relaxed mt-3">

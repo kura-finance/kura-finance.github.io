@@ -20,6 +20,14 @@
               <a href="https://github.com/Kura-Finance" target="_blank" rel="noopener noreferrer" class="text-kura-primary hover:text-kura-accent">GitHub</a>
             </p>
             <p class="text-kura-text-secondary">
+              <span class="font-semibold text-kura-text">Mailing Address:</span> 1007 N Orange St. 4th Floor 5629
+              <br />
+              Wilmington, DE 19801
+            </p>
+            <p class="text-kura-text-secondary">
+              <span class="font-semibold text-kura-text">D-U-N-S® Number:</span> 14-499-3126
+            </p>
+            <p class="text-kura-text-secondary">
               <span class="font-semibold text-kura-text">Contact:</span>
               <a href="mailto:legal@kura-finance.com" class="text-kura-primary hover:text-kura-accent">legal@kura-finance.com</a>
             </p>

@@ -159,7 +159,7 @@ const milestones = [
         <div class="about-founder">
           <NuxtImg
             src="/avatar.webp"
-            alt="Founder of Kura"
+            alt="Rick Weng, Founder of Kura"
             width="160"
             height="160"
             loading="lazy"
@@ -168,7 +168,7 @@ const milestones = [
           />
           <div class="about-founder__body">
             <p class="section-label mb-4">Founder</p>
-            <h2 class="headline-xl text-display-sm mb-6">A note from the founder</h2>
+            <h2 class="headline-xl text-display-sm mb-6">A note from Rick</h2>
             <div class="space-y-5 text-kura-text-secondary leading-relaxed">
               <p>
                 I am not a trader, and I am not an arbitrageur. I wanted a simple place to manage bank accounts, card spending, stocks, crypto, and on-chain yield — without juggling five apps or surrendering privacy for convenience.
@@ -178,6 +178,7 @@ const milestones = [
               </p>
             </div>
             <div class="about-founder__sign">
+              <span class="about-founder__name">Rick Weng</span>
               <span class="about-founder__role">Founder, Kura Finance LLC</span>
             </div>
           </div>
