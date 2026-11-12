@@ -10,7 +10,7 @@
       <div class="prose max-w-none space-y-8">
         <section>
           <p class="text-kura-text-secondary leading-relaxed text-sm border border-kura-border rounded-xl p-4 bg-kura-background">
-            This Privacy Policy explains how Rick Weng, an individual who operates Kura (the “Operator,” “we,” “us,” or “our”), handles personal information when you use the Kura websites, applications, and related services (the “Service”). Kura Finance LLC, which previously operated the Service, has been dissolved; personal information it held in connection with the Service is now handled by the Operator under this Policy. It should be read with our
+            This Privacy Policy explains how Kura Finance LLC, which operates Kura (the “Operator,” “we,” “us,” or “our”), handles personal information when you use the Kura websites, applications, and related services (the “Service”). It should be read with our
             <NuxtLink to="/tos" class="text-kura-primary hover:text-kura-accent">Terms of Service</NuxtLink>
             and
             <NuxtLink to="/compliance" class="text-kura-primary hover:text-kura-accent">Trust &amp; Security Center</NuxtLink>.
@@ -20,11 +20,11 @@
         <section>
           <h2 class="text-2xl font-bold text-kura-text mb-4">1. Who We Are</h2>
           <p class="text-kura-text-secondary leading-relaxed">
-            Controller: Rick Weng, an individual, who operates the Service. Privacy contact:
+            Controller: Kura Finance LLC, a Wyoming limited liability company, which operates the Service. Privacy contact:
             <a href="mailto:privacy@kura-finance.com" class="text-kura-primary hover:text-kura-accent">privacy@kura-finance.com</a>.
           </p>
           <p class="text-kura-text-secondary leading-relaxed mt-3">
-            Kura is now an open-source project. The source code is copyright Rick Weng and published on GitHub. If you run your own copy of the code, you are responsible for any personal information it processes; this Policy covers only the Service as operated by us.
+            Kura is now an open-source project. The source code is copyright Kura Finance LLC and published on GitHub. If you run your own copy of the code, you are responsible for any personal information it processes; this Policy covers only the Service as operated by us.
           </p>
         </section>
 

@@ -61,11 +61,7 @@ import { brandIconOnDarkUrl } from '~/utils/brand'
       </div>
 
       <div class="border-t border-kura-border-dark pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm">
-        <p class="text-kura-ink-subtle font-mono">© 2026 RICK WENG. All rights reserved.</p>
-        <div class="flex items-center gap-2 text-kura-ink-subtle">
-          <span class="w-2 h-2 rounded-full bg-kura-accent animate-pulse" />
-          <span>Systems Operational</span>
-        </div>
+        <p class="text-kura-ink-subtle font-mono">© 2026 KURA FINANCE LLC. All rights reserved.</p>
       </div>
     </div>
   </footer>

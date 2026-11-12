@@ -26,7 +26,7 @@
         <section>
           <h2 class="text-2xl font-bold text-kura-text mb-4">1. Acceptance of Terms</h2>
           <p class="text-kura-text-secondary leading-relaxed">
-            These Terms of Service (the “Terms”) are a binding agreement between you and Rick Weng, an individual (the “Operator,” “we,” “us,” or “our”). Kura Finance LLC has been dissolved and is no longer a party to, or the operator of, the Service. In these Terms, “Kura” refers to the Service. They govern your access to and use of the Kura mobile application, websites (including kura-finance.com and related subdomains), APIs, dashboards, and any other products or services we enable that link to these Terms (collectively, the “Service”).
+            These Terms of Service (the “Terms”) are a binding agreement between you and Kura Finance LLC, a Wyoming limited liability company (the “Operator,” “we,” “us,” or “our”). In these Terms, “Kura” refers to the Service. They govern your access to and use of the Kura mobile application, websites (including kura-finance.com and related subdomains), APIs, dashboards, and any other products or services we enable that link to these Terms (collectively, the “Service”).
           </p>
           <p class="text-kura-text-secondary leading-relaxed mt-3">
             By creating an account, accessing, or using the Service, you agree to these Terms and to the documents incorporated by reference. If you do not agree, do not use the Service. If you use the Service on behalf of an entity, you represent that you have authority to bind that entity, and “you” includes that entity.
@@ -152,7 +152,7 @@
         <section>
           <h2 class="text-2xl font-bold text-kura-text mb-4">12. Intellectual Property; License</h2>
           <p class="text-kura-text-secondary leading-relaxed">
-            The source code of the Service is copyright Rick Weng and is published on GitHub under the license stated in each repository. Your use, copying, modification, and distribution of that source code are governed by that license. These Terms govern your use of the Service as operated by us. “Kura” and related names and logos identify the Service; these Terms do not grant you any right to use them. Feedback you provide may be used by us without restriction or compensation.
+            The source code of the Service is copyright Kura Finance LLC and is published on GitHub under the license stated in each repository. Your use, copying, modification, and distribution of that source code are governed by that license. These Terms govern your use of the Service as operated by us. “Kura” and related names and logos identify the Service; these Terms do not grant you any right to use them. Feedback you provide may be used by us without restriction or compensation.
           </p>
         </section>
 
@@ -183,14 +183,14 @@
             To the maximum extent permitted by law, the Service is provided “as is” and “as available,” without warranties of any kind, whether express, implied, or statutory, including merchantability, fitness for a particular purpose, title, and non-infringement. We do not warrant that the Service will be uninterrupted, secure, error-free, or free of harmful components, or that data will be accurate or complete. You assume all risk arising from use of the Service, digital assets, smart contracts, and third-party providers.
           </p>
           <p class="text-kura-text-secondary leading-relaxed mt-3">
-            Kura is an open-source project. It is not maintained by a company, has no support team, and may contain bugs or vulnerabilities that will not be fixed. We make no commitment to keep any feature, server, or integration running.
+            Kura is an open-source project. It has no support team and may contain bugs or vulnerabilities that will not be fixed. We make no commitment to keep any feature, server, or integration running.
           </p>
         </section>
 
         <section>
           <h2 class="text-2xl font-bold text-kura-text mb-4">17. Limitation of Liability</h2>
           <p class="text-kura-text-secondary leading-relaxed">
-            To the maximum extent permitted by law, the Operator (Rick Weng) and the contributors to the Kura open-source project (together, the “Kura Parties”) will not be liable for any indirect, incidental, special, consequential, exemplary, or punitive damages, or any loss of profits, revenue, data, goodwill, digital assets, or business opportunity, arising out of or related to the Service or these Terms, whether based in contract, tort, or otherwise, even if advised of the possibility.
+            To the maximum extent permitted by law, the Operator (Kura Finance LLC), its officers, directors, employees, and agents, and the contributors to the Kura open-source project (together, the “Kura Parties”) will not be liable for any indirect, incidental, special, consequential, exemplary, or punitive damages, or any loss of profits, revenue, data, goodwill, digital assets, or business opportunity, arising out of or related to the Service or these Terms, whether based in contract, tort, or otherwise, even if advised of the possibility.
           </p>
           <p class="text-kura-text-secondary leading-relaxed mt-3">
             Without limiting the above, and to the maximum extent permitted by law, the Kura Parties are not liable for any loss arising from your use of the Service, including but not limited to loss caused by:
@@ -282,7 +282,7 @@ definePageMeta({
 usePageSeo({
   title: 'Terms of Service',
   description:
-    'Kura Terms of Service for the Kura open-source wallet, operated by Rick Weng. Provided as is and used at your own risk.',
+    'Kura Terms of Service for the Kura open-source wallet, operated by Kura Finance LLC. Provided as is and used at your own risk.',
   path: '/tos',
   keywords: 'terms of service, user agreement, Kura open source, arbitration',
 })

@@ -13,14 +13,11 @@
           <h2 class="text-2xl font-bold text-kura-text mb-4">Operator &amp; Ownership</h2>
           <div class="space-y-3">
             <p class="text-kura-text-secondary">
-              <span class="font-semibold text-kura-text">Operator:</span> Rick Weng, an individual
+              <span class="font-semibold text-kura-text">Operator:</span> Kura Finance LLC, a Wyoming limited liability company
             </p>
             <p class="text-kura-text-secondary">
-              <span class="font-semibold text-kura-text">Source code &amp; copyright:</span> Rick Weng, published on
+              <span class="font-semibold text-kura-text">Source code &amp; copyright:</span> Kura Finance LLC, published on
               <a href="https://github.com/Kura-Finance" target="_blank" rel="noopener noreferrer" class="text-kura-primary hover:text-kura-accent">GitHub</a>
-            </p>
-            <p class="text-kura-text-secondary">
-              <span class="font-semibold text-kura-text">Former operator:</span> Kura Finance LLC, a Wyoming limited liability company (dissolved)
             </p>
             <p class="text-kura-text-secondary">
               <span class="font-semibold text-kura-text">Contact:</span>

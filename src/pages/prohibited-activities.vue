@@ -13,7 +13,7 @@
             This Prohibited Activities List is incorporated into the
             <NuxtLink to="/tos" class="text-kura-primary hover:text-kura-accent">Terms of Service</NuxtLink>.
             Violation may result in suspension, termination, reporting to partners or authorities, and forfeiture of referral or promotional benefits. We and our partners may apply additional restrictions.
-            This List applies to your use of the Service as operated by Rick Weng (the “Operator”). Your use of the published Kura source code is governed by its open-source license.
+            This List applies to your use of the Service as operated by Kura Finance LLC (the “Operator”). Your use of the published Kura source code is governed by its open-source license.
           </p>
         </section>
 
