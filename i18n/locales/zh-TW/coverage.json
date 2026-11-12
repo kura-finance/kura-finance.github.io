@@ -1,0 +1,71 @@
+{
+  "coverage": {
+    "back": "返回文件中心",
+    "partners": "合作夥伴：",
+    "partner": "合作夥伴：",
+    "lastUpdated": "最後更新：{date}",
+    "searchLabel": "搜尋國家",
+    "searchPlaceholder": "輸入國家名稱⋯",
+    "listed": "共列出 {count} 個國家",
+    "matches": "{count} 個符合",
+    "noMatches": "沒有符合「{query}」的國家。",
+    "notesTitle": "重要說明",
+    "disclaimer": "合作夥伴更新牌照、制裁名單和產品範圍時，支援的國家可能隨之變動。Kura 為求透明而列出合作夥伴公布的名單，最終資格一律以 App 內的 KYC 審核結果為準。",
+    "officialSources": "官方來源：",
+    "officialSource": "官方來源："
+  },
+  "stockCountries": {
+    "seo": {
+      "title": "美股支援國家（Dinari）",
+      "description": "查看哪些國家可以在 Kura 透過 Dinari 交易代幣化美股，以及哪些地區受到限制。",
+      "keywords": "Dinari 支援國家, 美股交易, dShares 可用地區, Kura 美股"
+    },
+    "badge": "Kura · Dinari",
+    "title": "美股支援國家",
+    "subtitle": "透過 Dinari 提供的代幣化美股和 ETF，可在美國以外 85 個以上的司法管轄區使用。本頁列出不支援交易的地區。",
+    "sections": {
+      "notAvailable": { "title": "不提供服務", "description": "這些司法管轄區目前無法透過 Kura 使用 Dinari 的股票交易。" },
+      "restricted": { "title": "受限制國家", "description": "基於 OFAC、FATF 和其他監管要求，Dinari 無法在這些國家支援業務活動。" }
+    },
+    "summary": "Dinari dShares（代幣化美股與 ETF）開放給 85 個以上司法管轄區的非美國人士。美國人士及居民無法透過 Kura 購買或贖回 dShares。",
+    "notAvailableNotes": {
+      "United States": "dShares 未依美國《證券法》註冊，不得向美國人士發售或出售。",
+      "Canada": "Dinari 正在申請在加拿大營運所需的牌照。"
+    },
+    "notes": [
+      "所有 Dinari 使用者在交易代幣化美股和 ETF 之前，都必須完成 KYC。",
+      "不在受限制國家之列，並不代表你所在的司法管轄區提供每一種證券或委託類型。"
+    ]
+  },
+  "rampCountries": {
+    "seo": {
+      "title": "出入金支援國家（Bridge 與 MoonPay）",
+      "description": "Kura 法幣入金與出金的支援國家：Bridge.xyz 銀行軌道和 MoonPay 簽帳卡／信用卡購買。",
+      "keywords": "Bridge.xyz 支援國家, MoonPay 支援國家, 法幣入金, 出金, Kura 入金"
+    },
+    "badge": "Kura · Bridge.xyz 與 MoonPay",
+    "title": "出入金支援國家",
+    "subtitle": "Kura 的法幣入金與出金由 Bridge.xyz 銀行軌道和 MoonPay 簽帳卡／信用卡購買提供。支援範圍依付款方式而異，可以在下方搜尋或依支付軌道瀏覽。",
+    "sources": {
+      "bridge": "Bridge.xyz 支援國家",
+      "moonpay": "MoonPay 國家 API"
+    },
+    "sections": {
+      "usd": { "title": "USD 出入金（ACH 與電匯）", "description": "Bridge 支援 USD 虛擬帳戶和轉帳的國家，用於 Kura 的法幣入金與出金。" },
+      "eurGbp": { "title": "EUR 與 GBP 出入金（SEPA 與 Faster Payments）", "description": "Bridge 支援 Kura 所用之 EUR SEPA 和 GBP Faster Payments 軌道的國家。" },
+      "mxnBrlCop": { "title": "MXN、BRL 與 COP 出入金（SPEI、Pix、Bre-B）", "description": "Bridge 支援墨西哥 SPEI、巴西 Pix 和哥倫比亞 Bre-B／銀行轉帳軌道的國家。" },
+      "card": { "title": "簽帳卡／信用卡（MoonPay）", "description": "MoonPay 支援在 Kura 以簽帳卡和信用卡購買加密貨幣的國家。" },
+      "bridgeUnavailable": { "title": "無法開通 Bridge", "description": "位於這些國家的個人和企業無法使用 Bridge 服務。" },
+      "moonpayUnavailable": { "title": "無法使用 MoonPay 刷卡購買", "description": "這些國家的居民無法使用 MoonPay 簽帳卡和信用卡入金。" },
+      "prohibited": { "title": "禁止的司法管轄區", "description": "Bridge 不會透過任何支付軌道為這些司法管轄區提供服務。" }
+    },
+    "notes": [
+      "Kura 的出入金透過 Bridge.xyz 支援 USD、EUR、GBP、MXN、BRL 和 COP。完成 KYC 後，非 USD 的法幣軌道可能還需要額外的核可。",
+      "在 Kura 以簽帳卡和信用卡購買加密貨幣由 MoonPay 提供，實際可用性可能因發卡機構、資產和當地法規而異。",
+      "美國：Bridge 依主要居住地或營業地址，支援紐約州以外的大多數州。企業資格另有規則，請參閱 Bridge 文件。",
+      "美國：美屬維京群島居民無法使用 MoonPay 刷卡購買。賣出（出金）另有州別限制，請參閱 MoonPay 文件。",
+      "由於監管限制，歐洲經濟區（EEA）的使用者不支援 USDT 和 Bridge 發行的穩定幣。",
+      "名列這些清單，並不代表你的客戶條件適用每一種付款方式或貨幣。"
+    ]
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "help": {
+    "seo": {
+      "title": "Help Center",
+      "description": "Kura has no support team. For legal matters only, email {legal}.",
+      "keywords": "Kura help, support, contact, customer service"
+    },
+    "hero": {
+      "eyebrow": "Support",
+      "title": "Help Center",
+      "description": "Kura has ceased operations and has no support team. We only accept legal matters by email."
+    },
+    "contactUs": "Legal matters only",
+    "docs": "Browse documentation",
+    "home": "Back home",
+    "noSupport": "We do not answer product, account, or billing questions, and support inboxes are no longer monitored."
+  },
+  "contact": {
+    "seo": {
+      "title": "Contact Us",
+      "description": "Kura has no support team. Legal matters only, by email.",
+      "keywords": "contact Kura, support, hello, help"
+    },
+    "hero": {
+      "eyebrow": "Support",
+      "title": "Contact us",
+      "description": "Kura has ceased operations and has no support team. We only accept legal matters by email; product, account, and partnership questions will not be answered."
+    },
+    "channels": {
+      "legal": {
+        "title": "Legal",
+        "description": "Legal notices, privacy requests, and other legal matters about the Service."
+      }
+    },
+    "more": {
+      "title": "More ways to connect",
+      "help": "Help center →",
+      "helpDesc": "— what we can and cannot help with",
+      "community": "Community →",
+      "communityDesc": "— connect with other Kura users",
+      "report": "Business Report →",
+      "reportDesc": "— operating record and lessons learned"
+    }
+  },
+  "community": {
+    "seo": {
+      "title": "Community",
+      "description": "The Kura community hub is coming soon. Follow our blog for product updates in the meantime."
+    },
+    "hero": {
+      "eyebrow": "Community",
+      "title": "Coming soon",
+      "description": "We're building a community hub for Kura users and builders. Follow the blog for product updates in the meantime.",
+      "tags": [
+        "Discord",
+        "Events",
+        "Builders"
+      ]
+    },
+    "connect": "Follow us on X. For legal matters only, email {email}.",
+    "followX": "Follow on X",
+    "blog": "Read the blog"
+  }
+}

@@ -1,32 +1,33 @@
 <template>
   <div class="w-full text-kura-text bg-white">
     <PageHero
-      eyebrow="Legal"
-      title="Terms of Service"
-      description="Last updated: October 18, 2026. These Terms govern your use of Kura. Please read them carefully."
+      :eyebrow="t('legal.docs.tos.eyebrow')"
+      :title="t('legal.docs.tos.title')"
+      :description="t('legal.docs.tos.description')"
     />
 
     <div class="marketing-container max-w-3xl pb-20 md:pb-28">
-      <div class="prose max-w-none space-y-8">
+      <TosZhTw v-if="locale === 'zh-TW'" />
+      <div v-else class="prose max-w-none space-y-8">
         <section>
           <p class="text-kura-text-secondary leading-relaxed text-sm border border-kura-border rounded-xl p-4 bg-kura-background">
             <span class="font-semibold text-kura-text">Important.</span>
-            Kura Finance LLC has shut down. Kura is now an open-source project with only basic wallet features maintained, provided “as is” and used entirely at your own risk (see Sections 3, 16 and 17).
+            Kura Finance LLC has been dissolved and has ceased operations. Kura now exists only as an unmaintained open-source wallet, provided “as is” and used entirely at your own risk (see Sections 3, 16 and 17).
             These Terms include a binding arbitration agreement and class-action waiver in Section 19.
             By using the Service you agree to resolve disputes individually through arbitration, except where prohibited by law.
             Related documents:
-            <NuxtLink to="/privacy" class="text-kura-primary hover:text-kura-accent">Privacy Policy</NuxtLink>,
-            <NuxtLink to="/disclaimer" class="text-kura-primary hover:text-kura-accent">Risk Disclosure</NuxtLink>,
-            <NuxtLink to="/prohibited-activities" class="text-kura-primary hover:text-kura-accent">Prohibited Activities</NuxtLink>,
+            <NuxtLinkLocale to="/privacy" class="text-kura-primary hover:text-kura-accent">Privacy Policy</NuxtLinkLocale>,
+            <NuxtLinkLocale to="/disclaimer" class="text-kura-primary hover:text-kura-accent">Risk Disclosure</NuxtLinkLocale>,
+            <NuxtLinkLocale to="/prohibited-activities" class="text-kura-primary hover:text-kura-accent">Prohibited Activities</NuxtLinkLocale>,
             and
-            <NuxtLink to="/referral-terms" class="text-kura-primary hover:text-kura-accent">Referral Program Terms</NuxtLink>.
+            <NuxtLinkLocale to="/referral-terms" class="text-kura-primary hover:text-kura-accent">Referral Program Terms</NuxtLinkLocale>.
           </p>
         </section>
 
         <section>
           <h2 class="text-2xl font-bold text-kura-text mb-4">1. Acceptance of Terms</h2>
           <p class="text-kura-text-secondary leading-relaxed">
-            These Terms of Service (the “Terms”) are a binding agreement between you and Rick Weng, an individual (the “Operator,” “we,” “us,” or “our”). Kura Finance LLC has been dissolved and is no longer a party to, or the operator of, the Service. In these Terms, “Kura” refers to the Service. They govern your access to and use of the Kura mobile application, websites (including kura-finance.com and related subdomains), APIs, dashboards, and any other products or services we enable that link to these Terms (collectively, the “Service”).
+            These Terms of Service (the “Terms”) are a binding agreement between you and Kura Finance LLC, a Wyoming limited liability company that has been dissolved and has ceased operations (the “Operator,” “we,” “us,” or “our”). In these Terms, “Kura” refers to the Service. They govern your access to and use of the Kura mobile application, websites (including kura-finance.com and related subdomains), APIs, dashboards, and any other products or services we enable that link to these Terms (collectively, the “Service”).
           </p>
           <p class="text-kura-text-secondary leading-relaxed mt-3">
             By creating an account, accessing, or using the Service, you agree to these Terms and to the documents incorporated by reference. If you do not agree, do not use the Service. If you use the Service on behalf of an entity, you represent that you have authority to bind that entity, and “you” includes that entity.
@@ -44,9 +45,9 @@
           <h2 class="text-2xl font-bold text-kura-text mb-4">3. Description of the Service</h2>
           <p class="text-kura-text-secondary leading-relaxed">
             <span class="font-semibold text-kura-text">Open-source project; discontinued services.</span>
-            Kura Finance LLC has shut down. Kura is now an open-source project whose source code is published on
+            Kura Finance LLC has been dissolved and has ceased operations. Kura now exists only as an open-source wallet whose source code is published on
             <a href="https://github.com/Kura-Finance" target="_blank" rel="noopener noreferrer" class="text-kura-primary hover:text-kura-accent">GitHub</a>.
-            Only basic wallet features are maintained, on a best-effort basis and without a support team. Bank transfers and fiat ramps, US stocks, cards, KYC, TrackFi, subscriptions, and referrals are permanently discontinued, and we no longer accept sign-ups or deposits. Any other feature may be changed, left unmaintained, or switched off at any time without notice. Descriptions of features below are kept for reference and do not mean those features are available.
+            The wallet is not maintained and has no support team. Bank transfers and fiat ramps, US stocks, cards, KYC, TrackFi, subscriptions, and referrals are permanently discontinued, and we no longer accept sign-ups or deposits. Any other feature may be changed, left unmaintained, or switched off at any time without notice. Descriptions of features below are kept for reference and do not mean those features are available.
           </p>
           <p class="text-kura-text-secondary leading-relaxed mt-3">
             Kura is a non-custodial financial technology application that brings together self-directed tools in one interface, including:
@@ -61,7 +62,7 @@
             <li><span class="font-semibold text-kura-text">TrackFi</span> — read-only aggregation of connected bank, brokerage, exchange, and on-chain accounts, protected with zero-access encryption.</li>
             <li><span class="font-semibold text-kura-text">Subscriptions</span> — optional paid tiers (Basic, Pro, Ultimate) that unlock additional features.</li>
             <li><span class="font-semibold text-kura-text">Referral Program</span> — optional revenue sharing governed by the
-              <NuxtLink to="/referral-terms" class="text-kura-primary hover:text-kura-accent">Referral Program Terms</NuxtLink>.</li>
+              <NuxtLinkLocale to="/referral-terms" class="text-kura-primary hover:text-kura-accent">Referral Program Terms</NuxtLinkLocale>.</li>
           </ul>
           <p class="text-kura-text-secondary leading-relaxed mt-3">
             Kura is a software provider. We are not a bank, broker-dealer, money transmitter, custodian, exchange, or investment adviser, and we do not provide financial, legal, or tax advice. Displayed balances are visualizations of assets in wallets or accounts you control or connect — not deposits held by Kura.
@@ -80,7 +81,7 @@
             <li>All information you provide is accurate and complete, and you will keep it updated.</li>
             <li>You are acting for yourself and not on behalf of any undisclosed third party, unless we expressly permit multi-user or business features.</li>
             <li>You understand digital assets, DeFi protocols, bridges, and tokenized securities involve substantial risk of loss, as described in our
-              <NuxtLink to="/disclaimer" class="text-kura-primary hover:text-kura-accent">Risk Disclosure</NuxtLink>.</li>
+              <NuxtLinkLocale to="/disclaimer" class="text-kura-primary hover:text-kura-accent">Risk Disclosure</NuxtLinkLocale>.</li>
           </ul>
           <p class="text-kura-text-secondary leading-relaxed mt-3">
             Certain features (including Card, fiat ramps, Dinari securities, Morpho Earn, and Morpho Borrow) are available only in supported regions and to users who complete partner verification. Waitlist enrollment does not guarantee access, timing, or benefits. We and our partners may refuse, suspend, or restrict access to comply with law or partner requirements.
@@ -114,7 +115,7 @@
           <h2 class="text-2xl font-bold text-kura-text mb-4">7. User Conduct; Prohibited Activities</h2>
           <p class="text-kura-text-secondary leading-relaxed">
             You agree not to misuse the Service. Without limitation, you must not engage in activities listed in our
-            <NuxtLink to="/prohibited-activities" class="text-kura-primary hover:text-kura-accent">Prohibited Activities List</NuxtLink>,
+            <NuxtLinkLocale to="/prohibited-activities" class="text-kura-primary hover:text-kura-accent">Prohibited Activities List</NuxtLinkLocale>,
             including unlawful activity, money laundering, sanctions evasion, fraud, market abuse, unauthorized access, or interference with the Service. We and our partners screen against sanctions lists and may decline, suspend, or restrict access to comply with legal obligations.
           </p>
         </section>
@@ -137,7 +138,7 @@
           <h2 class="text-2xl font-bold text-kura-text mb-4">10. Referrals</h2>
           <p class="text-kura-text-secondary leading-relaxed">
             If you participate in our referral program, the
-            <NuxtLink to="/referral-terms" class="text-kura-primary hover:text-kura-accent">Referral Program Terms</NuxtLink>
+            <NuxtLinkLocale to="/referral-terms" class="text-kura-primary hover:text-kura-accent">Referral Program Terms</NuxtLinkLocale>
             apply and control over these Terms for referral matters. Referral rewards are not interest, deposits, or guaranteed income, and are subject to eligibility, clawback, and fraud review.
           </p>
         </section>
@@ -152,7 +153,7 @@
         <section>
           <h2 class="text-2xl font-bold text-kura-text mb-4">12. Intellectual Property; License</h2>
           <p class="text-kura-text-secondary leading-relaxed">
-            The source code of the Service is copyright Rick Weng and is published on GitHub under the license stated in each repository. Your use, copying, modification, and distribution of that source code are governed by that license. These Terms govern your use of the Service as operated by us. “Kura” and related names and logos identify the Service; these Terms do not grant you any right to use them. Feedback you provide may be used by us without restriction or compensation.
+            The source code of the Service is copyright Kura Finance LLC and is published on GitHub under the license stated in each repository. Your use, copying, modification, and distribution of that source code are governed by that license. These Terms govern your use of the Service as operated by us. “Kura” and related names and logos identify the Service; these Terms do not grant you any right to use them. Feedback you provide may be used by us without restriction or compensation.
           </p>
         </section>
 
@@ -183,14 +184,14 @@
             To the maximum extent permitted by law, the Service is provided “as is” and “as available,” without warranties of any kind, whether express, implied, or statutory, including merchantability, fitness for a particular purpose, title, and non-infringement. We do not warrant that the Service will be uninterrupted, secure, error-free, or free of harmful components, or that data will be accurate or complete. You assume all risk arising from use of the Service, digital assets, smart contracts, and third-party providers.
           </p>
           <p class="text-kura-text-secondary leading-relaxed mt-3">
-            Kura is an open-source project. It is not maintained by a company, has no support team, and may contain bugs or vulnerabilities that will not be fixed. We make no commitment to keep any feature, server, or integration running.
+            Kura is an open-source project. It is not maintained, has no support team, and may contain bugs or vulnerabilities that will not be fixed. We make no commitment to keep any feature, server, or integration running.
           </p>
         </section>
 
         <section>
           <h2 class="text-2xl font-bold text-kura-text mb-4">17. Limitation of Liability</h2>
           <p class="text-kura-text-secondary leading-relaxed">
-            To the maximum extent permitted by law, the Operator (Rick Weng) and the contributors to the Kura open-source project (together, the “Kura Parties”) will not be liable for any indirect, incidental, special, consequential, exemplary, or punitive damages, or any loss of profits, revenue, data, goodwill, digital assets, or business opportunity, arising out of or related to the Service or these Terms, whether based in contract, tort, or otherwise, even if advised of the possibility.
+            To the maximum extent permitted by law, the Operator (Kura Finance LLC), its officers, directors, employees, and agents, and the contributors to the Kura open-source project (together, the “Kura Parties”) will not be liable for any indirect, incidental, special, consequential, exemplary, or punitive damages, or any loss of profits, revenue, data, goodwill, digital assets, or business opportunity, arising out of or related to the Service or these Terms, whether based in contract, tort, or otherwise, even if advised of the possibility.
           </p>
           <p class="text-kura-text-secondary leading-relaxed mt-3">
             Without limiting the above, and to the maximum extent permitted by law, the Kura Parties are not liable for any loss arising from your use of the Service, including but not limited to loss caused by:
@@ -259,16 +260,17 @@
           </p>
           <p class="text-kura-text-secondary leading-relaxed mt-3">
             Contact:
-            <a href="mailto:legal@kura-finance.com" class="text-kura-primary hover:text-kura-accent">legal@kura-finance.com</a>.
+            <a href="mailto:legal@kura-finance.com" class="text-kura-primary hover:text-kura-accent">legal@kura-finance.com</a>
+            · Mailing: Kura Finance LLC, 1007 N Orange St. 4th Floor 5629, Wilmington, DE 19801.
             There is no support team; we may not respond to support requests.
           </p>
         </section>
       </div>
 
       <div class="mt-16 pt-8 border-t border-kura-border">
-        <NuxtLink to="/" class="text-kura-primary hover:text-kura-accent transition-colors">
-          ← Back to Home
-        </NuxtLink>
+        <NuxtLinkLocale to="/" class="text-kura-primary hover:text-kura-accent transition-colors">
+          {{ t('legal.backHome') }}
+        </NuxtLinkLocale>
       </div>
     </div>
   </div>
@@ -279,11 +281,12 @@ definePageMeta({
   layout: 'default',
 })
 
+const { t, locale } = useI18n()
+
 usePageSeo({
-  title: 'Terms of Service',
-  description:
-    'Kura Terms of Service for the Kura open-source wallet, operated by Rick Weng. Provided as is and used at your own risk.',
+  title: () => t('legal.docs.tos.seo.title'),
+  description: () => t('legal.docs.tos.seo.description'),
   path: '/tos',
-  keywords: 'terms of service, user agreement, Kura open source, arbitration',
+  keywords: () => t('legal.docs.tos.seo.keywords'),
 })
 </script>

@@ -1,149 +1,103 @@
 <script setup lang="ts">
-import { formatCount, formatDate, formatUsd } from '~/utils/kura-api'
-import { useInvestorMetrics, type SyncNotice } from '~/composables/useInvestorMetrics'
-
-function noticeToneClass(type: SyncNotice['type']) {
-  if (type === 'error') return 'ir-notice--error'
-  if (type === 'success') return 'ir-notice--success'
-  return 'ir-notice--info'
-}
+import type { BreakdownRow } from '~/components/investors/InvestorBreakdownCard.vue'
+import { SHUTDOWN } from '~/utils/site'
 
 definePageMeta({ layout: 'default' })
 
+const { t } = useI18n()
+
 usePageSeo({
-  title: 'Platform Performance Report',
-  description:
-    'Kura platform performance report for investors — revenue, waitlist signups, active subscriptions, and active users.',
+  title: () => t('report.seo.title'),
+  description: () => t('report.seo.description'),
   path: '/investors',
-  keywords: 'Kura investors, platform metrics, active users, revenue, waitlist, annual report',
+  keywords: () => t('report.seo.keywords'),
 })
 
-const {
-  platformSummary,
-  platformRevenue,
-  platformRevenueTotalUsd,
-  activeUsers,
-  swapMetrics,
-  rampMetrics,
-  cardMetrics,
-  earn,
-  earnUnavailable,
-  earnVaultRows,
-  lifiSummary,
-  subscriptionRate,
-  metricsLoading,
-  metricsUnavailable,
-  periodLabel,
-  revenueByProduct,
-  waitlistByProduct,
-  subscriptionsByTier,
-  syncing,
-  syncNotices,
-  refreshMetrics,
-} = useInvestorMetrics()
+type Fact = { label: string; value: string }
 
-const subscriptionRateLabel = computed(() => {
-  if (subscriptionRate.value == null) return null
-  return `${(subscriptionRate.value * 100).toFixed(1)}%`
-})
+const summaryFacts = useCopy<Fact[]>('report.summary.facts')
+const revenueFacts = useCopy<Fact[]>('report.operating.revenueFacts')
+const businessModel = useCopy<Fact[]>('report.model.items')
+const timeline = useCopy<Fact[]>('report.timeline.items')
+const lessons = useCopy<{ title: string; text: string }[]>('report.lessons.items')
 
-const platformRevenueLabel = computed(() => {
-  if (platformRevenueTotalUsd.value == null) return '—'
-  return formatUsd(platformRevenueTotalUsd.value, 2)
-})
+const kycLabels = useCopy<string[]>('report.operating.kyc.rows')
+const regionLabels = useCopy<string[]>('report.operating.regions.rows')
+const monthLabels = useCopy<string[]>('report.operating.monthly.rows')
 
-const platformRevenueDetail = computed(() => {
-  const volume = `Processing volume ${formatUsd(platformSummary.value?.process?.totalProcessUsd)}`
-  if (!platformRevenue.value) {
-    return `${volume} · revenue pending backend deploy`
-  }
-  return volume
-})
+// Figures as of 30 October 2026. Labels come from the locale messages.
+const KYC = [68, 64, 16, 9, 92]
+const REGIONS = [
+  [71, 0.458],
+  [28, 0.181],
+  [27, 0.174],
+  [18, 0.116],
+  [7, 0.045],
+  [3, 0.019],
+  [1, 0.006],
+] as const
+const MONTHLY = [8, 83, 50, 2, 106]
 
-const swapDetailLabel = computed(() => {
-  const base = `${formatCount(swapMetrics.value.count)} transfers`
-  if (!platformRevenue.value) return base
-  return `${base} · revenue ${formatUsd(swapMetrics.value.netUsd, 2)}`
-})
+const kycRows = computed<BreakdownRow[]>(() => [
+  ...KYC.map((count, index) => ({
+    key: `kyc-${index}`,
+    label: kycLabels.value[index],
+    primary: String(count),
+    share: count / 249,
+  })),
+  { key: 'kyc-total', label: kycLabels.value[5], primary: '249', secondary: t('report.operating.kyc.totalDetail') },
+])
 
-const rampDetailLabel = computed(() => {
-  const base = `${formatCount(rampMetrics.value.count)} events`
-  if (!platformRevenue.value) return base
-  return `${base} · revenue ${formatUsd(rampMetrics.value.netUsd, 2)}`
-})
-
-const swapSyncedLabel = computed(() => {
-  if (!lifiSummary.value?.lastSyncedAt) return 'Trade data awaiting first sync'
-  return `Trade last synced ${formatDate(lifiSummary.value.lastSyncedAt)}`
-})
-
-const earnAumLabel = computed(() => {
-  if (!earn.value) return '—'
-  if (earnUnavailable.value) return 'Unavailable'
-  return formatUsd(earn.value.totalAssetsUsd, 2)
-})
-
-const earnDetailLabel = computed(() => {
-  if (!earn.value) return 'FeeWarp AUM pending summary deploy'
-  if (earnUnavailable.value) return 'Earn AUM temporarily unavailable'
-  const feeBps = earn.value.performanceFeeBps ?? 1000
-  const feePct = feeBps % 100 === 0 ? `${feeBps / 100}%` : `${(feeBps / 100).toFixed(2)}%`
-  const fetched = formatDate(earn.value.fetchedAt)
-  return `${formatCount(earn.value.vaultCount)} FeeWarp vaults · ${feePct} performance fee · as of ${fetched}`
-})
-
-const cardDetailLabel = computed(() => {
-  if (cardMetrics.value.status === 'reserved') return 'Reserved product slot'
-  return `${formatCount(cardMetrics.value.count)} events · revenue ${formatUsd(cardMetrics.value.netUsd, 2)}`
-})
-
-const documentStatus = computed(() => {
-  if (metricsLoading.value) return 'Updating'
-  if (metricsUnavailable.value) return 'Unavailable'
-  return 'Live'
-})
-
-const revenueBreakdownRows = computed(() =>
-  revenueByProduct.value.map((row) => ({
-    key: row.key,
-    label: row.label,
-    primary:
-      row.status === 'reserved' && row.revenueUsd <= 0
-        ? 'Reserved'
-        : formatUsd(row.revenueUsd, 2),
-    secondary: row.secondary,
-    share: row.share,
+const regionRows = computed<BreakdownRow[]>(() =>
+  REGIONS.map(([count, share], index) => ({
+    key: `region-${index}`,
+    label: regionLabels.value[index],
+    primary: String(count),
+    share,
   })),
 )
 
-const earnBreakdownRows = computed(() => {
-  if (earnUnavailable.value || !earn.value) return []
-  return earnVaultRows.value.map((row) => ({
-    key: row.key,
-    label: row.label,
-    primary: row.primary,
-    secondary: row.secondary,
-    share: row.share,
-  }))
-})
-
-const waitlistBreakdownRows = computed(() =>
-  waitlistByProduct.value.map((row) => ({
-    key: row.key,
-    label: row.label,
-    primary: formatCount(row.count),
-    share: row.share,
+const newUserRows = computed<BreakdownRow[]>(() =>
+  MONTHLY.map((count, index) => ({
+    key: `month-${index}`,
+    label: monthLabels.value[index],
+    primary: String(count),
+    ...(index === MONTHLY.length - 1 ? { secondary: t('report.operating.monthly.octoberDetail') } : {}),
   })),
 )
 
-const subscriptionBreakdownRows = computed(() =>
-  subscriptionsByTier.value.map((row) => ({
-    key: row.key,
-    label: row.label,
-    primary: formatCount(row.count),
-    share: row.share,
-  })),
-)
+function approx(amount: string) {
+  return t('report.operating.deposits.approx', { amount })
+}
+
+const depositRows = computed<BreakdownRow[]>(() => [
+  { key: 'usd', label: 'USD', primary: '27,067.57' },
+  { key: 'mxn', label: 'MXN', primary: '37,208.34', secondary: approx('US$2.0K') },
+  { key: 'eur', label: 'EUR', primary: '4,208.18', secondary: approx('US$4.5K') },
+  { key: 'gbp', label: 'GBP', primary: '285.29', secondary: approx('US$0.4K') },
+  {
+    key: 'total',
+    label: t('report.operating.deposits.total'),
+    primary: '≈ US$34K',
+    secondary: t('report.operating.deposits.totalDetail'),
+  },
+])
+
+const refundRows = computed<BreakdownRow[]>(() => [
+  { key: 'usd', label: 'USD', primary: '17,123.00', share: 0.63 },
+  { key: 'eur', label: 'EUR', primary: '904.64', secondary: approx('US$1.0K'), share: 0.21 },
+  { key: 'mxn', label: 'MXN', primary: '4,400.00', secondary: approx('US$0.2K'), share: 0.12 },
+  { key: 'gbp', label: 'GBP', primary: '5.00', share: 0.02 },
+  {
+    key: 'total',
+    label: t('report.operating.deposits.total'),
+    primary: '≈ US$18.3K',
+    secondary: t('report.operating.refunds.totalDetail'),
+    share: 0.54,
+  },
+])
+
+const githubUrl = SHUTDOWN.githubUrl
 </script>
 
 <template>
@@ -152,253 +106,160 @@ const subscriptionBreakdownRows = computed(() =>
       <header class="ir-masthead">
         <div class="ir-masthead__brand-row">
           <p class="ir-masthead__brand">Kura</p>
-          <p class="ir-masthead__doc-type">Investor Relations</p>
+          <p class="ir-masthead__doc-type">{{ t('report.docType') }}</p>
         </div>
 
         <div class="ir-masthead__title-row">
           <div class="ir-masthead__titles">
-            <h1 class="ir-masthead__title">Platform Performance Report</h1>
+            <h1 class="ir-masthead__title">{{ t('report.title') }}</h1>
             <p class="ir-masthead__subtitle">
-              Live operating metrics across revenue, growth, and engagement.
+              {{ t('report.subtitle') }}
             </p>
           </div>
-
-          <button
-            type="button"
-            class="ir-refresh"
-            :disabled="syncing"
-            @click="refreshMetrics"
-          >
-            <svg
-              class="ir-refresh__icon"
-              :class="syncing ? 'ir-refresh__icon--spin' : ''"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              aria-hidden="true"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="1.75"
-                d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"
-              />
-            </svg>
-            {{ syncing ? 'Syncing…' : 'Refresh' }}
-          </button>
         </div>
 
         <dl class="ir-masthead__meta">
-          <div class="ir-masthead__meta-item">
-            <dt>Reporting period</dt>
-            <dd>{{ periodLabel || 'Awaiting period' }}</dd>
-          </div>
-          <div class="ir-masthead__meta-item">
-            <dt>Document status</dt>
-            <dd>{{ documentStatus }}</dd>
-          </div>
-          <div class="ir-masthead__meta-item">
-            <dt>Prepared for</dt>
-            <dd>Investors &amp; partners</dd>
+          <div v-for="key in ['period', 'asOf', 'status']" :key="key" class="ir-masthead__meta-item">
+            <dt>{{ t(`report.meta.${key}.label`) }}</dt>
+            <dd>{{ t(`report.meta.${key}.value`) }}</dd>
           </div>
         </dl>
       </header>
 
-      <div v-if="syncNotices.length" class="ir-notices" role="status">
-        <p
-          v-for="(notice, index) in syncNotices"
-          :key="index"
-          class="ir-notice"
-          :class="noticeToneClass(notice.type)"
-        >
-          {{ notice.text }}
+      <InvestorReportSection index="01" :title="t('report.summary.title')" :lede="t('report.summary.lede')">
+        <div class="ir-highlights">
+          <InvestorMetricCard
+            v-for="key in ['users', 'deposits', 'revenue']"
+            :key="key"
+            featured
+            :label="t(`report.summary.kpis.${key}.label`)"
+            :value="t(`report.summary.kpis.${key}.value`)"
+            :detail="t(`report.summary.kpis.${key}.detail`)"
+          />
+        </div>
+        <p class="ir-prose">
+          {{ t('report.summary.prose') }}
         </p>
-      </div>
+        <dl class="ir-facts">
+          <div v-for="fact in summaryFacts" :key="fact.label" class="ir-facts__row">
+            <dt>{{ fact.label }}</dt>
+            <dd>{{ fact.value }}</dd>
+          </div>
+        </dl>
+      </InvestorReportSection>
 
-      <div v-if="metricsLoading" class="ir-state">
-        <p>Compiling platform metrics…</p>
-      </div>
-
-      <div v-else-if="metricsUnavailable" class="ir-state ir-state--warn">
-        <p>Metrics are temporarily unavailable. Refresh to retry.</p>
-      </div>
-
-      <template v-else>
-        <InvestorReportSection
-          index="01"
-          title="Highlights"
-          lede="Headline figures for the current reporting window."
-        >
-          <div class="ir-highlights">
-            <InvestorMetricCard
-              featured
-              label="Platform revenue"
-              :value="platformRevenueLabel"
-              :detail="platformRevenueDetail"
+      <InvestorReportSection index="02" :title="t('report.operating.title')" :lede="t('report.operating.lede')">
+        <div class="ir-composition">
+          <div class="ir-composition__stack">
+            <InvestorBreakdownCard
+              :title="t('report.operating.kyc.title')"
+              :name-header="t('report.operating.kyc.name')"
+              :value-header="t('report.operating.kyc.value')"
+              :rows="kycRows"
             />
-            <InvestorMetricCard
-              featured
-              label="Waitlist signups"
-              :value="formatCount(platformSummary?.waitlist?.totalSignups)"
-            />
-            <InvestorMetricCard
-              featured
-              label="Active users"
-              :value="formatCount(activeUsers?.activeUsers)"
-              :detail="`${formatCount(activeUsers?.totalUsers)} total users · trailing 30 days`"
+            <InvestorBreakdownCard
+              :title="t('report.operating.regions.title')"
+              :name-header="t('report.operating.regions.name')"
+              :value-header="t('report.operating.regions.value')"
+              :rows="regionRows"
             />
           </div>
-        </InvestorReportSection>
-
-        <InvestorReportSection
-          index="02"
-          title="Operating metrics"
-          lede="Product volumes pulled out for the report — then engagement and subscription context."
-        >
-          <div class="ir-ops ir-ops--volumes">
-            <InvestorMetricCard
-              label="Trade volume"
-              :value="formatUsd(swapMetrics.processUsd)"
-              :detail="swapDetailLabel"
+          <div class="ir-composition__stack">
+            <InvestorBreakdownCard
+              :title="t('report.operating.monthly.title')"
+              :name-header="t('report.operating.monthly.name')"
+              :value-header="t('report.operating.monthly.value')"
+              :rows="newUserRows"
             />
-            <InvestorMetricCard
-              label="On / Off Ramps volume"
-              :value="formatUsd(rampMetrics.processUsd)"
-              :detail="rampDetailLabel"
+            <InvestorBreakdownCard
+              :title="t('report.operating.deposits.title')"
+              :name-header="t('report.operating.deposits.name')"
+              :value-header="t('report.operating.deposits.value')"
+              :rows="depositRows"
             />
-            <InvestorMetricCard
-              label="Kura Earn AUM"
-              :value="earnAumLabel"
-              :detail="earnDetailLabel"
-            />
-            <InvestorMetricCard
-              label="Card"
-              :value="cardMetrics.status === 'reserved' ? 'Reserved' : formatUsd(cardMetrics.processUsd)"
-              :detail="cardDetailLabel"
+            <InvestorBreakdownCard
+              :title="t('report.operating.refunds.title')"
+              :name-header="t('report.operating.refunds.name')"
+              :value-header="t('report.operating.refunds.value')"
+              :rows="refundRows"
             />
           </div>
-          <div class="ir-ops ir-ops--secondary">
-            <InvestorMetricCard
-              label="Revenue events"
-              :value="formatCount(platformSummary?.process?.eventCount)"
-            />
-            <InvestorMetricCard
-              label="Active subscriptions"
-              :value="formatCount(platformSummary?.subscriptions?.activeCount)"
-            />
-            <InvestorMetricCard
-              label="Subscription rate"
-              :value="subscriptionRateLabel ?? '—'"
-              :detail="`${formatCount(platformSummary?.subscriptions?.activeCount)} active · ${formatCount(activeUsers?.totalUsers)} total users`"
-            />
+        </div>
+        <p class="ir-footnote-inline">
+          {{ t('report.operating.footnote') }}
+        </p>
+        <h3 class="ir-subhead">{{ t('report.operating.revenueTitle') }}</h3>
+        <dl class="ir-facts">
+          <div v-for="fact in revenueFacts" :key="fact.label" class="ir-facts__row">
+            <dt>{{ fact.label }}</dt>
+            <dd>{{ fact.value }}</dd>
           </div>
-          <p class="ir-footnote-inline">{{ swapSyncedLabel }}</p>
-          <p v-if="earnUnavailable" class="ir-footnote-inline ir-footnote-inline--warn">
-            Earn AUM could not be fetched from Morpho. Figures above are not a true $0 TVL.
-          </p>
-        </InvestorReportSection>
+        </dl>
+      </InvestorReportSection>
 
-        <InvestorReportSection
-          index="03"
-          title="Composition"
-          lede="How headline metrics break down across sources, products, and tiers."
-        >
-          <div class="ir-composition">
-            <div class="ir-composition__stack">
-              <InvestorBreakdownCard
-                title="Platform revenue by product"
-                name-header="Product"
-                value-header="Revenue"
-                :rows="revenueBreakdownRows"
-              />
-              <p v-if="!platformRevenue" class="ir-table-note">
-                Platform revenue by product awaits the backend
-                <em>platformRevenue</em>
-                block. The UI does not estimate fees from process volume.
-              </p>
-              <InvestorBreakdownCard
-                title="Subscriptions by tier"
-                name-header="Tier"
-                value-header="Active"
-                :rows="subscriptionBreakdownRows"
-              />
-            </div>
-            <div class="ir-composition__stack">
-              <InvestorBreakdownCard
-                title="Kura Earn by vault"
-                name-header="Vault"
-                value-header="AUM"
-                :rows="earnBreakdownRows"
-              />
-              <p v-if="earnUnavailable" class="ir-table-note">
-                Vault AUM temporarily unavailable.
-              </p>
-              <p v-else-if="!earn" class="ir-table-note">
-                Earn block not yet present on this deployment.
-              </p>
-              <InvestorBreakdownCard
-                title="Waitlist by product"
-                name-header="Product"
-                value-header="Signups"
-                :rows="waitlistBreakdownRows"
-              />
-            </div>
+      <InvestorReportSection index="03" :title="t('report.model.title')" :lede="t('report.model.lede')">
+        <dl class="ir-facts">
+          <div v-for="item in businessModel" :key="item.label" class="ir-facts__row">
+            <dt>{{ item.label }}</dt>
+            <dd>{{ item.value }}</dd>
           </div>
-        </InvestorReportSection>
+        </dl>
+      </InvestorReportSection>
 
-        <InvestorReportSection index="04" title="Notes">
-          <ol class="ir-notes">
-            <li>
-              <span class="ir-notes__mark">1</span>
-              <span>
-                <strong>Processing volume (Process)</strong>
-                is the total transaction amount across On / Off Ramps, Trade transfers, and similar period-scoped flows.
-              </span>
-            </li>
-            <li>
-              <span class="ir-notes__mark">2</span>
-              <span>
-                <strong>Platform revenue</strong>
-                comes only from
-                <em>platformRevenue.totalUsd</em>
-                /
-                <em>byProduct.*.revenueUsd</em>
-                . Policy is backend-owned (On / Off Ramps / Trade 0.25%, Dinari 0%, Earn 10% performance fee recognized at $0 until harvest, Card reserved, Subscriptions = Stripe). The UI never re-estimates fees.
-              </span>
-            </li>
-            <li>
-              <span class="ir-notes__mark">3</span>
-              <span>
-                <strong>Kura Earn AUM</strong>
-                is live FeeWrapper managed assets on Base (not the reporting-period window). The
-                as-of time is the Earn
-                <em>fetchedAt</em>
-                timestamp; Morpho failures must not be read as $0 TVL.
-              </span>
-            </li>
-            <li>
-              <span class="ir-notes__mark">4</span>
-              <span>
-                <strong>Refresh</strong>
-                forces platform backfill, Trade analytics sync, and Privy sync without re-issuing referral payouts. Earn AUM refreshes with the summary response.
-              </span>
-            </li>
-          </ol>
-        </InvestorReportSection>
-      </template>
+      <InvestorReportSection index="04" :title="t('report.timeline.title')">
+        <dl class="ir-facts">
+          <div v-for="item in timeline" :key="item.label" class="ir-facts__row">
+            <dt>{{ item.label }}</dt>
+            <dd>{{ item.value }}</dd>
+          </div>
+        </dl>
+      </InvestorReportSection>
+
+      <InvestorReportSection index="05" :title="t('report.lessons.title')" :lede="t('report.lessons.lede')">
+        <ol class="ir-notes">
+          <li v-for="(lesson, index) in lessons" :key="lesson.title">
+            <span class="ir-notes__mark">{{ index + 1 }}</span>
+            <span>
+              <strong>{{ lesson.title }}</strong>
+              {{ lesson.text }}
+            </span>
+          </li>
+        </ol>
+      </InvestorReportSection>
+
+      <InvestorReportSection index="06" :title="t('report.reading.title')">
+        <ul class="ir-links">
+          <li>
+            <NuxtLinkLocale to="/about">{{ t('report.reading.founder.link') }}</NuxtLinkLocale>
+            <span>{{ t('report.reading.founder.text') }}</span>
+          </li>
+          <li>
+            <NuxtLinkLocale to="/blog">{{ t('report.reading.blog.link') }}</NuxtLinkLocale>
+            <span>{{ t('report.reading.blog.text') }}</span>
+          </li>
+          <li>
+            <a :href="githubUrl" target="_blank" rel="noopener noreferrer">{{ t('report.reading.source.link') }}</a>
+            <span>{{ t('report.reading.source.text') }}</span>
+          </li>
+          <li>
+            <NuxtLinkLocale to="/docs">{{ t('report.reading.docs.link') }}</NuxtLinkLocale>
+            <span>{{ t('report.reading.docs.text') }}</span>
+          </li>
+        </ul>
+      </InvestorReportSection>
 
       <footer class="ir-correspondence">
         <div class="ir-correspondence__grid">
           <div>
-            <p class="ir-correspondence__label">Correspondence</p>
-            <h2 class="ir-correspondence__title">Investor inquiries</h2>
+            <p class="ir-correspondence__label">{{ t('report.correspondence.label') }}</p>
+            <h2 class="ir-correspondence__title">{{ t('report.correspondence.title') }}</h2>
             <p class="ir-correspondence__body">
-              For data room access, partnership discussions, or custom reporting, contact the team directly.
+              {{ t('report.correspondence.text') }}
             </p>
           </div>
           <div class="ir-correspondence__contact">
-            <a href="mailto:hello@kura-finance.com" class="ir-correspondence__email">
-              hello@kura-finance.com
+            <a href="mailto:legal@kura-finance.com" class="ir-correspondence__email">
+              legal@kura-finance.com
             </a>
           </div>
         </div>
@@ -817,6 +678,88 @@ const subscriptionBreakdownRows = computed(() =>
 }
 
 .ir-correspondence__email:hover {
+  color: #7c5cfc;
+  border-bottom-color: #7c5cfc;
+}
+
+/* —— Prose, facts, links —— */
+.ir-prose {
+  margin: 2rem 0 0;
+  max-width: 48rem;
+  font-size: 0.9375rem;
+  line-height: 1.65;
+  color: #64687a;
+}
+
+.ir-subhead {
+  margin: 2.5rem 0 0;
+  font-family: "Newsreader", Georgia, serif;
+  font-size: 1.25rem;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  color: #12131a;
+}
+
+.ir-facts {
+  margin: 1.5rem 0 0;
+  max-width: 48rem;
+}
+
+.ir-facts__row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.25rem;
+  padding: 0.875rem 0;
+  border-top: 1px solid #e1e4ec;
+}
+
+@media (min-width: 640px) {
+  .ir-facts__row {
+    grid-template-columns: 12rem minmax(0, 1fr);
+    gap: 1.5rem;
+  }
+}
+
+.ir-facts__row dt {
+  margin: 0;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: #12131a;
+}
+
+.ir-facts__row dd {
+  margin: 0;
+  font-size: 0.875rem;
+  line-height: 1.6;
+  color: #64687a;
+}
+
+.ir-links {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  max-width: 48rem;
+}
+
+.ir-links li {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding: 0.875rem 0;
+  border-top: 1px solid #e1e4ec;
+  font-size: 0.875rem;
+  color: #64687a;
+}
+
+.ir-links a {
+  width: fit-content;
+  font-weight: 500;
+  color: #12131a;
+  text-decoration: none;
+  border-bottom: 1px solid #12131a;
+}
+
+.ir-links a:hover {
   color: #7c5cfc;
   border-bottom-color: #7c5cfc;
 }

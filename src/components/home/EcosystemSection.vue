@@ -2,12 +2,12 @@
   <section class="section-padding section-divider bg-kura-background">
     <div class="marketing-container">
       <div class="max-w-2xl mb-16 md:mb-20">
-        <p class="section-label mb-5">Infrastructure</p>
+        <p class="section-label mb-5">{{ t('home.ecosystem.label') }}</p>
         <h2 class="headline-xl text-display-sm md:text-display-md mb-6">
-          One experience. Powered by the best infrastructure.
+          {{ t('home.ecosystem.title') }}
         </h2>
         <p class="prose-lead max-w-lg">
-          Kura combines the best financial infrastructure behind one simple interface. You never need to think about what's happening behind the scenes.
+          {{ t('home.ecosystem.description') }}
         </p>
       </div>
 
@@ -27,6 +27,8 @@
 </template>
 
 <script setup lang="ts">
+const { t } = useI18n()
+
 const partners = [
   'Circle',
   'Base',

@@ -1,0 +1,64 @@
+{
+  "about": {
+    "seo": {
+      "title": "關於",
+      "description": "Kura 是重新設計的現代金融：一個帳戶就能儲蓄、消費、投資、賺取收益並在全球收付款，預設保護隱私，像銀行一樣簡單。",
+      "keywords": "關於 Kura, 現代金融, zero-access, 非託管, 金融帳戶, TrackFi, Kura Card"
+    },
+    "hero": {
+      "eyebrow": "關於 Kura",
+      "title": "現代金融，重新設計。",
+      "description": "一個帳戶就能儲蓄、消費、投資、賺取收益並在全球收付款，兼具銀行的簡單與現代金融的自由。"
+    },
+    "mission": {
+      "label": "使命",
+      "title": "始終屬於你的財務生活。",
+      "description": "我們打造的是軟體，不是金庫。Kura 從設計上就是非託管且 Zero-Access：由你授權每一筆操作，受監管的金流交給合作夥伴處理，而我們不需要能以明文讀取你的資金或 TrackFi 連結，也能做出好用的產品。"
+    },
+    "principles": [
+      { "title": "預設就好看", "description": "金融應該讓人感到平靜而從容，而不是像交易終端。我們執著於清晰，讓日常的金錢決定變得簡單。" },
+      { "title": "以架構保護隱私", "description": "Zero-Access 設計和非託管架構，代表我們不需要持有你的私鑰，也不需要讀取你連結的財務資料，就能運作這個產品。" },
+      { "title": "全球可用，沒有阻礙", "description": "透過受監管的合作夥伴提供出入金、多幣別餘額、交易、收益和美國市場，讓國界不再是障礙。" }
+    ],
+    "product": {
+      "label": "產品",
+      "title": "一個帳戶，需要什麼就用什麼。",
+      "description": "現金、交易、出入金、收益、美股、刷卡消費和資產追蹤，一起使用效果更好，但從不強迫你全部採用。"
+    },
+    "pillars": [
+      { "label": "帳戶", "title": "現金集中一處", "description": "像銀行一樣清楚地持有、匯出和收款，包含多幣別和全球轉帳。" },
+      { "label": "成長", "title": "投資、收益、借貸", "description": "透過 Dinari 投資美股、選擇性的 Morpho 收益，以及隨需取得的流動性。想用時再用，而不是非用不可。" },
+      { "label": "消費", "title": "Kura Card", "description": "在任何接受 Visa 的地方用你的餘額消費。目前提供虛擬卡，實體卡開放候補登記。" },
+      { "label": "全面掌握", "title": "TrackFi", "description": "加密的資產追蹤，涵蓋銀行、券商和鏈上部位，而我們看不到任何明文。" }
+    ],
+    "founder": {
+      "label": "創辦人",
+      "avatarAlt": "Kura 創辦人 Rick Weng",
+      "title": "Rick 的一段話",
+      "paragraphs": [
+        "我不是交易員，也不是套利者。我只是想要一個簡單的地方，管理銀行帳戶、刷卡消費、股票、加密貨幣和鏈上收益，不必在五個 App 之間切換，也不必為了方便而犧牲隱私。",
+        "我找不到這樣的產品，所以我做了 Kura：擁有銀行般平靜的現代金融、Zero-Access 隱私，並把必須受監管的金流交給合作夥伴。"
+      ],
+      "name": "Rick Weng",
+      "role": "Kura Finance LLC 創辦人"
+    },
+    "evolution": {
+      "label": "演進",
+      "title": "Kura 如何成長為一個帳戶。"
+    },
+    "milestones": [
+      { "phase": "01", "title": "TrackFi", "time": "隱私基礎", "content": "加密的資產追蹤，涵蓋銀行、投資和數位資產。Zero-Access 設計讓可讀的財務資料不會留在我們的伺服器上。" },
+      { "phase": "02", "title": "整合式金融帳戶", "time": "一個首頁", "content": "現金、轉帳和平靜的銀行式體驗集中一處：入金、全球匯款，並清楚看到餘額和紀錄。" },
+      { "phase": "03", "title": "投資、收益與借貸", "time": "成長與資金取用", "content": "美股、透明收益和 Morpho 流動性，由受監管的合作夥伴和協定提供，條款清楚可讀。" },
+      { "phase": "04", "title": "Kura Card", "time": "消費", "content": "把餘額變成日常消費：虛擬卡已上線，實體 Kura Card 開放候補登記，提供現金回饋和免手續費的海外消費。" },
+      { "phase": "05", "title": "企業與團隊", "time": "Pro 網頁儀表板", "content": "在 Pro 網頁儀表板上使用共用資金庫、核准、團隊角色和報表，管理公司資金不必再多一套工具。" }
+    ],
+    "trust": {
+      "label": "信任",
+      "title": "在重要的地方保持公開。",
+      "description": "公司資訊、Zero-Access 架構，以及支撐受監管功能的合作夥伴，都整理在我們的信任與安全中心。",
+      "center": "信任中心",
+      "report": "商業報告"
+    }
+  }
+}

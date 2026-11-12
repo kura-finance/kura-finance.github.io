@@ -1,6 +1,6 @@
 <template>
   <component
-    :is="to ? 'NuxtLink' : 'article'"
+    :is="to ? NuxtLinkLocale : 'article'"
     :to="to"
     class="group card-surface p-6 transition-all duration-200 block h-full"
     :class="to ? 'hover:border-kura-primary/30 hover:shadow-card' : ''"
@@ -10,12 +10,12 @@
       <span
         class="text-[11px] px-2 py-1 rounded-full border shrink-0"
         :class="
-          status === 'Published'
+          !status
             ? 'border-kura-accent/40 text-kura-accent'
             : 'border-kura-primary/30 text-kura-primary'
         "
       >
-        {{ status }}
+        {{ status || t('common.published') }}
       </span>
     </div>
     <h3
@@ -30,14 +30,17 @@
 </template>
 
 <script setup lang="ts">
-withDefaults(
-  defineProps<{
-    title: string
-    description: string
-    category: string
-    status?: string
-    to?: string
-  }>(),
-  { status: 'Published' },
-)
+import { resolveComponent } from 'vue'
+
+defineProps<{
+  title: string
+  description: string
+  category: string
+  /** Badge text. Omit for the default "Published" badge. */
+  status?: string
+  to?: string
+}>()
+
+const { t } = useI18n()
+const NuxtLinkLocale = resolveComponent('NuxtLinkLocale')
 </script>

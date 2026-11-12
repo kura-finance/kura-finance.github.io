@@ -3,13 +3,13 @@ definePageMeta({
   layout: 'default',
 })
 
+const { t } = useI18n()
+
 usePageSeo({
-  title: 'Kura — Modern Finance, Redesigned',
-  description:
-    'One account to save, spend, invest, earn, and move money globally. A premium financial experience with the simplicity of a bank and the freedom of modern finance.',
+  title: () => t('home.seo.title'),
+  description: () => t('home.seo.description'),
   path: '/',
-  keywords:
-    'modern finance, fintech, global money, invest stocks, earn yield, financial account, Kura',
+  keywords: () => t('home.seo.keywords'),
   jsonLd: websiteSchema(),
 })
 </script>

@@ -1,19 +1,20 @@
 <template>
   <div class="w-full text-kura-text bg-white">
     <PageHero
-      eyebrow="Legal"
-      title="Prohibited Activities"
-      description="Last updated: October 18, 2026. Activities not allowed on Kura."
+      :eyebrow="t('legal.docs.prohibited.eyebrow')"
+      :title="t('legal.docs.prohibited.title')"
+      :description="t('legal.docs.prohibited.description')"
     />
 
     <div class="marketing-container max-w-3xl pb-20 md:pb-28">
-      <div class="prose max-w-none space-y-8">
+      <ProhibitedZhTw v-if="locale === 'zh-TW'" />
+      <div v-else class="prose max-w-none space-y-8">
         <section>
           <p class="text-kura-text-secondary leading-relaxed text-sm border border-kura-border rounded-xl p-4 bg-kura-background">
             This Prohibited Activities List is incorporated into the
-            <NuxtLink to="/tos" class="text-kura-primary hover:text-kura-accent">Terms of Service</NuxtLink>.
+            <NuxtLinkLocale to="/tos" class="text-kura-primary hover:text-kura-accent">Terms of Service</NuxtLinkLocale>.
             Violation may result in suspension, termination, reporting to partners or authorities, and forfeiture of referral or promotional benefits. We and our partners may apply additional restrictions.
-            This List applies to your use of the Service as operated by Rick Weng (the “Operator”). Your use of the published Kura source code is governed by its open-source license.
+            This List applies to your use of the Service as made available by Kura Finance LLC (the “Operator”). Your use of the published Kura source code is governed by its open-source license.
           </p>
         </section>
 
@@ -92,9 +93,9 @@
       </div>
 
       <div class="mt-16 pt-8 border-t border-kura-border">
-        <NuxtLink to="/tos" class="text-kura-primary hover:text-kura-accent transition-colors">
-          ← Back to Terms of Service
-        </NuxtLink>
+        <NuxtLinkLocale to="/tos" class="text-kura-primary hover:text-kura-accent transition-colors">
+          {{ t('legal.backTos') }}
+        </NuxtLinkLocale>
       </div>
     </div>
   </div>
@@ -105,11 +106,12 @@ definePageMeta({
   layout: 'default',
 })
 
+const { t, locale } = useI18n()
+
 usePageSeo({
-  title: 'Prohibited Activities',
-  description:
-    'Kura prohibited activities list covering sanctions, financial crime, platform abuse, and digital-asset misuse.',
+  title: () => t('legal.docs.prohibited.seo.title'),
+  description: () => t('legal.docs.prohibited.seo.description'),
   path: '/prohibited-activities',
-  keywords: 'prohibited activities, sanctions, AML, acceptable use, Kura open source',
+  keywords: () => t('legal.docs.prohibited.seo.keywords'),
 })
 </script>

@@ -1,31 +1,24 @@
 <template>
   <div class="w-full text-kura-text bg-white">
     <PageHero
-      eyebrow="Support"
-      title="Help Center"
-      description="Reach our team for product, billing, and account questions."
+      :eyebrow="t('help.hero.eyebrow')"
+      :title="t('help.hero.title')"
+      :description="t('help.hero.description')"
     />
 
     <main class="marketing-container max-w-xl pb-20 md:pb-28">
       <div class="card-surface p-8 md:p-10 space-y-6 text-center">
-        <p class="text-sm text-kura-text-secondary">Contact us</p>
-        <div class="flex flex-col gap-4">
-          <a
-            href="mailto:support@kura-finance.com"
-            class="text-lg font-semibold text-kura-primary hover:text-kura-primary-dark transition-colors"
-          >
-            support@kura-finance.com
-          </a>
-          <a
-            href="mailto:hello@kura-finance.com"
-            class="text-lg font-semibold text-kura-primary hover:text-kura-primary-dark transition-colors"
-          >
-            hello@kura-finance.com
-          </a>
-        </div>
+        <p class="text-sm text-kura-text-secondary">{{ t('help.contactUs') }}</p>
+        <a
+          href="mailto:legal@kura-finance.com"
+          class="block text-lg font-semibold text-kura-primary hover:text-kura-primary-dark transition-colors"
+        >
+          legal@kura-finance.com
+        </a>
+        <p class="text-sm text-kura-text-secondary leading-relaxed">{{ t('help.noSupport') }}</p>
         <div class="pt-4 flex flex-col sm:flex-row gap-3 justify-center">
-          <NuxtLink to="/docs" class="btn-secondary text-sm">Browse documentation</NuxtLink>
-          <NuxtLink to="/" class="btn-primary text-sm">Back home</NuxtLink>
+          <NuxtLinkLocale to="/docs" class="btn-secondary text-sm">{{ t('help.docs') }}</NuxtLinkLocale>
+          <NuxtLinkLocale to="/" class="btn-primary text-sm">{{ t('help.home') }}</NuxtLinkLocale>
         </div>
       </div>
     </main>
@@ -37,10 +30,12 @@ definePageMeta({
   layout: 'default',
 })
 
+const { t } = useI18n()
+
 usePageSeo({
-  title: 'Help Center',
-  description: 'Contact Kura support at support@kura-finance.com or hello@kura-finance.com for product, billing, and account help.',
+  title: () => t('help.seo.title'),
+  description: () => t('help.seo.description', { legal: 'legal@kura-finance.com' }),
   path: '/help',
-  keywords: 'Kura help, support, contact, customer service',
+  keywords: () => t('help.seo.keywords'),
 })
 </script>

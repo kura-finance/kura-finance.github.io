@@ -1,0 +1,50 @@
+{
+  "blog": {
+    "seo": {
+      "title": "部落格",
+      "description": "Kura 團隊的產品更新、資安觀點和使用指南。",
+      "keywords": "Kura 部落格, 超級金融 App 消息, 加密金融科技指南"
+    },
+    "hero": {
+      "eyebrow": "產品更新與觀點",
+      "title": "Kura 部落格",
+      "description": "新聞、資安深度解析，以及充分運用超級金融 App 的指南。"
+    },
+    "rss": "透過 RSS 訂閱",
+    "rssTitle": "透過 RSS 訂閱（英文）",
+    "empty": "目前還沒有文章，請稍後再來看看。",
+    "minutes": "{count} 分鐘",
+    "minRead": "閱讀時間 {count} 分鐘",
+    "back": "返回部落格",
+    "allPosts": "所有文章",
+    "browseAll": "瀏覽所有文章 →",
+    "home": "首頁",
+    "postFallback": "部落格文章",
+    "categories": {
+      "Product": "產品",
+      "Security": "資安"
+    },
+    "productUpdates": {
+      "seo": {
+        "title": "產品更新",
+        "description": "Kura 團隊最新的產品消息、功能發布和改進。",
+        "keywords": "Kura 產品更新, 功能, 發布, 部落格"
+      },
+      "eyebrow": "部落格",
+      "title": "產品更新",
+      "description": "Kura 團隊的功能發布、改進和產品消息。",
+      "empty": "目前還沒有產品更新，請稍後再來看看。"
+    },
+    "companyNews": {
+      "seo": {
+        "title": "公司消息",
+        "description": "Kura 的公司公告、團隊動態和消息。",
+        "keywords": "Kura 公司消息, 公告, 團隊, 部落格"
+      },
+      "eyebrow": "部落格",
+      "title": "公司消息",
+      "description": "Kura 的公告、團隊動態和觀點。",
+      "empty": "目前還沒有公司消息，請稍後再來看看。"
+    }
+  }
+}

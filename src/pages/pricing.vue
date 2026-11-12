@@ -1,147 +1,67 @@
 <script setup lang="ts">
 import { ref, computed } from 'vue'
-import { WEB_APP_URL } from '~/utils/site'
 
 definePageMeta({
   layout: 'default',
 })
 
+const { t } = useI18n()
+
 usePageSeo({
-  title: 'Pricing',
-  description:
-    'Simple, transparent pricing. Basic is free. Pro adds web dashboard access, Business & Team tools, extended history, and priority sync. Ultimate adds premium card benefits.',
+  title: () => t('pricing.seo.title'),
+  description: () => t('pricing.seo.description'),
   path: '/pricing',
-  keywords: 'Kura pricing, financial account plans, TrackFi, Business & Team, Kura Card subscription',
+  keywords: () => t('pricing.seo.keywords'),
 })
 
 const isAnnual = ref(false)
 
-const plans = [
-  {
-    name: 'Basic',
-    monthlyPrice: null as number | null,
-    annualPrice: null as number | null,
-    description: 'Everything you need to manage your money — free',
-    features: [
-      {
-        title: 'Financial account',
-        description: 'Send, receive, invest, and earn from one unified account.',
-      },
-      {
-        title: 'Kura Card access',
-        description: 'Join the card waitlist and spend globally when available.',
-      },
-      {
-        title: 'TrackFi dashboard',
-        description: 'Connect accounts with zero access encryption — 30 days of history.',
-      },
-      {
-        title: 'Global transfers',
-        description: 'Move money across borders with bank transfers and digital dollars.',
-      },
-      {
-        title: 'Privacy by default',
-        description: 'No ads, no data selling. Your finances stay yours.',
-      },
-    ],
-    cta: 'Get started free',
-    highlighted: false,
-  },
-  {
-    name: 'Pro',
-    monthlyPrice: 12.99,
-    annualPrice: 129.99,
-    description: 'Web dashboard, Business & Team, and priority sync',
-    features: [
-      {
-        title: 'Everything in Basic',
-        description: 'Full account, card waitlist, and TrackFi included.',
-      },
-      {
-        title: 'Extended history',
-        description: '365 days of encrypted financial history.',
-      },
-      {
-        title: 'Priority sync',
-        description: 'Stay current with 5 manual syncs per day.',
-      },
-      {
-        title: 'Web dashboard',
-        description: 'Full access to markets, research tools, and the desktop web experience.',
-      },
-      {
-        title: 'Business & Team',
-        description: 'Shared Treasury, Approvals, Team roles, and Reports on the web.',
-      },
-    ],
-    cta: 'Get Pro',
-    highlighted: true,
-  },
-  {
-    name: 'Ultimate',
-    monthlyPrice: 29.99,
-    annualPrice: 299.99,
-    description: 'The complete Kura experience with premium benefits',
-    features: [
-      {
-        title: 'Everything in Pro',
-        description: 'All Pro history, sync, web dashboard, and Business & Team features.',
-      },
-      {
-        title: 'Enhanced card benefits',
-        description: 'Premium Kura Card perks when the card launches.',
-      },
-    ],
-    cta: 'Get Ultimate',
-    highlighted: false,
-  },
-]
+type PlanCopy = { name: string; description: string; features: { title: string; description: string }[] }
 
-const getPlanPrice = (plan: (typeof plans)[number]) => {
+const planCopy = useCopy<Record<'basic' | 'pro' | 'ultimate', PlanCopy>>('pricing.plans')
+
+const plans = computed(() => [
+  { ...planCopy.value.basic, monthlyPrice: null as number | null, annualPrice: null as number | null, highlighted: false },
+  { ...planCopy.value.pro, monthlyPrice: 12.99, annualPrice: 129.99, highlighted: true },
+  { ...planCopy.value.ultimate, monthlyPrice: 29.99, annualPrice: 299.99, highlighted: false },
+])
+
+const getPlanPrice = (plan: (typeof plans.value)[number]) => {
   if (plan.monthlyPrice === null) {
-    return { price: 'Free', period: '', subtext: '' }
+    return { price: t('pricing.free'), period: '', subtext: '' }
   }
 
   if (isAnnual.value && plan.annualPrice !== null) {
     const monthlyEquivalent = (plan.annualPrice / 12).toFixed(2)
     return {
       price: `$${plan.annualPrice.toFixed(2)}`,
-      period: '/ yr',
-      subtext: `$${monthlyEquivalent}/mo billed annually`,
+      period: t('pricing.perYear'),
+      subtext: t('pricing.billedAnnually', { price: `$${monthlyEquivalent}` }),
     }
   }
 
   return {
     price: `$${plan.monthlyPrice.toFixed(2)}`,
-    period: '/ mo',
+    period: t('pricing.perMonth'),
     subtext: '',
   }
 }
 
 const displayPlans = computed(() =>
-  plans.map((plan) => ({
+  plans.value.map((plan) => ({
     ...plan,
     display: getPlanPrice(plan),
   })),
 )
 
-const handlePlanAction = (planName: string) => {
-  if (planName === 'Basic') {
-    navigateTo('/download')
-    return
-  }
-  if (import.meta.client) {
-    window.open(WEB_APP_URL, '_blank', 'noopener,noreferrer')
-  }
-}
 </script>
 
 <template>
   <div class="w-full text-kura-text bg-kura-background">
     <PageHero
-      eyebrow="Pricing"
-      title="Simple, transparent pricing"
-      description="Start free. Upgrade to Pro for the web dashboard and Business & Team — or Ultimate for premium card benefits. No hidden fees."
+      :eyebrow="t('pricing.hero.eyebrow')"
+      :title="t('pricing.hero.title')"
+      :description="t('pricing.hero.description')"
     />
 
     <main class="marketing-container pb-20 md:pb-28">
@@ -153,7 +73,7 @@ const handlePlanAction = (planName: string) => {
             :class="!isAnnual ? 'bg-white text-kura-text shadow-sm' : 'text-kura-text-secondary hover:text-kura-text'"
             @click="isAnnual = false"
           >
-            Monthly
+            {{ t('pricing.monthly') }}
           </button>
           <button
             type="button"
@@ -161,9 +81,9 @@ const handlePlanAction = (planName: string) => {
             :class="isAnnual ? 'bg-white text-kura-text shadow-sm' : 'text-kura-text-secondary hover:text-kura-text'"
             @click="isAnnual = true"
           >
-            Annual
+            {{ t('pricing.annual') }}
             <span class="text-[10px] font-bold uppercase tracking-wide px-1.5 py-0.5 rounded-full bg-kura-primary/15 text-kura-primary">
-              Save ~17%
+              {{ t('pricing.save') }}
             </span>
           </button>
         </div>
@@ -179,7 +99,7 @@ const handlePlanAction = (planName: string) => {
               <div class="flex flex-col grow-0 min-h-[170px] lg:min-h-[180px]">
                 <div class="flex items-center justify-between mb-2 min-h-[28px]">
                   <h3 class="text-lg lg:text-xl font-bold">{{ plan.name }}</h3>
-                  <span v-if="plan.highlighted" class="px-2 py-0.5 rounded-full bg-kura-primary/20 text-kura-primary text-[10px] font-bold uppercase tracking-widest whitespace-nowrap ml-2 shrink-0">Popular</span>
+                  <span v-if="plan.highlighted" class="px-2 py-0.5 rounded-full bg-kura-primary/20 text-kura-primary text-[10px] font-bold uppercase tracking-widest whitespace-nowrap ml-2 shrink-0">{{ t('pricing.popular') }}</span>
                 </div>
                 <p class="text-kura-text-secondary mb-4 text-xs lg:text-sm">{{ plan.description }}</p>
 
@@ -192,13 +112,9 @@ const handlePlanAction = (planName: string) => {
                 </div>
               </div>
 
-              <button
-                class="w-full px-4 py-2.5 rounded-full text-sm font-semibold transition-all duration-300 mb-6 shrink-0"
-                :class="plan.highlighted ? 'btn-primary !w-full' : 'btn-secondary !w-full'"
-                @click="handlePlanAction(plan.name)"
-              >
-                {{ plan.cta }}
-              </button>
+              <p class="w-full px-4 py-2.5 rounded-full text-sm font-semibold text-center mb-6 shrink-0 border border-kura-border text-kura-text-secondary">
+                {{ t('pricing.unavailable') }}
+              </p>
 
               <div class="space-y-4 pt-4 border-t border-kura-border flex-grow">
                 <div v-for="(feature, featureIndex) in plan.features" :key="featureIndex" class="flex items-start gap-2.5">
@@ -217,46 +133,40 @@ const handlePlanAction = (planName: string) => {
       </div>
 
       <section class="max-w-3xl mx-auto">
-        <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center tracking-tight">Frequently asked questions</h2>
+        <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center tracking-tight">{{ t('pricing.faq.title') }}</h2>
 
         <div class="space-y-4">
           <details class="group card-surface rounded-2xl p-6 cursor-pointer hover:border-kura-primary/20 transition-colors">
             <summary class="flex items-center justify-between font-bold text-lg">
-              <span>Can I switch plans anytime?</span>
+              <span>{{ t('pricing.faq.switchQ') }}</span>
               <span class="text-2xl group-open:rotate-180 transition-transform">+</span>
             </summary>
-            <p class="mt-4 text-kura-text-secondary">Yes. Upgrade or downgrade whenever you need — your data and account stay under your control throughout.</p>
+            <p class="mt-4 text-kura-text-secondary">{{ t('pricing.faq.switchA') }}</p>
           </details>
 
           <details class="group card-surface rounded-2xl p-6 cursor-pointer hover:border-kura-primary/20 transition-colors">
             <summary class="flex items-center justify-between font-bold text-lg">
-              <span>Which plan includes Business &amp; Team?</span>
+              <span>{{ t('pricing.faq.businessQ') }}</span>
               <span class="text-2xl group-open:rotate-180 transition-transform">+</span>
             </summary>
-            <p class="mt-4 text-kura-text-secondary">
-              Pro and Ultimate. Treasury, Approvals, Team, and Report are part of the web dashboard.
-              Learn more on the
-              <NuxtLink to="/business" class="text-kura-primary font-medium hover:text-kura-primary-dark transition-colors">Business &amp; Team</NuxtLink>
-              page.
-            </p>
+            <i18n-t keypath="pricing.faq.businessA" tag="p" class="mt-4 text-kura-text-secondary" scope="global">
+              <template #link>
+                <NuxtLinkLocale to="/business" class="text-kura-primary font-medium hover:text-kura-primary-dark transition-colors">{{ t('pricing.faq.businessLink') }}</NuxtLinkLocale>
+              </template>
+            </i18n-t>
           </details>
 
           <details class="group card-surface rounded-2xl p-6 cursor-pointer hover:border-kura-primary/20 transition-colors">
             <summary class="flex items-center justify-between font-bold text-lg">
-              <span>Is my data secure?</span>
+              <span>{{ t('pricing.faq.secureQ') }}</span>
               <span class="text-2xl group-open:rotate-180 transition-transform">+</span>
             </summary>
-            <p class="mt-4 text-kura-text-secondary">Yes. TrackFi uses zero access encryption — your financial records are encrypted on your device before sync, and Kura cannot read them.</p>
+            <p class="mt-4 text-kura-text-secondary">{{ t('pricing.faq.secureA') }}</p>
           </details>
         </div>
       </section>
     </main>
 
-    <CTASection
-      primary-label="Download Kura"
-      primary-to="/download"
-      secondary-label="Pro Dashboard"
-      :secondary-to="WEB_APP_URL"
-    />
+    <CTASection />
   </div>
 </template>

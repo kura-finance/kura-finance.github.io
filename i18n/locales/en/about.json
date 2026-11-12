@@ -1,0 +1,64 @@
+{
+  "about": {
+    "seo": {
+      "title": "About",
+      "description": "Kura is modern finance, redesigned — one account to save, spend, invest, earn, and move money globally, with privacy by default and the simplicity of a bank.",
+      "keywords": "about Kura, modern finance, zero-access, non-custodial, financial account, TrackFi, Kura Card"
+    },
+    "hero": {
+      "eyebrow": "About Kura",
+      "title": "Modern finance, redesigned.",
+      "description": "One account to save, spend, invest, earn, and move money globally — with the simplicity of a bank and the freedom of modern finance."
+    },
+    "mission": {
+      "label": "Mission",
+      "title": "A financial life that stays yours.",
+      "description": "We build software, not a vault. Kura is non-custodial and Zero-Access by design: you authorize moves, partners handle regulated rails, and we never need universal plaintext access to your money or TrackFi connections to ship a beautiful product."
+    },
+    "principles": [
+      { "title": "Beautiful by default", "description": "Finance should feel calm and intentional — not like a terminal. We obsess over clarity so everyday money decisions feel simple." },
+      { "title": "Privacy by architecture", "description": "Zero-Access design and non-custodial control mean we do not need to hold your keys or read your connected financial life to operate the product." },
+      { "title": "Global without the friction", "description": "On / off ramps, multi-currency balances, Trade, Earn, and US markets — through regulated partners — so borders feel less like barriers." }
+    ],
+    "product": {
+      "label": "Product",
+      "title": "One account. Pick what you need.",
+      "description": "Cash, Trade, On / Off Ramps, Earn, US stocks, card spend, and portfolio tracking work better together — and never force you to take the whole stack."
+    },
+    "pillars": [
+      { "label": "Account", "title": "One place for cash", "description": "Hold, send, and receive with bank-like clarity — multi-currency and global transfers included." },
+      { "label": "Grow", "title": "Invest, earn, borrow", "description": "US stocks via Dinari, optional Morpho yield, and on-demand liquidity — when you want them, not because you must." },
+      { "label": "Spend", "title": "Kura Card", "description": "Spend from your balance anywhere Visa is accepted. Virtual card today; physical card on the waitlist." },
+      { "label": "See everything", "title": "TrackFi", "description": "Encrypted portfolio tracking for banks, brokerages, and on-chain positions — without giving us plaintext visibility." }
+    ],
+    "founder": {
+      "label": "Founder",
+      "avatarAlt": "Rick Weng, Founder of Kura",
+      "title": "A note from Rick",
+      "paragraphs": [
+        "I am not a trader, and I am not an arbitrageur. I wanted a simple place to manage bank accounts, card spending, stocks, crypto, and on-chain yield — without juggling five apps or surrendering privacy for convenience.",
+        "I could not find that product. So I built Kura: modern finance with a bank-like calm, Zero-Access privacy, and partners for the rails that must be regulated."
+      ],
+      "name": "Rick Weng",
+      "role": "Founder, Kura Finance LLC"
+    },
+    "evolution": {
+      "label": "Evolution",
+      "title": "How Kura grew into one account."
+    },
+    "milestones": [
+      { "phase": "01", "title": "TrackFi", "time": "Privacy foundation", "content": "Encrypted portfolio tracking for banking, investments, and digital assets — Zero-Access so readable financial data stays off our servers." },
+      { "phase": "02", "title": "Unified financial account", "time": "One home screen", "content": "Cash, transfers, and a calm bank-like experience in one place — add money, send globally, and see balance and history clearly." },
+      { "phase": "03", "title": "Invest, Earn & Borrow", "time": "Grow & access", "content": "US equities, transparent yield, and Morpho liquidity — powered by regulated and protocol partners with terms you can read." },
+      { "phase": "04", "title": "Kura Card", "time": "Spend", "content": "Turn balance into everyday spend: virtual card live, physical Kura Card waitlist for cashback and fee-free international use." },
+      { "phase": "05", "title": "Business & Team", "time": "Pro web dashboard", "content": "Shared Treasury, Approvals, Team roles, and Reports on the Pro web dashboard — company cash without a second stack of tools." }
+    ],
+    "trust": {
+      "label": "Trust",
+      "title": "Built in the open where it matters.",
+      "description": "Corporate details, Zero-Access posture, and the partner stack that powers regulated functions live in our Trust & Security Center.",
+      "center": "Trust Center",
+      "report": "Business Report"
+    }
+  }
+}

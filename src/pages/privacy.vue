@@ -1,37 +1,38 @@
 <template>
   <div class="w-full text-kura-text bg-white">
     <PageHero
-      eyebrow="Legal"
-      title="Privacy Policy"
-      description="Last updated: October 18, 2026. How Kura collects, uses, and protects information."
+      :eyebrow="t('legal.docs.privacy.eyebrow')"
+      :title="t('legal.docs.privacy.title')"
+      :description="t('legal.docs.privacy.description')"
     />
 
     <div class="marketing-container max-w-3xl pb-20 md:pb-28">
-      <div class="prose max-w-none space-y-8">
+      <PrivacyZhTw v-if="locale === 'zh-TW'" />
+      <div v-else class="prose max-w-none space-y-8">
         <section>
           <p class="text-kura-text-secondary leading-relaxed text-sm border border-kura-border rounded-xl p-4 bg-kura-background">
-            This Privacy Policy explains how Rick Weng, an individual who operates Kura (the “Operator,” “we,” “us,” or “our”), handles personal information when you use the Kura websites, applications, and related services (the “Service”). Kura Finance LLC, which previously operated the Service, has been dissolved; personal information it held in connection with the Service is now handled by the Operator under this Policy. It should be read with our
-            <NuxtLink to="/tos" class="text-kura-primary hover:text-kura-accent">Terms of Service</NuxtLink>
+            This Privacy Policy explains how Kura Finance LLC, a Wyoming limited liability company that has been dissolved and has ceased operations (the “Operator,” “we,” “us,” or “our”), handles personal information when you use the Kura websites, applications, and related services (the “Service”). It should be read with our
+            <NuxtLinkLocale to="/tos" class="text-kura-primary hover:text-kura-accent">Terms of Service</NuxtLinkLocale>
             and
-            <NuxtLink to="/compliance" class="text-kura-primary hover:text-kura-accent">Trust &amp; Security Center</NuxtLink>.
+            <NuxtLinkLocale to="/compliance" class="text-kura-primary hover:text-kura-accent">Trust &amp; Security Center</NuxtLinkLocale>.
           </p>
         </section>
 
         <section>
           <h2 class="text-2xl font-bold text-kura-text mb-4">1. Who We Are</h2>
           <p class="text-kura-text-secondary leading-relaxed">
-            Controller: Rick Weng, an individual, who operates the Service. Privacy contact:
+            Controller: Kura Finance LLC, a Wyoming limited liability company (dissolved; operations ceased). Mailing address: 1007 N Orange St. 4th Floor 5629, Wilmington, DE 19801. Privacy contact:
             <a href="mailto:privacy@kura-finance.com" class="text-kura-primary hover:text-kura-accent">privacy@kura-finance.com</a>.
           </p>
           <p class="text-kura-text-secondary leading-relaxed mt-3">
-            Kura is now an open-source project. The source code is copyright Rick Weng and published on GitHub. If you run your own copy of the code, you are responsible for any personal information it processes; this Policy covers only the Service as operated by us.
+            Kura is now an open-source project. The source code is copyright Kura Finance LLC and published on GitHub. If you run your own copy of the code, you are responsible for any personal information it processes; this Policy covers only the Service as operated by us.
           </p>
         </section>
 
         <section>
           <h2 class="text-2xl font-bold text-kura-text mb-4">2. Information We Collect</h2>
           <p class="text-kura-text-secondary leading-relaxed">
-            Kura Finance LLC has shut down and only basic wallet features are maintained. Because card, fiat ramp, securities, TrackFi, subscription, and referral features are discontinued, we no longer collect new verification, card display, connected-account, billing, or referral data. The categories below include data collected while those features were available, which may still be retained as described in Section 8.
+            Kura Finance LLC has been dissolved and has ceased operations. The remaining open-source wallet is not maintained. Because card, fiat ramp, securities, TrackFi, subscription, and referral features are discontinued, we no longer collect new verification, card display, connected-account, billing, or referral data. The categories below include data collected while those features were available, which may still be retained as described in Section 8.
           </p>
           <p class="text-kura-text-secondary leading-relaxed mt-3">
             We follow a minimization-first policy and collect only what is needed to operate the Service:
@@ -178,9 +179,9 @@
       </div>
 
       <div class="mt-16 pt-8 border-t border-kura-border">
-        <NuxtLink to="/" class="text-kura-primary hover:text-kura-accent transition-colors">
-          ← Back to Home
-        </NuxtLink>
+        <NuxtLinkLocale to="/" class="text-kura-primary hover:text-kura-accent transition-colors">
+          {{ t('legal.backHome') }}
+        </NuxtLinkLocale>
       </div>
     </div>
   </div>
@@ -191,11 +192,12 @@ definePageMeta({
   layout: 'default',
 })
 
+const { t, locale } = useI18n()
+
 usePageSeo({
-  title: 'Privacy Policy',
-  description:
-    'Kura privacy policy covering self-custody wallet, TrackFi encryption, partner integrations, retention, and zero-access data handling.',
+  title: () => t('legal.docs.privacy.seo.title'),
+  description: () => t('legal.docs.privacy.seo.description'),
   path: '/privacy',
-  keywords: 'privacy policy, GDPR, CCPA, zero-access, data protection, Kura open source',
+  keywords: () => t('legal.docs.privacy.seo.keywords'),
 })
 </script>

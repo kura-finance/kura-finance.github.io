@@ -1,5 +1,7 @@
 <script setup lang="ts">
 import { brandIconOnDarkUrl } from '~/utils/brand'
+
+const { t } = useI18n()
 </script>
 
 <template>
@@ -8,11 +10,11 @@ import { brandIconOnDarkUrl } from '~/utils/brand'
       <div class="grid grid-cols-1 md:grid-cols-5 gap-8 md:gap-10 mb-8 md:mb-12">
         <div class="space-y-4 col-span-1 md:col-span-2">
           <h3 class="text-xl font-bold flex items-center gap-2">
-            <img :src="brandIconOnDarkUrl" alt="Kura Logo" width="32" height="32" loading="lazy" decoding="async" class="w-8 h-8" />
+            <img :src="brandIconOnDarkUrl" :alt="t('nav.logoAlt')" width="32" height="32" loading="lazy" decoding="async" class="w-8 h-8" />
             Kura
           </h3>
           <p class="text-sm text-kura-ink-subtle leading-relaxed max-w-sm">
-            One account to save, spend, invest, earn, and move money globally — private, secure, and beautifully designed.
+            {{ t('footer.tagline') }}
           </p>
           <div class="flex space-x-4 pt-2">
             <a href="https://x.com/kurafinance?s=21" target="_blank" rel="noopener noreferrer" class="text-kura-ink-subtle hover:text-white transition-colors">
@@ -25,47 +27,43 @@ import { brandIconOnDarkUrl } from '~/utils/brand'
         </div>
 
         <div class="space-y-4">
-          <h4 class="font-semibold text-sm uppercase tracking-widest text-kura-ink-muted">Product</h4>
+          <h4 class="font-semibold text-sm uppercase tracking-widest text-kura-ink-muted">{{ t('footer.product') }}</h4>
           <ul class="space-y-2">
-            <li><NuxtLink to="/account" class="text-sm text-kura-ink-subtle hover:text-white transition-colors">Account</NuxtLink></li>
-            <li><NuxtLink to="/kura-card" class="text-sm text-kura-ink-subtle hover:text-white transition-colors">Kura Card</NuxtLink></li>
-            <li><NuxtLink to="/trackfi" class="text-sm text-kura-ink-subtle hover:text-white transition-colors">TrackFi</NuxtLink></li>
-            <li><NuxtLink to="/business" class="text-sm text-kura-ink-subtle hover:text-white transition-colors">Business &amp; Team</NuxtLink></li>
-            <li><NuxtLink to="/compare" class="text-sm text-kura-ink-subtle hover:text-white transition-colors">Compare</NuxtLink></li>
-            <li><NuxtLink to="/pricing" class="text-sm text-kura-ink-subtle hover:text-white transition-colors">Pricing</NuxtLink></li>
+            <li><NuxtLinkLocale to="/account" class="text-sm text-kura-ink-subtle hover:text-white transition-colors">{{ t('nav.links.account') }}</NuxtLinkLocale></li>
+            <li><NuxtLinkLocale to="/kura-card" class="text-sm text-kura-ink-subtle hover:text-white transition-colors">{{ t('nav.links.kuraCard') }}</NuxtLinkLocale></li>
+            <li><NuxtLinkLocale to="/trackfi" class="text-sm text-kura-ink-subtle hover:text-white transition-colors">{{ t('nav.links.trackfi') }}</NuxtLinkLocale></li>
+            <li><NuxtLinkLocale to="/business" class="text-sm text-kura-ink-subtle hover:text-white transition-colors">{{ t('nav.links.business') }}</NuxtLinkLocale></li>
+            <li><NuxtLinkLocale to="/compare" class="text-sm text-kura-ink-subtle hover:text-white transition-colors">{{ t('footer.compare') }}</NuxtLinkLocale></li>
+            <li><NuxtLinkLocale to="/pricing" class="text-sm text-kura-ink-subtle hover:text-white transition-colors">{{ t('nav.pricing') }}</NuxtLinkLocale></li>
           </ul>
         </div>
 
         <div class="space-y-4">
-          <h4 class="font-semibold text-sm uppercase tracking-widest text-kura-ink-muted">Company</h4>
+          <h4 class="font-semibold text-sm uppercase tracking-widest text-kura-ink-muted">{{ t('footer.company') }}</h4>
           <ul class="space-y-2">
-            <li><NuxtLink to="/investors" class="text-sm text-kura-ink-subtle hover:text-white transition-colors">Investors</NuxtLink></li>
-            <li><NuxtLink to="/about" class="text-sm text-kura-ink-subtle hover:text-white transition-colors">About</NuxtLink></li>
-            <li><NuxtLink to="/contact" class="text-sm text-kura-ink-subtle hover:text-white transition-colors">Contact</NuxtLink></li>
-            <li><NuxtLink to="/blog" class="text-sm text-kura-ink-subtle hover:text-white transition-colors">Blog</NuxtLink></li>
+            <li><NuxtLinkLocale to="/investors" class="text-sm text-kura-ink-subtle hover:text-white transition-colors">{{ t('nav.links.businessReport') }}</NuxtLinkLocale></li>
+            <li><NuxtLinkLocale to="/about" class="text-sm text-kura-ink-subtle hover:text-white transition-colors">{{ t('footer.about') }}</NuxtLinkLocale></li>
+            <li><NuxtLinkLocale to="/contact" class="text-sm text-kura-ink-subtle hover:text-white transition-colors">{{ t('footer.contact') }}</NuxtLinkLocale></li>
+            <li><NuxtLinkLocale to="/blog" class="text-sm text-kura-ink-subtle hover:text-white transition-colors">{{ t('nav.links.blog') }}</NuxtLinkLocale></li>
           </ul>
         </div>
 
         <div class="space-y-4">
-          <h4 class="font-semibold text-sm uppercase tracking-widest text-kura-ink-muted">Legal</h4>
+          <h4 class="font-semibold text-sm uppercase tracking-widest text-kura-ink-muted">{{ t('footer.legal') }}</h4>
           <ul class="space-y-2">
-            <li><NuxtLink to="/docs" class="text-sm text-kura-ink-subtle hover:text-white transition-colors">Documentation</NuxtLink></li>
-            <li><NuxtLink to="/tos" class="text-sm text-kura-ink-subtle hover:text-white transition-colors">Terms of Service</NuxtLink></li>
-            <li><NuxtLink to="/privacy" class="text-sm text-kura-ink-subtle hover:text-white transition-colors">Privacy Policy</NuxtLink></li>
-            <li><NuxtLink to="/disclaimer" class="text-sm text-kura-ink-subtle hover:text-white transition-colors">Risk Disclosure</NuxtLink></li>
-            <li><NuxtLink to="/referral-terms" class="text-sm text-kura-ink-subtle hover:text-white transition-colors">Referral Terms</NuxtLink></li>
-            <li><NuxtLink to="/prohibited-activities" class="text-sm text-kura-ink-subtle hover:text-white transition-colors">Prohibited Activities</NuxtLink></li>
-            <li><NuxtLink to="/compliance" class="text-sm text-kura-ink-subtle hover:text-white transition-colors">Compliance</NuxtLink></li>
+            <li><NuxtLinkLocale to="/docs" class="text-sm text-kura-ink-subtle hover:text-white transition-colors">{{ t('footer.documentation') }}</NuxtLinkLocale></li>
+            <li><NuxtLinkLocale to="/tos" class="text-sm text-kura-ink-subtle hover:text-white transition-colors">{{ t('footer.tos') }}</NuxtLinkLocale></li>
+            <li><NuxtLinkLocale to="/privacy" class="text-sm text-kura-ink-subtle hover:text-white transition-colors">{{ t('footer.privacy') }}</NuxtLinkLocale></li>
+            <li><NuxtLinkLocale to="/disclaimer" class="text-sm text-kura-ink-subtle hover:text-white transition-colors">{{ t('footer.disclaimer') }}</NuxtLinkLocale></li>
+            <li><NuxtLinkLocale to="/referral-terms" class="text-sm text-kura-ink-subtle hover:text-white transition-colors">{{ t('footer.referralTerms') }}</NuxtLinkLocale></li>
+            <li><NuxtLinkLocale to="/prohibited-activities" class="text-sm text-kura-ink-subtle hover:text-white transition-colors">{{ t('footer.prohibited') }}</NuxtLinkLocale></li>
+            <li><NuxtLinkLocale to="/compliance" class="text-sm text-kura-ink-subtle hover:text-white transition-colors">{{ t('nav.links.compliance') }}</NuxtLinkLocale></li>
           </ul>
         </div>
       </div>
 
       <div class="border-t border-kura-border-dark pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm">
-        <p class="text-kura-ink-subtle font-mono">© 2026 RICK WENG. All rights reserved.</p>
-        <div class="flex items-center gap-2 text-kura-ink-subtle">
-          <span class="w-2 h-2 rounded-full bg-kura-accent animate-pulse" />
-          <span>Systems Operational</span>
-        </div>
+        <p class="text-kura-ink-subtle font-mono">{{ t('footer.copyright') }}</p>
       </div>
     </div>
   </footer>

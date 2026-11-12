@@ -1,0 +1,71 @@
+{
+  "coverage": {
+    "back": "Back to Documentation",
+    "partners": "Partners:",
+    "partner": "Partner:",
+    "lastUpdated": "Last updated {date}",
+    "searchLabel": "Search countries",
+    "searchPlaceholder": "Type a country name...",
+    "listed": "{count} countries listed",
+    "matches": "{count} matches",
+    "noMatches": "No countries match “{query}”.",
+    "notesTitle": "Important notes",
+    "disclaimer": "Country availability can change as partners update licensing, sanctions lists, and product coverage. Kura displays partner-published lists for transparency — final eligibility is always confirmed during in-app KYC.",
+    "officialSources": "Official sources:",
+    "officialSource": "Official source:"
+  },
+  "stockCountries": {
+    "seo": {
+      "title": "Stock Trading Countries (Dinari)",
+      "description": "See which countries support tokenized US stock trading via Dinari in Kura, and which regions are restricted.",
+      "keywords": "Dinari countries, US stock trading, dShares availability, Kura stocks"
+    },
+    "badge": "Kura · Dinari",
+    "title": "Stock Trading Countries",
+    "subtitle": "Tokenized US stocks and ETFs via Dinari are available in 85+ jurisdictions outside the United States. This page lists regions where trading is not supported.",
+    "sections": {
+      "notAvailable": { "title": "Not available", "description": "These jurisdictions cannot access Dinari stock trading through Kura at this time." },
+      "restricted": { "title": "Restricted countries", "description": "Dinari cannot support business activities in these countries due to OFAC, FATF, and other regulatory requirements." }
+    },
+    "summary": "Dinari dShares (tokenized US stocks & ETFs) are available to non-U.S. persons in 85+ jurisdictions. U.S. persons and residents cannot purchase or redeem dShares through Kura.",
+    "notAvailableNotes": {
+      "United States": "dShares are not registered under the U.S. Securities Act and may not be offered or sold to U.S. persons.",
+      "Canada": "Dinari is in the process of securing proper licensing to operate in Canada."
+    },
+    "notes": [
+      "All Dinari users must complete KYC before trading tokenized US stocks and ETFs.",
+      "Availability outside restricted countries does not guarantee every security or order type is offered in your jurisdiction."
+    ]
+  },
+  "rampCountries": {
+    "seo": {
+      "title": "On/Off-Ramp Countries (Bridge & MoonPay)",
+      "description": "Fiat on-ramp and off-ramp country coverage for Kura — Bridge.xyz bank rails and MoonPay debit/credit card purchases.",
+      "keywords": "Bridge.xyz countries, MoonPay countries, fiat on-ramp, off-ramp, Kura deposits"
+    },
+    "badge": "Kura · Bridge.xyz & MoonPay",
+    "title": "On/Off-Ramp Countries",
+    "subtitle": "Fiat deposits and withdrawals in Kura are powered by Bridge.xyz bank rails and MoonPay debit/credit card purchases. Coverage varies by payment method — search below or browse by rail.",
+    "sources": {
+      "bridge": "Bridge.xyz supported countries",
+      "moonpay": "MoonPay countries API"
+    },
+    "sections": {
+      "usd": { "title": "USD on/off-ramp (ACH & Wire)", "description": "Countries where Bridge supports USD virtual accounts and transfers for Kura fiat deposits and withdrawals." },
+      "eurGbp": { "title": "EUR & GBP on/off-ramp (SEPA & Faster Payments)", "description": "Countries where Bridge supports EUR SEPA and GBP Faster Payments rails used in Kura." },
+      "mxnBrlCop": { "title": "MXN, BRL & COP on/off-ramp (SPEI, Pix, Bre-B)", "description": "Countries where Bridge supports Mexico SPEI, Brazil Pix, and Colombia Bre-B / bank transfer rails." },
+      "card": { "title": "Debit/Credit Card (MoonPay)", "description": "Countries where MoonPay supports debit and credit card purchases for crypto on-ramp in Kura." },
+      "bridgeUnavailable": { "title": "Not available for Bridge onboarding", "description": "Bridge services are unavailable for individuals and businesses located in these countries." },
+      "moonpayUnavailable": { "title": "Not available for MoonPay card purchases", "description": "MoonPay debit and credit card on-ramp is unavailable for residents of these countries." },
+      "prohibited": { "title": "Prohibited jurisdictions", "description": "Bridge will not facilitate services for these jurisdictions under any rail." }
+    },
+    "notes": [
+      "Kura on/off-ramps support USD, EUR, GBP, MXN, BRL, and COP via Bridge.xyz. Additional endorsements may be required for non-USD fiat rails after KYC.",
+      "Debit and credit card crypto purchases in Kura are powered by MoonPay. Availability may vary by card issuer, asset, and local regulations.",
+      "United States: Bridge supports most states except New York based on principal residential or operating address. Business eligibility has additional rules — see Bridge documentation.",
+      "United States: MoonPay card purchases are unavailable for residents of the U.S. Virgin Islands. Sell (off-ramp) has additional state restrictions — see MoonPay documentation.",
+      "USDT and Bridge-issued stablecoins are not supported for users in the European Economic Area (EEA) due to regulatory restrictions.",
+      "Inclusion on these lists does not guarantee every payment method or currency is available for your specific customer profile."
+    ]
+  }
+}

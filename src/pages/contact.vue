@@ -1,37 +1,30 @@
 <script setup lang="ts">
 definePageMeta({ layout: 'default' })
 
+const { t } = useI18n()
+
 usePageSeo({
-  title: 'Contact Us',
-  description: 'Get in touch with the Kura team. General inquiries, support, and partnership questions welcome.',
+  title: () => t('contact.seo.title'),
+  description: () => t('contact.seo.description'),
   path: '/contact',
-  keywords: 'contact Kura, support, hello, help',
+  keywords: () => t('contact.seo.keywords'),
 })
 
-const channels = [
-  {
-    title: 'General inquiries',
-    description: 'Questions about Kura, partnerships, or press.',
-    email: 'hello@kura-finance.com',
-  },
-  {
-    title: 'Support',
-    description: 'Help with your account, app, or TrackFi setup.',
-    email: 'support@kura-finance.com',
-  },
-]
+const channels = computed(() => [
+  { title: t('contact.channels.legal.title'), description: t('contact.channels.legal.description'), email: 'legal@kura-finance.com' },
+])
 </script>
 
 <template>
   <div class="w-full text-kura-text bg-kura-background">
     <PageHero
-      eyebrow="Support"
-      title="Contact us"
-      description="We are here to help. Reach out for general inquiries, account support, or partnership questions."
+      :eyebrow="t('contact.hero.eyebrow')"
+      :title="t('contact.hero.title')"
+      :description="t('contact.hero.description')"
     />
 
     <main class="marketing-container pb-20 md:pb-28">
-      <div class="grid md:grid-cols-2 gap-5 max-w-3xl mb-14">
+      <div class="grid gap-5 max-w-xl mb-14">
         <div v-for="channel in channels" :key="channel.title" class="card-surface p-7">
           <h2 class="text-lg font-semibold mb-2">{{ channel.title }}</h2>
           <p class="text-sm text-kura-text-secondary leading-relaxed mb-4">{{ channel.description }}</p>
@@ -42,35 +35,30 @@ const channels = [
       </div>
 
       <section class="card-surface p-8 md:p-10 max-w-2xl">
-        <h2 class="text-xl font-semibold mb-3">More ways to connect</h2>
+        <h2 class="text-xl font-semibold mb-3">{{ t('contact.more.title') }}</h2>
         <ul class="space-y-3 text-sm text-kura-text-secondary">
           <li>
-            <NuxtLink to="/help" class="text-kura-primary hover:text-kura-primary-dark transition-colors font-medium">
-              Help center →
-            </NuxtLink>
-            — guides and FAQs
+            <NuxtLinkLocale to="/help" class="text-kura-primary hover:text-kura-primary-dark transition-colors font-medium">
+              {{ t('contact.more.help') }}
+            </NuxtLinkLocale>
+            {{ t('contact.more.helpDesc') }}
           </li>
           <li>
-            <NuxtLink to="/community" class="text-kura-primary hover:text-kura-primary-dark transition-colors font-medium">
-              Community →
-            </NuxtLink>
-            — connect with other Kura users
+            <NuxtLinkLocale to="/community" class="text-kura-primary hover:text-kura-primary-dark transition-colors font-medium">
+              {{ t('contact.more.community') }}
+            </NuxtLinkLocale>
+            {{ t('contact.more.communityDesc') }}
           </li>
           <li>
-            <NuxtLink to="/investors" class="text-kura-primary hover:text-kura-primary-dark transition-colors font-medium">
-              Investors →
-            </NuxtLink>
-            — funding and company updates
+            <NuxtLinkLocale to="/investors" class="text-kura-primary hover:text-kura-primary-dark transition-colors font-medium">
+              {{ t('contact.more.report') }}
+            </NuxtLinkLocale>
+            {{ t('contact.more.reportDesc') }}
           </li>
         </ul>
       </section>
     </main>
 
-    <CTASection
-      title="Prefer self-service?"
-      description="Browse the help center for guides on accounts, investing, TrackFi, and more."
-      primary-label="Visit help center"
-      primary-to="/help"
-    />
+    <CTASection />
   </div>
 </template>

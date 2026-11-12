@@ -1,0 +1,64 @@
+{
+  "help": {
+    "seo": {
+      "title": "說明中心",
+      "description": "Kura 沒有客服團隊，僅受理法務事項，請寄信至 {legal}。",
+      "keywords": "Kura 說明, 客服, 聯絡, 客戶服務"
+    },
+    "hero": {
+      "eyebrow": "支援",
+      "title": "說明中心",
+      "description": "Kura 已停止營運，也沒有客服團隊，僅以電子郵件受理法務事項。"
+    },
+    "contactUs": "僅受理法務事項",
+    "docs": "瀏覽文件",
+    "home": "回到首頁",
+    "noSupport": "我們不回覆產品、帳戶或帳單問題，客服信箱也已不再有人處理。"
+  },
+  "contact": {
+    "seo": {
+      "title": "聯絡我們",
+      "description": "Kura 沒有客服團隊，僅以電子郵件受理法務事項。",
+      "keywords": "聯絡 Kura, 支援, hello, 說明"
+    },
+    "hero": {
+      "eyebrow": "支援",
+      "title": "聯絡我們",
+      "description": "Kura 已停止營運，也沒有客服團隊。我們僅以電子郵件受理法務事項，產品、帳戶和合作相關問題將不予回覆。"
+    },
+    "channels": {
+      "legal": {
+        "title": "法務",
+        "description": "與本服務相關的法律通知、隱私請求及其他法律事務。"
+      }
+    },
+    "more": {
+      "title": "更多聯繫方式",
+      "help": "說明中心 →",
+      "helpDesc": "：我們能協助和無法協助的事項",
+      "community": "社群 →",
+      "communityDesc": "：與其他 Kura 使用者交流",
+      "report": "商業報告 →",
+      "reportDesc": "：營運紀錄和學到的事"
+    }
+  },
+  "community": {
+    "seo": {
+      "title": "社群",
+      "description": "Kura 社群中心即將推出。在此之前，請先關注我們的部落格以取得產品更新。"
+    },
+    "hero": {
+      "eyebrow": "社群",
+      "title": "即將推出",
+      "description": "我們正在為 Kura 使用者和開發者打造社群中心。在此之前，請先關注部落格以取得產品更新。",
+      "tags": [
+        "Discord",
+        "活動",
+        "開發者"
+      ]
+    },
+    "connect": "在 X 上追蹤我們。法務事項請寄信至 {email}。",
+    "followX": "在 X 上追蹤",
+    "blog": "閱讀部落格"
+  }
+}

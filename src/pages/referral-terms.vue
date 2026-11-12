@@ -1,21 +1,22 @@
 <template>
   <div class="w-full text-kura-text bg-white">
     <PageHero
-      eyebrow="Legal"
-      title="Referral Program Terms"
-      description="Last updated: October 18, 2026. The Referral Program has been discontinued. These terms remain published for reference."
+      :eyebrow="t('legal.docs.referralTerms.eyebrow')"
+      :title="t('legal.docs.referralTerms.title')"
+      :description="t('legal.docs.referralTerms.description')"
     />
 
     <div class="marketing-container max-w-3xl pb-20 md:pb-28">
-      <div class="prose max-w-none space-y-8">
+      <ReferralTermsZhTw v-if="locale === 'zh-TW'" />
+      <div v-else class="prose max-w-none space-y-8">
         <section>
           <p class="text-kura-text-secondary leading-relaxed text-sm border border-kura-border rounded-xl p-4 bg-kura-background mb-4">
             <span class="font-semibold text-kura-text">Program discontinued.</span>
-            Kura Finance LLC has shut down and the Referral Program has been permanently discontinued. No new referrals are accepted and no new rewards accrue. Section 7 applies to any rewards that were pending when the Program ended. These Program Terms remain published for reference regarding past participation.
+            Kura Finance LLC has been dissolved and has ceased operations, and the Referral Program has been permanently discontinued. No new referrals are accepted and no new rewards accrue. Section 7 applies to any rewards that were pending when the Program ended. These Program Terms remain published for reference regarding past participation.
           </p>
           <p class="text-kura-text-secondary leading-relaxed text-sm border border-kura-border rounded-xl p-4 bg-kura-background">
             These Referral Program Terms (the “Program Terms”) supplement the
-            <NuxtLink to="/tos" class="text-kura-primary hover:text-kura-accent">Terms of Service</NuxtLink>.
+            <NuxtLinkLocale to="/tos" class="text-kura-primary hover:text-kura-accent">Terms of Service</NuxtLinkLocale>.
             For referral matters, these Program Terms control over conflicting ToS provisions, except dispute resolution, liability limits, and general provisions in the ToS. Capitalized terms not defined here have the meanings in the ToS.
           </p>
         </section>
@@ -31,7 +32,7 @@
           <h2 class="text-2xl font-bold text-kura-text mb-4">2. Eligibility</h2>
           <ul class="list-disc pl-6 mt-3 space-y-2 text-kura-text-secondary leading-relaxed">
             <li>Referrer and Referred User must have valid Kura accounts in good standing and comply with the ToS and
-              <NuxtLink to="/prohibited-activities" class="text-kura-primary hover:text-kura-accent">Prohibited Activities List</NuxtLink>.</li>
+              <NuxtLinkLocale to="/prohibited-activities" class="text-kura-primary hover:text-kura-accent">Prohibited Activities List</NuxtLinkLocale>.</li>
             <li>Self-referrals, circular referrals, and referrals between accounts controlled by the same person or household are prohibited.</li>
             <li>Employees, contractors, and agents of Kura may be excluded unless we state otherwise.</li>
             <li>Referred Users must be new to Kura (no prior account under substantially the same identity or wallet cluster, as determined by Kura).</li>
@@ -99,9 +100,9 @@
       </div>
 
       <div class="mt-16 pt-8 border-t border-kura-border">
-        <NuxtLink to="/tos" class="text-kura-primary hover:text-kura-accent transition-colors">
-          ← Back to Terms of Service
-        </NuxtLink>
+        <NuxtLinkLocale to="/tos" class="text-kura-primary hover:text-kura-accent transition-colors">
+          {{ t('legal.backTos') }}
+        </NuxtLinkLocale>
       </div>
     </div>
   </div>
@@ -112,11 +113,12 @@ definePageMeta({
   layout: 'default',
 })
 
+const { t, locale } = useI18n()
+
 usePageSeo({
-  title: 'Referral Program Terms',
-  description:
-    'Kura referral program terms (program discontinued) covering eligibility, eligible revenue, clawback, and payouts.',
+  title: () => t('legal.docs.referralTerms.seo.title'),
+  description: () => t('legal.docs.referralTerms.seo.description'),
   path: '/referral-terms',
-  keywords: 'referral program, revenue share, Kura open source',
+  keywords: () => t('legal.docs.referralTerms.seo.keywords'),
 })
 </script>

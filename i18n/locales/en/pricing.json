@@ -1,0 +1,65 @@
+{
+  "pricing": {
+    "seo": {
+      "title": "Pricing",
+      "description": "Simple, transparent pricing. Basic is free. Pro adds web dashboard access, Business & Team tools, extended history, and priority sync. Ultimate adds premium card benefits.",
+      "keywords": "Kura pricing, financial account plans, TrackFi, Business & Team, Kura Card subscription"
+    },
+    "hero": {
+      "eyebrow": "Pricing",
+      "title": "Simple, transparent pricing",
+      "description": "Start free. Upgrade to Pro for the web dashboard and Business & Team — or Ultimate for premium card benefits. No hidden fees."
+    },
+    "monthly": "Monthly",
+    "annual": "Annual",
+    "save": "Save ~17%",
+    "popular": "Popular",
+    "free": "Free",
+    "perYear": "/ yr",
+    "perMonth": "/ mo",
+    "billedAnnually": "{price}/mo billed annually",
+    "unavailable": "No longer available",
+    "plans": {
+      "basic": {
+        "name": "Basic",
+        "description": "Everything you need to manage your money — free",
+        "features": [
+          { "title": "Financial account", "description": "Send, receive, invest, and earn from one unified account." },
+          { "title": "Kura Card access", "description": "Join the card waitlist and spend globally when available." },
+          { "title": "TrackFi dashboard", "description": "Connect accounts with zero access encryption — 30 days of history." },
+          { "title": "Global transfers", "description": "Move money across borders with bank transfers and digital dollars." },
+          { "title": "Privacy by default", "description": "No ads, no data selling. Your finances stay yours." }
+        ]
+      },
+      "pro": {
+        "name": "Pro",
+        "description": "Web dashboard, Business & Team, and priority sync",
+        "features": [
+          { "title": "Everything in Basic", "description": "Full account, card waitlist, and TrackFi included." },
+          { "title": "Extended history", "description": "365 days of encrypted financial history." },
+          { "title": "Priority sync", "description": "Stay current with 5 manual syncs per day." },
+          { "title": "Web dashboard", "description": "Full access to markets, research tools, and the desktop web experience." },
+          { "title": "Business & Team", "description": "Shared Treasury, Approvals, Team roles, and Reports on the web." }
+        ]
+      },
+      "ultimate": {
+        "name": "Ultimate",
+        "description": "The complete Kura experience with premium benefits",
+        "features": [
+          { "title": "Everything in Pro", "description": "All Pro history, sync, web dashboard, and Business & Team features." },
+          { "title": "Enhanced card benefits", "description": "Premium Kura Card perks when the card launches." }
+        ]
+      }
+    },
+    "faq": {
+      "title": "Frequently asked questions",
+      "switchQ": "Can I switch plans anytime?",
+      "switchA": "Yes. Upgrade or downgrade whenever you need — your data and account stay under your control throughout.",
+      "businessQ": "Which plan includes Business & Team?",
+      "businessA": "Pro and Ultimate. Treasury, Approvals, Team, and Report are part of the web dashboard. Learn more on the {link} page.",
+      "businessLink": "Business & Team",
+      "secureQ": "Is my data secure?",
+      "secureA": "Yes. TrackFi uses zero access encryption — your financial records are encrypted on your device before sync, and Kura cannot read them."
+    }
+  }
+}

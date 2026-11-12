@@ -1,0 +1,69 @@
+{
+  "legal": {
+    "backHome": "← 回到首頁",
+    "translationNote": "本中文版本僅供參考。中文版本與英文版本如有任何歧異或不一致，概以英文版本為準。",
+    "docs": {
+      "tos": {
+        "eyebrow": "法律",
+        "title": "服務條款",
+        "description": "最後更新：2026 年 10 月 18 日。本條款規範你對 Kura 的使用，請詳細閱讀。",
+        "seo": {
+          "title": "服務條款",
+          "description": "Kura 開源錢包的服務條款，由 Kura Finance LLC（已解散）發布。不再維護，依現狀提供，使用風險由你自行承擔。",
+          "keywords": "服務條款, 使用者協議, Kura 開源, 仲裁"
+        }
+      },
+      "privacy": {
+        "eyebrow": "法律",
+        "title": "隱私權政策",
+        "description": "最後更新：2026 年 10 月 18 日。Kura 如何蒐集、使用及保護資訊。",
+        "seo": {
+          "title": "隱私權政策",
+          "description": "Kura 隱私權政策，涵蓋自託管錢包、TrackFi 加密、合作夥伴整合、資料保存及 zero-access 資料處理。",
+          "keywords": "隱私權政策, GDPR, CCPA, zero-access, 資料保護, Kura 開源"
+        }
+      },
+      "disclaimer": {
+        "eyebrow": "法律",
+        "title": "風險揭露",
+        "description": "最後更新：2026 年 10 月 18 日。使用 Kura 及相關數位資產產品的重要風險。",
+        "seo": {
+          "title": "風險揭露",
+          "description": "Kura 風險揭露，涵蓋非託管錢包、DeFi 收益與借貸、跨鏈橋、代幣化證券及合作夥伴服務。",
+          "keywords": "風險揭露, 免責聲明, DeFi 風險, 非託管, Kura 開源"
+        }
+      },
+      "compliance": {
+        "eyebrow": "信任與安全",
+        "title": "信任與安全中心",
+        "description": "Kura 是以 Zero-Access 隱私為核心打造的非託管開源錢包，敏感的使用者資料預設對營運方而言無法讀取。最後更新：2026 年 10 月",
+        "seo": {
+          "title": "合規與信任中心",
+          "description": "Kura 信任中心：安全架構、合作夥伴揭露、合規框架及 zero-access 隱私控管。",
+          "keywords": "合規, 信任中心, 安全架構, Kura 合作夥伴"
+        }
+      },
+      "referralTerms": {
+        "eyebrow": "法律",
+        "title": "推薦計畫條款",
+        "description": "最後更新：2026 年 10 月 18 日。推薦計畫已終止，本條款保留公布以供參考。",
+        "seo": {
+          "title": "推薦計畫條款",
+          "description": "Kura 推薦計畫條款（計畫已終止），涵蓋參加資格、合格營收、追回及獎勵發放。",
+          "keywords": "推薦計畫, 營收分潤, Kura 開源"
+        }
+      },
+      "prohibited": {
+        "eyebrow": "法律",
+        "title": "禁止行為",
+        "description": "最後更新：2026 年 10 月 18 日。在 Kura 上不被允許的行為。",
+        "seo": {
+          "title": "禁止行為",
+          "description": "Kura 禁止行為清單，涵蓋制裁、金融犯罪、平台濫用及數位資產不當使用。",
+          "keywords": "禁止行為, 制裁, 洗錢防制, 可接受使用, Kura 開源"
+        }
+      }
+    },
+    "backTos": "← 返回服務條款"
+  }
+}

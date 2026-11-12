@@ -1,0 +1,47 @@
+{
+  "docs": {
+    "seo": {
+      "title": "文件",
+      "description": "Kura 文件：法律政策、舊版支援地區頁面，以及 GitHub 上的開源程式碼。",
+      "keywords": "Kura 文件, 隱私權政策, 合規, 開源, 信任中心"
+    },
+    "hero": {
+      "eyebrow": "信任、安全與架構",
+      "title": "文件中心",
+      "description": "Kura 的政策、舊版支援地區頁面和原始碼。Kura 現在是一個開源專案。"
+    },
+    "sections": {
+      "countries": "支援國家",
+      "trust": "信任與政策",
+      "investors": "投資人",
+      "source": "原始碼"
+    },
+    "countryDocs": [
+      { "title": "美股支援國家", "description": "舊版參考資料：Dinari dShares 的支援範圍。Kura 的美股交易已終止。", "category": "Dinari" },
+      { "title": "出入金支援國家", "description": "舊版參考資料：Bridge.xyz 和 MoonPay 的支援範圍。Kura 的法幣入金與出金已終止。", "category": "Bridge 與 MoonPay" }
+    ],
+    "trustDocs": [
+      { "title": "隱私權政策", "description": "Kura 如何在 zero-access 營運模式下蒐集、使用和保護使用者資料。", "category": "政策" },
+      { "title": "信任與安全中心", "description": "核心安全控管、加密架構和合規運作框架。", "category": "安全" },
+      { "title": "服務條款", "description": "使用 Kura 產品的法律條款，包括仲裁和服務範圍。", "category": "法律" },
+      { "title": "風險揭露", "description": "非託管錢包、DeFi、跨鏈橋、卡片和合作夥伴服務的重大風險。", "category": "法律" },
+      { "title": "推薦計畫條款", "description": "計畫已終止。過去參與推薦計畫時適用的規則。", "category": "法律" },
+      { "title": "禁止行為", "description": "制裁、金融犯罪、平台濫用和數位資產不當使用的限制。", "category": "法律" }
+    ],
+    "report": {
+      "title": "商業報告",
+      "description": "Kura 的營運紀錄、商業模式、時間軸和學到的事。",
+      "category": "存檔"
+    },
+    "github": {
+      "title": "GitHub 上的 Kura",
+      "description": "Kura 的完整技術堆疊都已開源，你可以閱讀、fork 並自行執行。著作權屬於 Kura Finance LLC。",
+      "category": "開源"
+    },
+    "legal": {
+      "title": "有法律或隱私問題？",
+      "description": "Kura 沒有客服團隊。如有與本服務相關的法律或隱私事務，請寄信給我們。",
+      "button": "聯絡法務"
+    }
+  }
+}

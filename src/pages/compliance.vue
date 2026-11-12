@@ -1,26 +1,32 @@
 <template>
   <div class="w-full text-kura-text bg-white">
     <PageHero
-      eyebrow="Trust & security"
-      title="Trust & Security Center"
-      description="Kura is a non-custodial, open-source wallet built around Zero-Access privacy, so sensitive user data remains unreadable to operators by default. Last updated: October 2026"
+      :eyebrow="t('legal.docs.compliance.eyebrow')"
+      :title="t('legal.docs.compliance.title')"
+      :description="t('legal.docs.compliance.description')"
     />
 
     <div class="marketing-container max-w-3xl pb-20 md:pb-28">
-      <div class="prose max-w-none space-y-8">
+      <ComplianceZhTw v-if="locale === 'zh-TW'" />
+      <div v-else class="prose max-w-none space-y-8">
         <!-- Operator & Ownership -->
         <section>
           <h2 class="text-2xl font-bold text-kura-text mb-4">Operator &amp; Ownership</h2>
           <div class="space-y-3">
             <p class="text-kura-text-secondary">
-              <span class="font-semibold text-kura-text">Operator:</span> Rick Weng, an individual
+              <span class="font-semibold text-kura-text">Legal Entity:</span> Kura Finance LLC, a Wyoming limited liability company (dissolved; operations ceased)
             </p>
             <p class="text-kura-text-secondary">
-              <span class="font-semibold text-kura-text">Source code &amp; copyright:</span> Rick Weng, published on
+              <span class="font-semibold text-kura-text">Source code &amp; copyright:</span> Kura Finance LLC, published on
               <a href="https://github.com/Kura-Finance" target="_blank" rel="noopener noreferrer" class="text-kura-primary hover:text-kura-accent">GitHub</a>
             </p>
             <p class="text-kura-text-secondary">
-              <span class="font-semibold text-kura-text">Former operator:</span> Kura Finance LLC, a Wyoming limited liability company (dissolved)
+              <span class="font-semibold text-kura-text">Mailing Address:</span> 1007 N Orange St. 4th Floor 5629
+              <br />
+              Wilmington, DE 19801
+            </p>
+            <p class="text-kura-text-secondary">
+              <span class="font-semibold text-kura-text">D-U-N-S® Number:</span> 14-499-3126
             </p>
             <p class="text-kura-text-secondary">
               <span class="font-semibold text-kura-text">Contact:</span>
@@ -33,10 +39,10 @@
         <section>
           <h2 class="text-2xl font-bold text-kura-text mb-4">Service Status</h2>
           <p class="text-kura-text-secondary leading-relaxed">
-            Kura Finance LLC has shut down. Kura is now an open-source project with only basic wallet features maintained, on a best-effort basis and without a support team. Bank transfers and fiat ramps, US stocks, cards, KYC, TrackFi, subscriptions, and referrals are permanently discontinued, and we no longer accept sign-ups or deposits. The Service is provided “as is” and used at your own risk; see the
-            <NuxtLink to="/tos" class="text-kura-primary hover:text-kura-accent">Terms of Service</NuxtLink>
+            Kura Finance LLC has been dissolved and has ceased operations. Kura now exists only as an open-source wallet that is not maintained and has no support team. Bank transfers and fiat ramps, US stocks, cards, KYC, TrackFi, subscriptions, and referrals are permanently discontinued, and we no longer accept sign-ups or deposits. The Service is provided “as is” and used at your own risk; see the
+            <NuxtLinkLocale to="/tos" class="text-kura-primary hover:text-kura-accent">Terms of Service</NuxtLinkLocale>
             and
-            <NuxtLink to="/disclaimer" class="text-kura-primary hover:text-kura-accent">Risk Disclosure</NuxtLink>.
+            <NuxtLinkLocale to="/disclaimer" class="text-kura-primary hover:text-kura-accent">Risk Disclosure</NuxtLinkLocale>.
           </p>
         </section>
 
@@ -114,7 +120,7 @@
               <h3 class="text-lg font-semibold text-kura-text mb-2">Subscriptions & Referrals:</h3>
               <p class="text-kura-text-secondary leading-relaxed">
                 Paid tiers (Basic, Pro, Ultimate) and the referral program have been permanently discontinued. Past participation remains subject to the
-                <NuxtLink to="/referral-terms" class="text-kura-primary hover:text-kura-accent">Referral Program Terms</NuxtLink>.
+                <NuxtLinkLocale to="/referral-terms" class="text-kura-primary hover:text-kura-accent">Referral Program Terms</NuxtLinkLocale>.
               </p>
             </div>
 
@@ -137,9 +143,9 @@
 
       <!-- Back Link -->
       <div class="mt-16 pt-8 border-t border-kura-border">
-        <NuxtLink to="/" class="text-kura-primary hover:text-kura-accent transition-colors">
-          ← Back to Home
-        </NuxtLink>
+        <NuxtLinkLocale to="/" class="text-kura-primary hover:text-kura-accent transition-colors">
+          {{ t('legal.backHome') }}
+        </NuxtLinkLocale>
       </div>
     </div>
   </div>
@@ -150,10 +156,12 @@ definePageMeta({
   layout: 'default',
 });
 
+const { t, locale } = useI18n()
+
 usePageSeo({
-  title: 'Compliance & Trust Center',
-  description: 'Kura trust center: security architecture, partner disclosures, compliance framework, and zero-access privacy controls.',
+  title: () => t('legal.docs.compliance.seo.title'),
+  description: () => t('legal.docs.compliance.seo.description'),
   path: '/compliance',
-  keywords: 'compliance, trust center, security architecture, Kura partners',
+  keywords: () => t('legal.docs.compliance.seo.keywords'),
 });
 </script>

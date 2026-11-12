@@ -3,35 +3,35 @@
     <div class="products-mega__layout">
       <!-- Left hero -->
       <aside class="products-mega__hero">
-        <NuxtLink to="/financial-account" class="products-mega__hero-link group" @click="$emit('close')">
-          <h2 class="products-mega__hero-title">Financial Account</h2>
-        </NuxtLink>
+        <NuxtLinkLocale to="/financial-account" class="products-mega__hero-link group" @click="$emit('close')">
+          <h2 class="products-mega__hero-title">{{ t('nav.financialAccount') }}</h2>
+        </NuxtLinkLocale>
         <p class="products-mega__hero-desc">
-          Save, spend, invest, and earn from one beautiful account — at every stage of your financial life.
+          {{ t('nav.financialAccountDesc') }}
         </p>
-        <NuxtLink to="/download" class="products-mega__cta" @click="$emit('close')">
-          Download the app
+        <NuxtLinkLocale to="/investors" class="products-mega__cta" @click="$emit('close')">
+          {{ t('nav.readReport') }}
           <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 17L17 7M17 7H7M17 7v10" />
           </svg>
-        </NuxtLink>
+        </NuxtLinkLocale>
       </aside>
 
       <!-- 2×2 grid -->
       <div class="products-mega__grid">
         <div
           v-for="category in categories"
-          :key="category.title"
+          :key="category.key"
           class="products-mega__cell"
         >
           <h3 class="products-mega__cell-title">{{ category.title }}</h3>
           <p class="products-mega__cell-desc">{{ category.description }}</p>
-          <p class="products-mega__label">Products</p>
+          <p class="products-mega__label">{{ t('nav.products') }}</p>
           <ul class="products-mega__links">
             <li v-for="link in category.links" :key="link.name">
-              <NuxtLink :to="link.to" class="products-mega__link" @click="$emit('close')">
+              <NuxtLinkLocale :to="link.to" class="products-mega__link" @click="$emit('close')">
                 {{ link.name }}
-              </NuxtLink>
+              </NuxtLinkLocale>
             </li>
           </ul>
         </div>
@@ -39,62 +39,27 @@
     </div>
 
     <!-- Bottom banner -->
-    <NuxtLink to="/compare" class="products-mega__banner" @click="$emit('close')">
+    <NuxtLinkLocale to="/compare" class="products-mega__banner" @click="$emit('close')">
       <div class="products-mega__banner-inner">
         <span class="products-mega__banner-title">
-          Compare Kura
+          {{ t('nav.compareTitle') }}
           <span class="products-mega__banner-arrow" aria-hidden="true">→</span>
         </span>
         <p class="products-mega__banner-desc">
-          See how Kura stacks up against traditional banks, exchanges, and wallets.
+          {{ t('nav.compareDesc') }}
         </p>
       </div>
-    </NuxtLink>
+    </NuxtLinkLocale>
   </div>
 </template>
 
 <script setup lang="ts">
+import { PRODUCT_CATEGORIES, useNavGroups } from '~/utils/navigation'
+
 defineEmits<{ close: [] }>()
 
-const categories = [
-  {
-    title: 'Cash & Transfers',
-    description: 'Move money globally with bank transfers and digital dollars.',
-    links: [
-      { name: 'Account', to: '/account' },
-      { name: 'Global Transfers', to: '/global-transfers' },
-      { name: 'Multi-Currency', to: '/multi-currency' },
-    ],
-  },
-  {
-    title: 'Cards & Spending',
-    description: 'Spend your balance anywhere Visa is accepted.',
-    links: [
-      { name: 'Kura Card', to: '/kura-card' },
-      { name: 'Join Waitlist', to: '/card-waitlist' },
-    ],
-  },
-  {
-    title: 'Investing & Earn',
-    description: 'Build wealth with stocks, digital assets, yield, and borrowing.',
-    links: [
-      { name: 'Invest', to: '/invest' },
-      { name: 'US Stocks', to: '/us-stocks' },
-      { name: 'Earn', to: '/earn' },
-      { name: 'Borrow', to: '/borrow' },
-    ],
-  },
-  {
-    title: 'Portfolio & Business',
-    description: 'Personal net worth and shared company cash in one product family.',
-    links: [
-      { name: 'TrackFi', to: '/trackfi' },
-      { name: 'Connected Accounts', to: '/connected-accounts' },
-      { name: 'Net Worth', to: '/net-worth' },
-      { name: 'Business & Team', to: '/business' },
-    ],
-  },
-]
+const { t } = useI18n()
+const categories = useNavGroups(PRODUCT_CATEGORIES, 'categories')
 </script>
 
 <style scoped>

@@ -1,0 +1,170 @@
+{
+  "nav": {
+    "logoAlt": "Kura logo",
+    "products": "Products",
+    "resources": "Resources",
+    "about": "About",
+    "pricing": "Pricing",
+    "sourceCode": "Source code",
+    "toggleMenu": "Toggle menu",
+    "language": "Change language",
+    "ourStory": "Our story",
+    "ourStoryDesc": "Modern finance, redesigned — one account, Zero-Access privacy, and the people building it.",
+    "financialAccount": "Financial Account",
+    "financialAccountDesc": "Save, spend, invest, and earn from one beautiful account — at every stage of your financial life.",
+    "readReport": "Read the business report",
+    "compareTitle": "Compare Kura",
+    "compareDesc": "See how Kura stacks up against traditional banks, exchanges, and wallets.",
+    "jumpTo": "Jump to",
+    "categories": {
+      "cash": {
+        "title": "Cash & Transfers",
+        "description": "Move money globally with bank transfers and digital dollars."
+      },
+      "cards": {
+        "title": "Cards & Spending",
+        "description": "Spend your balance anywhere Visa is accepted."
+      },
+      "investing": {
+        "title": "Investing & Earn",
+        "description": "Build wealth with stocks, digital assets, yield, and borrowing."
+      },
+      "portfolio": {
+        "title": "Portfolio & Business",
+        "description": "Personal net worth and shared company cash in one product family."
+      }
+    },
+    "resourceColumns": {
+      "blog": {
+        "title": "Blog",
+        "description": "News, product updates, and perspectives on modern finance."
+      },
+      "documentation": {
+        "title": "Documentation",
+        "description": "Policies, security docs, and supported regions."
+      },
+      "support": {
+        "title": "Support",
+        "description": "Help, community, and ways to reach our team."
+      }
+    },
+    "aboutColumns": {
+      "connect": {
+        "title": "Connect",
+        "description": ""
+      },
+      "company": {
+        "title": "Company",
+        "description": ""
+      }
+    },
+    "links": {
+      "account": "Account",
+      "globalTransfers": "Global Transfers",
+      "multiCurrency": "Multi-Currency",
+      "kuraCard": "Kura Card",
+      "invest": "Invest",
+      "usStocks": "US Stocks",
+      "earn": "Earn",
+      "borrow": "Borrow",
+      "trackfi": "TrackFi",
+      "connectedAccounts": "Connected Accounts",
+      "netWorth": "Net Worth",
+      "business": "Business & Team",
+      "allPosts": "All posts",
+      "productUpdates": "Product updates",
+      "companyNews": "Company news",
+      "docsCenter": "Documentation center",
+      "stockCountries": "Stock countries",
+      "rampCountries": "On & off-ramp countries",
+      "compliance": "Compliance",
+      "privacy": "Privacy policy",
+      "helpCenter": "Help center",
+      "community": "Community",
+      "contactUs": "Contact us",
+      "businessReport": "Business Report",
+      "blog": "Blog",
+      "x": "X"
+    }
+  },
+  "footer": {
+    "tagline": "One account to save, spend, invest, earn, and move money globally — private, secure, and beautifully designed.",
+    "product": "Product",
+    "company": "Company",
+    "legal": "Legal",
+    "compare": "Compare",
+    "about": "About",
+    "contact": "Contact",
+    "documentation": "Documentation",
+    "tos": "Terms of Service",
+    "privacy": "Privacy Policy",
+    "disclaimer": "Risk Disclosure",
+    "referralTerms": "Referral Terms",
+    "prohibited": "Prohibited Activities",
+    "copyright": "© 2026 KURA FINANCE LLC. All rights reserved."
+  },
+  "banner": {
+    "label": "Service notice",
+    "headline": "Kura Finance LLC has been dissolved and has ceased operations.",
+    "body": "This site is an archive. The features it describes are no longer available.",
+    "details": "Details"
+  },
+  "notice": {
+    "label": "Notice",
+    "title": "Kura Finance LLC has been dissolved and has ceased operations.",
+    "intro": "What remains is an open-source wallet that is no longer maintained. While it keeps working, you can still use the basics, including but not limited to:",
+    "items": [
+      "Holding and sending digital dollars and crypto",
+      "Swapping tokens through public aggregators",
+      "Earning and borrowing on Morpho markets (rates are variable and you can lose money)"
+    ],
+    "keys": "If you need to export your private keys, you can do so on Privy.",
+    "openSourceLead": "The entire project is open source on GitHub.",
+    "openSourceBody": "Anyone can fork it and run their own version, including the Bridge (fiat ramp) and Dinari (US stocks) integrations. To run those, you need your own partner contracts, licenses and KYC.",
+    "close": "Close"
+  },
+  "cta": {
+    "title": "Kura has ceased operations.",
+    "description": "This site is kept as an archive of what Kura offered. The features described here are no longer available. What remains is an open-source wallet that is not maintained.",
+    "report": "Read the business report",
+    "source": "View source code"
+  },
+  "common": {
+    "published": "Published",
+    "discontinued": "Discontinued",
+    "share": "Share",
+    "noData": "No data for this period.",
+    "lastUpdated": "Last updated: {date}",
+    "phoneAlt": "Kura app home screen showing balance, spendable card, and recent activity"
+  },
+  "error": {
+    "notFoundTitle": "This page is off the map",
+    "genericTitle": "Something went wrong",
+    "notFoundDesc": "The link may be broken, or the page may have moved. Head home or browse a few places that still exist.",
+    "genericDesc": "We hit an unexpected error. Try again, or go back to the homepage.",
+    "notFoundMeta": "Page not found | Kura",
+    "genericMeta": "Error | Kura",
+    "label": "Error {code}",
+    "home": "Back to home",
+    "back": "Go back",
+    "tryThese": "Try these instead",
+    "links": {
+      "report": {
+        "title": "Business Report",
+        "hint": "What Kura built"
+      },
+      "docs": {
+        "title": "Docs",
+        "hint": "Guides & policies"
+      },
+      "help": {
+        "title": "Help",
+        "hint": "Support & FAQs"
+      },
+      "contact": {
+        "title": "Contact",
+        "hint": "Reach the team"
+      }
+    }
+  }
+}

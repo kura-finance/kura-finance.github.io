@@ -3,13 +3,13 @@
     <div class="resources-mega__grid">
       <div
         v-for="(column, index) in columns"
-        :key="column.title"
+        :key="column.key"
         class="resources-mega__column"
         :class="index > 0 ? 'resources-mega__column--bordered' : ''"
       >
         <h3 class="resources-mega__title">{{ column.title }}</h3>
         <p class="resources-mega__desc">{{ column.description }}</p>
-        <p class="resources-mega__label">Jump to</p>
+        <p class="resources-mega__label">{{ t('nav.jumpTo') }}</p>
         <ul class="resources-mega__links">
           <li v-for="link in column.links" :key="link.name">
             <a
@@ -20,9 +20,9 @@
             >
               {{ link.name }}
             </a>
-            <NuxtLink v-else :to="link.to" class="resources-mega__link" @click="$emit('close')">
+            <NuxtLinkLocale v-else :to="link.to" class="resources-mega__link" @click="$emit('close')">
               {{ link.name }}
-            </NuxtLink>
+            </NuxtLinkLocale>
           </li>
         </ul>
       </div>
@@ -31,46 +31,12 @@
 </template>
 
 <script setup lang="ts">
+import { RESOURCE_COLUMNS, useNavGroups } from '~/utils/navigation'
+
 defineEmits<{ close: [] }>()
 
-type ResourceLink = { name: string; to: string; external?: boolean }
-
-const columns: Array<{
-  title: string
-  description: string
-  links: ResourceLink[]
-}> = [
-  {
-    title: 'Blog',
-    description: 'News, product updates, and perspectives on modern finance.',
-    links: [
-      { name: 'All posts', to: '/blog' },
-      { name: 'Product updates', to: '/blog/product-updates' },
-      { name: 'Company news', to: '/blog/company-news' },
-    ],
-  },
-  {
-    title: 'Documentation',
-    description: 'Policies, security docs, and supported regions.',
-    links: [
-      { name: 'Documentation center', to: '/docs' },
-      { name: 'Stock countries', to: '/docs/stock-countries' },
-      { name: 'On & off-ramp countries', to: '/docs/on-off-ramp-countries' },
-      { name: 'Compliance', to: '/compliance' },
-      { name: 'Privacy policy', to: '/privacy' },
-    ],
-  },
-  {
-    title: 'Support',
-    description: 'Help, community, and ways to reach our team.',
-    links: [
-      { name: 'Help center', to: '/help' },
-      { name: 'Community', to: '/community' },
-      { name: 'Contact us', to: '/contact' },
-      { name: 'Investors', to: '/investors' },
-    ],
-  },
-]
+const { t } = useI18n()
+const columns = useNavGroups(RESOURCE_COLUMNS, 'resourceColumns')
 </script>
 
 <style scoped>

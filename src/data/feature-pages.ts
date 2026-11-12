@@ -43,26 +43,9 @@ export interface FeaturePageConfig {
   principles?: FeatureItem[]
   principlesTitle?: string
   principlesDescription?: string
-  cta: {
-    title: string
-    description: string
-    primaryLabel?: string
-    primaryTo?: string
-    secondaryLabel?: string
-    secondaryTo?: string
-  }
 }
 
-const defaultCta = {
-  title: 'The future of money starts here',
-  description: 'Download Kura and experience finance designed for the internet generation.',
-  primaryLabel: 'Download Kura',
-  primaryTo: '/download',
-  secondaryLabel: 'Pro Dashboard',
-  secondaryTo: WEB_APP_URL,
-}
-
-export const FEATURE_PAGES = {
+export const FEATURE_PAGES_EN = {
   account: {
     seo: {
       title: 'Account',
@@ -120,7 +103,6 @@ export const FEATURE_PAGES = {
         ],
       },
     ],
-    cta: defaultCta,
   },
 
   'financial-account': {
@@ -159,7 +141,6 @@ export const FEATURE_PAGES = {
         ],
       },
     ],
-    cta: defaultCta,
   },
 
   'global-transfers': {
@@ -201,7 +182,6 @@ export const FEATURE_PAGES = {
         ],
       },
     ],
-    cta: defaultCta,
   },
 
   'multi-currency': {
@@ -243,33 +223,30 @@ export const FEATURE_PAGES = {
         ],
       },
     ],
-    cta: defaultCta,
   },
 
   'card-waitlist': {
     seo: {
-      title: 'Join the Kura Card Waitlist',
-      description: 'Reserve your spot for Kura Card — spend your balance anywhere Visa is accepted with 0.5% cashback and 0% FX fees.',
+      title: 'Kura Card Waitlist (Closed)',
+      description: 'The Kura Card waitlist is closed. The card was planned with 0.5% cashback and 0% FX fees but never launched.',
       path: '/card-waitlist',
       keywords: 'Kura Card waitlist, debit card, Visa, cashback, global spending',
     },
     hero: {
       eyebrow: 'Cards & Spending',
-      title: 'Join the Kura Card waitlist',
-      description: 'Kura Card is coming soon. Download the app to reserve your spot and be first to spend from your Kura account worldwide.',
-      tags: ['Waitlist', 'Visa', '0.5% cashback'],
+      title: 'The Kura Card waitlist is closed',
+      description: 'Kura ran a waitlist for a card that never launched. This page is kept as a record of what was planned.',
+      tags: ['Discontinued', 'Visa', '0.5% cashback'],
     },
     callout: {
-      label: 'Waitlist',
-      title: 'Reserve your spot in the app',
-      description: 'Download Kura, open your account, and join the waitlist to get early access when Kura Card launches.',
-      ctaLabel: 'Join waitlist in app',
-      ctaTo: '/download',
+      label: 'Discontinued',
+      title: 'No cards will be issued',
+      description: 'Kura evaluated card partners but no card was ever issued. The waitlist no longer accepts sign-ups.',
     },
     sections: [
       {
         label: 'Benefits',
-        title: 'Built into every Kura Card',
+        title: 'What the Kura Card was planned to offer',
         columns: 2,
         features: [
           { title: '0.5% cashback', description: 'Earn on eligible spend — automatically applied to your balance.' },
@@ -279,12 +256,6 @@ export const FEATURE_PAGES = {
         ],
       },
     ],
-    cta: {
-      title: 'Be first to spend with Kura Card',
-      description: 'Download the app and join the waitlist today.',
-      primaryLabel: 'Download Kura',
-      primaryTo: '/download',
-    },
   },
 
   invest: {
@@ -326,7 +297,6 @@ export const FEATURE_PAGES = {
         ],
       },
     ],
-    cta: defaultCta,
   },
 
   'us-stocks': {
@@ -368,7 +338,6 @@ export const FEATURE_PAGES = {
         ],
       },
     ],
-    cta: defaultCta,
   },
 
   earn: {
@@ -406,7 +375,6 @@ export const FEATURE_PAGES = {
         ],
       },
     ],
-    cta: defaultCta,
   },
 
   borrow: {
@@ -462,7 +430,6 @@ export const FEATURE_PAGES = {
         ],
       },
     ],
-    cta: defaultCta,
   },
 
   'connected-accounts': {
@@ -515,12 +482,6 @@ export const FEATURE_PAGES = {
         ],
       },
     ],
-    cta: {
-      title: 'Link your first account',
-      description: 'Download Kura, set up your passkey, and connect in a few taps.',
-      primaryLabel: 'Download Kura',
-      primaryTo: '/download',
-    },
   },
 
   'net-worth': {
@@ -562,12 +523,6 @@ export const FEATURE_PAGES = {
         ],
       },
     ],
-    cta: {
-      title: 'Start your timeline',
-      description: 'Download Kura and connect accounts to see your first net worth chart.',
-      primaryLabel: 'Download Kura',
-      primaryTo: '/download',
-    },
   },
 
   banking: {
@@ -608,12 +563,6 @@ export const FEATURE_PAGES = {
         ],
       },
     ],
-    cta: {
-      title: 'Connect your bank accounts',
-      description: 'Set up TrackFi and link your first account in minutes.',
-      primaryLabel: 'Download Kura',
-      primaryTo: '/download',
-    },
   },
 
   investments: {
@@ -654,12 +603,6 @@ export const FEATURE_PAGES = {
         ],
       },
     ],
-    cta: {
-      title: 'Unify your investments',
-      description: 'Download Kura and connect your first brokerage.',
-      primaryLabel: 'Download Kura',
-      primaryTo: '/download',
-    },
   },
 
   'digital-assets': {
@@ -700,12 +643,6 @@ export const FEATURE_PAGES = {
         ],
       },
     ],
-    cta: {
-      title: 'Track your digital holdings',
-      description: 'Download Kura and add your first digital asset connection.',
-      primaryLabel: 'Download Kura',
-      primaryTo: '/download',
-    },
   },
 
   business: {
@@ -723,10 +660,7 @@ export const FEATURE_PAGES = {
         'Fund a shared Treasury, propose payments for co-signers, manage Team roles, and export Reports — built for operators who need clarity without giving up custody.',
       tags: ['Treasury', 'Approvals', 'Team', 'Report'],
     },
-    heroActions: [
-      { label: 'Pro Dashboard', to: WEB_APP_URL, primary: true },
-      { label: 'Get Pro', to: '/pricing' },
-    ],
+    heroActions: [{ label: 'Pro Dashboard', to: WEB_APP_URL, primary: true }],
     callout: {
       label: 'Web dashboard',
       title: 'Business & Team requires Pro or Ultimate',
@@ -770,19 +704,7 @@ export const FEATURE_PAGES = {
         ],
       },
     ],
-    cta: {
-      title: 'Ready for Business & Team?',
-      description: 'Open the Pro Dashboard for Treasury and Approvals, or upgrade if you still need a plan.',
-      primaryLabel: 'Pro Dashboard',
-      primaryTo: WEB_APP_URL,
-      secondaryLabel: 'See pricing',
-      secondaryTo: '/pricing',
-    },
   },
 } as const satisfies Record<string, FeaturePageConfig>
 
-export type FeaturePageSlug = keyof typeof FEATURE_PAGES
-
-export function getFeaturePageConfig(slug: FeaturePageSlug): FeaturePageConfig {
-  return FEATURE_PAGES[slug]
-}
+export type FeaturePageSlug = keyof typeof FEATURE_PAGES_EN

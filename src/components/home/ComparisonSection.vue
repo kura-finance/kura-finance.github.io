@@ -2,9 +2,9 @@
   <section id="compare" class="section-padding bg-kura-surface">
     <div class="marketing-container">
       <div class="max-w-xl mb-16 md:mb-20">
-        <p class="section-label mb-5">Compare</p>
+        <p class="section-label mb-5">{{ t('home.compare.label') }}</p>
         <h2 class="headline-xl text-display-sm md:text-display-md">
-          Finance without the complexity.
+          {{ t('home.compare.title') }}
         </h2>
       </div>
 
@@ -45,46 +45,10 @@
 </template>
 
 <script setup lang="ts">
-const columns = [
-  {
-    title: 'Traditional Banks',
-    highlight: false,
-    items: [
-      'Limited geography',
-      'Slow settlement',
-      'Multiple accounts',
-      'Limited investment access',
-    ],
-  },
-  {
-    title: 'Exchange',
-    highlight: false,
-    items: [
-      'Trading only — no everyday account',
-      'Complex, trader-first interfaces',
-      'No bank transfers or card spending',
-      'Assets held on platform',
-    ],
-  },
-  {
-    title: 'Wallet',
-    highlight: false,
-    items: [
-      'Digital assets only',
-      'No US stocks or earn products',
-      'No fiat on-ramps in one place',
-      'Another app to manage',
-    ],
-  },
-  {
-    title: 'Kura',
-    highlight: true,
-    items: [
-      'Global by default',
-      'Instant digital money',
-      'One unified account',
-      'Cash, investing and earning together',
-    ],
-  },
-]
+const { t } = useI18n()
+const copy = useCopy<{ title: string; items: string[] }[]>('home.compare.columns')
+// The last column is Kura and is highlighted.
+const columns = computed(() =>
+  copy.value.map((column, index) => ({ ...column, highlight: index === copy.value.length - 1 })),
+)
 </script>

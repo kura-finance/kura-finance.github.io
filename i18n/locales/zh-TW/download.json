@@ -1,0 +1,33 @@
+{
+  "download": {
+    "seo": {
+      "title": "下載",
+      "description": "Kura 已停止營運。開源錢包 App 已不再維護，商店頁面隨時可能下架。",
+      "keywords": "下載 Kura, Kura iOS App, App Store, Kura Android, Google Play"
+    },
+    "hero": {
+      "eyebrow": "存檔",
+      "title": "下載 Kura",
+      "description": "Kura 已停止營運。這個 App 是一個不再維護的開源錢包，不再接受新註冊或入金，下方的商店頁面隨時可能下架。"
+    },
+    "storeListings": "商店頁面",
+    "dashboard": "Pro 儀表板",
+    "ios": {
+      "title": "下載 iPhone 版",
+      "description": "這個不再維護之錢包 App 的 App Store 頁面，隨時可能下架。",
+      "button": "在 App Store 下載"
+    },
+    "android": {
+      "title": "下載 Android 版",
+      "description": "這個不再維護之錢包 App 的 Google Play 頁面，隨時可能下架。",
+      "button": "在 Google Play 取得"
+    },
+    "web": {
+      "label": "網頁版",
+      "title": "比較喜歡桌面體驗？",
+      "description": "開啟 Pro 儀表板，使用市場、企業與團隊功能和完整的網頁工作區。需要 Pro 或 Ultimate 方案。"
+    },
+    "disclaimer": "Kura 是 Kura Finance LLC 的產品；Kura Finance LLC 是一家軟體公司，不是銀行。公司已解散並停止營運，卡片、支付和投資服務都已不再提供，剩下的錢包也不再維護。",
+    "help": "說明中心 →"
+  }
+}

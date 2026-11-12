@@ -17,13 +17,13 @@
           >
             {{ action.label }}
           </a>
-          <NuxtLink
+          <NuxtLinkLocale
             v-else
             :to="action.to"
             :class="action.primary ? 'btn-primary' : 'btn-secondary'"
           >
             {{ action.label }}
-          </NuxtLink>
+          </NuxtLinkLocale>
         </template>
       </div>
     </PageHero>
@@ -43,9 +43,9 @@
           >
             {{ callout.ctaLabel }}
           </a>
-          <NuxtLink v-else-if="callout.ctaLabel && callout.ctaTo" :to="callout.ctaTo" class="btn-primary">
+          <NuxtLinkLocale v-else-if="callout.ctaLabel && callout.ctaTo" :to="callout.ctaTo" class="btn-primary">
             {{ callout.ctaLabel }}
-          </NuxtLink>
+          </NuxtLinkLocale>
         </div>
       </section>
 
@@ -68,7 +68,7 @@
           :class="sectionColumnsClass(section.columns ?? 3)"
         >
           <component
-            :is="feature.to ? 'NuxtLink' : 'div'"
+            :is="feature.to ? NuxtLinkLocale : 'div'"
             v-for="feature in section.features"
             :key="feature.title"
             :to="feature.to"
@@ -84,7 +84,7 @@
             <p v-if="feature.subtitle" class="text-sm text-kura-primary font-medium mb-3">{{ feature.subtitle }}</p>
             <p class="text-kura-text-secondary leading-relaxed text-sm">{{ feature.description }}</p>
             <span v-if="feature.to" class="inline-flex items-center gap-1 mt-4 text-sm font-medium text-kura-primary">
-              Learn more
+              {{ t('home.hero.learnMore') }}
               <svg class="w-4 h-4 transition-transform group-hover:translate-x-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
               </svg>
@@ -113,14 +113,7 @@
       </section>
     </main>
 
-    <CTASection
-      :title="cta.title"
-      :description="cta.description"
-      :primary-label="cta.primaryLabel"
-      :primary-to="cta.primaryTo"
-      :secondary-label="cta.secondaryLabel"
-      :secondary-to="cta.secondaryTo"
-    />
+    <CTASection />
   </div>
 </template>
 
@@ -128,7 +121,12 @@
 import type { FeaturePageConfig } from '~/data/feature-pages'
 import { isExternalLink } from '~/utils/site'
 
+import { resolveComponent } from 'vue'
+
 defineProps<FeaturePageConfig>()
+
+const { t } = useI18n()
+const NuxtLinkLocale = resolveComponent('NuxtLinkLocale')
 
 function sectionColumnsClass(columns: 2 | 3) {
   return columns === 2 ? 'md:grid-cols-2' : 'md:grid-cols-2 lg:grid-cols-3'

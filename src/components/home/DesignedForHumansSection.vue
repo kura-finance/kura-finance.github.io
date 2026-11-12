@@ -2,9 +2,9 @@
   <section class="section-padding bg-kura-surface">
     <div class="marketing-container">
       <div class="max-w-xl mb-20 md:mb-24">
-        <p class="section-label mb-5">Principles</p>
+        <p class="section-label mb-5">{{ t('home.principles.label') }}</p>
         <h2 class="headline-xl text-display-sm md:text-display-md">
-          Designed for humans.
+          {{ t('home.principles.title') }}
         </h2>
       </div>
 
@@ -28,18 +28,6 @@
 </template>
 
 <script setup lang="ts">
-const pillars = [
-  {
-    title: 'Beautiful UI',
-    description: 'A financial experience people actually enjoy using.',
-  },
-  {
-    title: 'Privacy by default',
-    description: 'Your assets and identity remain under your control.',
-  },
-  {
-    title: 'Global access',
-    description: 'Borderless finance without unnecessary complexity.',
-  },
-]
+const { t } = useI18n()
+const pillars = useCopy<{ title: string; description: string }[]>('home.principles.items')
 </script>

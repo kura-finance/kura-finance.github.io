@@ -1,0 +1,81 @@
+{
+  "kuraCard": {
+    "seo": {
+      "title": "Kura Card",
+      "description": "Spend your balance anywhere Visa is accepted. 0.5% cashback on eligible spend and 0% foreign exchange fees — the card was planned but never launched, and the waitlist is closed.",
+      "keywords": "Kura Card, debit card, spend globally, cashback, financial account"
+    },
+    "hero": {
+      "eyebrow": "Spend",
+      "title": "Kura Card",
+      "description": "Use your balance like a modern financial account — anywhere Visa is accepted. 0.5% cashback on eligible spend and 0% foreign exchange fees.",
+      "tags": ["Discontinued", "Visa", "Global spending"]
+    },
+    "status": {
+      "label": "Discontinued",
+      "title": "The Kura Card never launched",
+      "description": "Kura ran a waitlist and evaluated card partners, but no card was ever issued. The waitlist is closed and no cards will be issued. This page is kept as a record of what was planned."
+    },
+    "benefits": {
+      "label": "Card benefits",
+      "title": "What the Kura Card was planned to offer",
+      "items": ["0.5% cashback on eligible spend", "0% foreign exchange fees", "Visa debit accepted worldwide", "Spend directly from your account"]
+    },
+    "features": {
+      "label": "Features",
+      "title": "Designed for everyday spending",
+      "items": [
+        { "title": "Spend from your balance", "description": "Use the money in your Kura account in the real world — online, in-store, and abroad. Your funds stay under your control." },
+        { "title": "Visa, everywhere", "description": "A modern debit card accepted wherever Visa is — with 0.5% cashback on eligible spend and 0% foreign exchange fees." },
+        { "title": "Simple setup", "description": "Connect your account, verify your identity, and get your card — designed to take minutes, not days." },
+        { "title": "Instant controls", "description": "Freeze and unfreeze your card from the app with one tap. Full control when you need it." },
+        { "title": "Flexible top-ups", "description": "Add funds by bank transfer, card deposit, or from your Kura account balance — however works best for you." },
+        { "title": "Clear transaction history", "description": "Every purchase, refund, and authorization in one place. Know exactly where your money goes." }
+      ]
+    },
+    "how": {
+      "title": "How it works",
+      "description": "Getting your Kura Card is designed to be simple. Your account stays connected to your card — one experience, end to end.",
+      "steps": ["Open your Kura account", "Review and accept terms", "Verify your identity", "Confirm source of funds", "Verify your phone number", "Activate your card account", "Start spending with your virtual card"],
+      "note": "Regional availability will be confirmed at launch. Card and payment services are provided through regulated partners."
+    }
+  },
+  "trackfi": {
+    "seo": {
+      "title": "TrackFi",
+      "description": "Your complete financial picture in one dashboard. Connect banks, investments, and accounts — protected with zero access encryption.",
+      "keywords": "TrackFi, portfolio, net worth, financial dashboard, privacy, account tracking"
+    },
+    "hero": {
+      "eyebrow": "Portfolio",
+      "title": "See everything in one place",
+      "description": "Your complete financial picture — banking, investments, and accounts — in one beautiful dashboard. Private by default, encrypted by design.",
+      "tags": ["Banking", "Investments", "Zero access encryption"]
+    },
+    "overview": {
+      "label": "Overview",
+      "title": "One dashboard for all your money"
+    },
+    "pillars": [
+      { "title": "Banking", "subtitle": "Checking, savings, and credit", "description": "Link bank accounts and credit cards with read-only access. View balances, track spending, and understand your cash flow — encrypted before it ever leaves your device." },
+      { "title": "Investments", "subtitle": "Stocks, ETFs, and exchange accounts", "description": "Connect brokerage and investment accounts alongside major exchange platforms. See your full investment picture in one place." },
+      { "title": "Digital assets", "subtitle": "Portfolio and account positions", "description": "Track digital asset holdings across supported networks. Connect external accounts or link your Kura account with one tap." }
+    ],
+    "privacy": {
+      "label": "Privacy",
+      "title": "Private by design",
+      "description": "Your assets and identity remain under your control. TrackFi is built so your data stays yours."
+    },
+    "security": [
+      { "title": "Zero access encryption", "description": "Your financial data is encrypted on your device before sync. Kura stores ciphertext only — we cannot read your records." },
+      { "title": "Passkey protection", "description": "Unlock your dashboard with Face ID or Touch ID. Your encryption key never leaves your device unprotected." },
+      { "title": "Unified dashboard", "description": "Banking, investments, and digital holdings in one calm screen — without switching apps." },
+      { "title": "Always up to date", "description": "Scheduled background sync keeps connected accounts current while your session is active." }
+    ],
+    "plans": {
+      "title": "Free to start, Pro for more",
+      "description": "Kura Basic includes TrackFi with unlimited account connections and 30 days of encrypted history. Upgrade for deeper history, priority sync, and advanced insights.",
+      "link": "View pricing →"
+    }
+  }
+}

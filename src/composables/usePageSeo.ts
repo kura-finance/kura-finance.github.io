@@ -27,8 +27,11 @@ export function usePageSeo(options: PageSeoOptions) {
   const article = computed(() => toValue(options.article))
   const jsonLd = computed(() => toValue(options.jsonLd))
 
+  const localePath = useLocalePath()
+  const { locale, t } = useI18n()
+
   const fullTitle = computed(() => pageTitle(title.value, path.value))
-  const url = computed(() => absoluteUrl(path.value))
+  const url = computed(() => absoluteUrl(localePath(path.value)))
   const image = computed(() => absoluteUrl(toValue(options.ogImage) ?? SITE.defaultOgImage))
 
   useSeoMeta({
@@ -41,10 +44,10 @@ export function usePageSeo(options: PageSeoOptions) {
     ogUrl: () => url.value,
     ogType: () => ogType.value,
     ogSiteName: SITE.name,
-    ogLocale: SITE.locale,
+    ogLocale: () => (locale.value === 'zh-TW' ? 'zh_TW' : SITE.locale),
     ogImage: () => image.value,
     ogImageType: 'image/jpeg',
-    ogImageAlt: () => `${SITE.name} — ${SITE.tagline}`,
+    ogImageAlt: () => t('home.seo.title'),
     twitterCard: 'summary_large_image',
     twitterTitle: () => fullTitle.value,
     twitterDescription: () => description.value,

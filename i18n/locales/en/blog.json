@@ -1,0 +1,50 @@
+{
+  "blog": {
+    "seo": {
+      "title": "Blog",
+      "description": "Product updates, security insights, and guides from the Kura team.",
+      "keywords": "Kura blog, super financial app news, crypto fintech guides"
+    },
+    "hero": {
+      "eyebrow": "Product updates & insights",
+      "title": "Kura Blog",
+      "description": "News, security deep-dives, and guides for getting the most out of the Super Financial App."
+    },
+    "rss": "Subscribe via RSS",
+    "rssTitle": "Subscribe via RSS (English)",
+    "empty": "No posts yet. Check back soon.",
+    "minutes": "{count} min",
+    "minRead": "{count} min read",
+    "back": "Back to Blog",
+    "allPosts": "All posts",
+    "browseAll": "Browse all posts →",
+    "home": "Home",
+    "postFallback": "Blog Post",
+    "categories": {
+      "Product": "Product",
+      "Security": "Security"
+    },
+    "productUpdates": {
+      "seo": {
+        "title": "Product Updates",
+        "description": "Latest product news, feature launches, and improvements from the Kura team.",
+        "keywords": "Kura product updates, features, releases, blog"
+      },
+      "eyebrow": "Blog",
+      "title": "Product updates",
+      "description": "Feature launches, improvements, and product news from the Kura team.",
+      "empty": "No product updates yet. Check back soon."
+    },
+    "companyNews": {
+      "seo": {
+        "title": "Company News",
+        "description": "Company announcements, team updates, and news from Kura.",
+        "keywords": "Kura company news, announcements, team, blog"
+      },
+      "eyebrow": "Blog",
+      "title": "Company news",
+      "description": "Announcements, team updates, and perspectives from Kura.",
+      "empty": "No company news posts yet. Check back soon."
+    }
+  }
+}
