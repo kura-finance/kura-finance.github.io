@@ -13,7 +13,7 @@
           <h2 class="text-2xl font-bold text-kura-text mb-4">Operator &amp; Ownership</h2>
           <div class="space-y-3">
             <p class="text-kura-text-secondary">
-              <span class="font-semibold text-kura-text">Operator:</span> Kura Finance LLC, a Wyoming limited liability company
+              <span class="font-semibold text-kura-text">Legal Entity:</span> Kura Finance LLC, a Wyoming limited liability company (dissolved; operations ceased)
             </p>
             <p class="text-kura-text-secondary">
               <span class="font-semibold text-kura-text">Source code &amp; copyright:</span> Kura Finance LLC, published on
@@ -38,7 +38,7 @@
         <section>
           <h2 class="text-2xl font-bold text-kura-text mb-4">Service Status</h2>
           <p class="text-kura-text-secondary leading-relaxed">
-            Kura Finance LLC has shut down. Kura is now an open-source project with only basic wallet features maintained, on a best-effort basis and without a support team. Bank transfers and fiat ramps, US stocks, cards, KYC, TrackFi, subscriptions, and referrals are permanently discontinued, and we no longer accept sign-ups or deposits. The Service is provided “as is” and used at your own risk; see the
+            Kura Finance LLC has been dissolved and has ceased operations. Kura now exists only as an open-source wallet that is not maintained and has no support team. Bank transfers and fiat ramps, US stocks, cards, KYC, TrackFi, subscriptions, and referrals are permanently discontinued, and we no longer accept sign-ups or deposits. The Service is provided “as is” and used at your own risk; see the
             <NuxtLink to="/tos" class="text-kura-primary hover:text-kura-accent">Terms of Service</NuxtLink>
             and
             <NuxtLink to="/disclaimer" class="text-kura-primary hover:text-kura-accent">Risk Disclosure</NuxtLink>.

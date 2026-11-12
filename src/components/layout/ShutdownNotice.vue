@@ -58,10 +58,10 @@ onUnmounted(() => {
           <div class="overflow-y-auto p-6 sm:p-8 text-[15px] sm:text-base">
             <p class="section-label mb-4">Notice</p>
             <h2 id="shutdown-notice-title" class="headline-xl text-2xl sm:text-3xl mb-5">
-              Kura Finance LLC has shut down.
+              Kura Finance LLC has been dissolved and has ceased operations.
             </h2>
             <p class="text-kura-text-secondary leading-relaxed mb-3">
-              Only basic wallet features are still maintained. You can keep using the basics, including but not limited to:
+              What remains is an open-source wallet that is no longer maintained. While it keeps working, you can still use the basics, including but not limited to:
             </p>
             <ul class="list-disc pl-5 space-y-1 text-kura-text-secondary leading-relaxed mb-4">
               <li>Holding and sending digital dollars and crypto</li>

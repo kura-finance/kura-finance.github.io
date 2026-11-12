@@ -11,7 +11,7 @@
         <section>
           <p class="text-kura-text-secondary leading-relaxed text-sm border border-kura-border rounded-xl p-4 bg-kura-background mb-4">
             <span class="font-semibold text-kura-text">Program discontinued.</span>
-            Kura Finance LLC has shut down and the Referral Program has been permanently discontinued. No new referrals are accepted and no new rewards accrue. Section 7 applies to any rewards that were pending when the Program ended. These Program Terms remain published for reference regarding past participation.
+            Kura Finance LLC has been dissolved and has ceased operations, and the Referral Program has been permanently discontinued. No new referrals are accepted and no new rewards accrue. Section 7 applies to any rewards that were pending when the Program ended. These Program Terms remain published for reference regarding past participation.
           </p>
           <p class="text-kura-text-secondary leading-relaxed text-sm border border-kura-border rounded-xl p-4 bg-kura-background">
             These Referral Program Terms (the “Program Terms”) supplement the

@@ -11,7 +11,7 @@
         <section>
           <p class="text-kura-text-secondary leading-relaxed text-sm border border-kura-border rounded-xl p-4 bg-kura-background">
             <span class="font-semibold text-kura-text">Important.</span>
-            Kura Finance LLC has shut down. Kura is now an open-source project with only basic wallet features maintained, provided “as is” and used entirely at your own risk (see Sections 3, 16 and 17).
+            Kura Finance LLC has been dissolved and has ceased operations. Kura now exists only as an unmaintained open-source wallet, provided “as is” and used entirely at your own risk (see Sections 3, 16 and 17).
             These Terms include a binding arbitration agreement and class-action waiver in Section 19.
             By using the Service you agree to resolve disputes individually through arbitration, except where prohibited by law.
             Related documents:
@@ -26,7 +26,7 @@
         <section>
           <h2 class="text-2xl font-bold text-kura-text mb-4">1. Acceptance of Terms</h2>
           <p class="text-kura-text-secondary leading-relaxed">
-            These Terms of Service (the “Terms”) are a binding agreement between you and Kura Finance LLC, a Wyoming limited liability company (the “Operator,” “we,” “us,” or “our”). In these Terms, “Kura” refers to the Service. They govern your access to and use of the Kura mobile application, websites (including kura-finance.com and related subdomains), APIs, dashboards, and any other products or services we enable that link to these Terms (collectively, the “Service”).
+            These Terms of Service (the “Terms”) are a binding agreement between you and Kura Finance LLC, a Wyoming limited liability company that has been dissolved and has ceased operations (the “Operator,” “we,” “us,” or “our”). In these Terms, “Kura” refers to the Service. They govern your access to and use of the Kura mobile application, websites (including kura-finance.com and related subdomains), APIs, dashboards, and any other products or services we enable that link to these Terms (collectively, the “Service”).
           </p>
           <p class="text-kura-text-secondary leading-relaxed mt-3">
             By creating an account, accessing, or using the Service, you agree to these Terms and to the documents incorporated by reference. If you do not agree, do not use the Service. If you use the Service on behalf of an entity, you represent that you have authority to bind that entity, and “you” includes that entity.
@@ -44,9 +44,9 @@
           <h2 class="text-2xl font-bold text-kura-text mb-4">3. Description of the Service</h2>
           <p class="text-kura-text-secondary leading-relaxed">
             <span class="font-semibold text-kura-text">Open-source project; discontinued services.</span>
-            Kura Finance LLC has shut down. Kura is now an open-source project whose source code is published on
+            Kura Finance LLC has been dissolved and has ceased operations. Kura now exists only as an open-source wallet whose source code is published on
             <a href="https://github.com/Kura-Finance" target="_blank" rel="noopener noreferrer" class="text-kura-primary hover:text-kura-accent">GitHub</a>.
-            Only basic wallet features are maintained, on a best-effort basis and without a support team. Bank transfers and fiat ramps, US stocks, cards, KYC, TrackFi, subscriptions, and referrals are permanently discontinued, and we no longer accept sign-ups or deposits. Any other feature may be changed, left unmaintained, or switched off at any time without notice. Descriptions of features below are kept for reference and do not mean those features are available.
+            The wallet is not maintained and has no support team. Bank transfers and fiat ramps, US stocks, cards, KYC, TrackFi, subscriptions, and referrals are permanently discontinued, and we no longer accept sign-ups or deposits. Any other feature may be changed, left unmaintained, or switched off at any time without notice. Descriptions of features below are kept for reference and do not mean those features are available.
           </p>
           <p class="text-kura-text-secondary leading-relaxed mt-3">
             Kura is a non-custodial financial technology application that brings together self-directed tools in one interface, including:
@@ -183,7 +183,7 @@
             To the maximum extent permitted by law, the Service is provided “as is” and “as available,” without warranties of any kind, whether express, implied, or statutory, including merchantability, fitness for a particular purpose, title, and non-infringement. We do not warrant that the Service will be uninterrupted, secure, error-free, or free of harmful components, or that data will be accurate or complete. You assume all risk arising from use of the Service, digital assets, smart contracts, and third-party providers.
           </p>
           <p class="text-kura-text-secondary leading-relaxed mt-3">
-            Kura is an open-source project. It has no support team and may contain bugs or vulnerabilities that will not be fixed. We make no commitment to keep any feature, server, or integration running.
+            Kura is an open-source project. It is not maintained, has no support team, and may contain bugs or vulnerabilities that will not be fixed. We make no commitment to keep any feature, server, or integration running.
           </p>
         </section>
 
@@ -283,7 +283,7 @@ definePageMeta({
 usePageSeo({
   title: 'Terms of Service',
   description:
-    'Kura Terms of Service for the Kura open-source wallet, operated by Kura Finance LLC. Provided as is and used at your own risk.',
+    'Kura Terms of Service for the Kura open-source wallet, published by Kura Finance LLC (dissolved). Unmaintained, provided as is and used at your own risk.',
   path: '/tos',
   keywords: 'terms of service, user agreement, Kura open source, arbitration',
 })

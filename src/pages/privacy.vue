@@ -10,7 +10,7 @@
       <div class="prose max-w-none space-y-8">
         <section>
           <p class="text-kura-text-secondary leading-relaxed text-sm border border-kura-border rounded-xl p-4 bg-kura-background">
-            This Privacy Policy explains how Kura Finance LLC, which operates Kura (the “Operator,” “we,” “us,” or “our”), handles personal information when you use the Kura websites, applications, and related services (the “Service”). It should be read with our
+            This Privacy Policy explains how Kura Finance LLC, a Wyoming limited liability company that has been dissolved and has ceased operations (the “Operator,” “we,” “us,” or “our”), handles personal information when you use the Kura websites, applications, and related services (the “Service”). It should be read with our
             <NuxtLink to="/tos" class="text-kura-primary hover:text-kura-accent">Terms of Service</NuxtLink>
             and
             <NuxtLink to="/compliance" class="text-kura-primary hover:text-kura-accent">Trust &amp; Security Center</NuxtLink>.
@@ -20,7 +20,7 @@
         <section>
           <h2 class="text-2xl font-bold text-kura-text mb-4">1. Who We Are</h2>
           <p class="text-kura-text-secondary leading-relaxed">
-            Controller: Kura Finance LLC, a Wyoming limited liability company, which operates the Service. Mailing address: 1007 N Orange St. 4th Floor 5629, Wilmington, DE 19801. Privacy contact:
+            Controller: Kura Finance LLC, a Wyoming limited liability company (dissolved; operations ceased). Mailing address: 1007 N Orange St. 4th Floor 5629, Wilmington, DE 19801. Privacy contact:
             <a href="mailto:privacy@kura-finance.com" class="text-kura-primary hover:text-kura-accent">privacy@kura-finance.com</a>.
           </p>
           <p class="text-kura-text-secondary leading-relaxed mt-3">
@@ -31,7 +31,7 @@
         <section>
           <h2 class="text-2xl font-bold text-kura-text mb-4">2. Information We Collect</h2>
           <p class="text-kura-text-secondary leading-relaxed">
-            Kura Finance LLC has shut down and only basic wallet features are maintained. Because card, fiat ramp, securities, TrackFi, subscription, and referral features are discontinued, we no longer collect new verification, card display, connected-account, billing, or referral data. The categories below include data collected while those features were available, which may still be retained as described in Section 8.
+            Kura Finance LLC has been dissolved and has ceased operations. The remaining open-source wallet is not maintained. Because card, fiat ramp, securities, TrackFi, subscription, and referral features are discontinued, we no longer collect new verification, card display, connected-account, billing, or referral data. The categories below include data collected while those features were available, which may still be retained as described in Section 8.
           </p>
           <p class="text-kura-text-secondary leading-relaxed mt-3">
             We follow a minimization-first policy and collect only what is needed to operate the Service:

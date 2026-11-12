@@ -12,7 +12,7 @@
           <p class="text-kura-text-secondary leading-relaxed text-sm border border-kura-border rounded-xl p-4 bg-kura-background">
             This Risk Disclosure is incorporated into the
             <NuxtLink to="/tos" class="text-kura-primary hover:text-kura-accent">Terms of Service</NuxtLink>.
-            Kura Finance LLC has shut down. Kura is now an open-source project with only basic wallet features maintained, and you use it entirely at your own risk.
+            Kura Finance LLC has been dissolved and has ceased operations. Kura now exists only as an unmaintained open-source wallet, and you use it entirely at your own risk.
             Digital assets and DeFi can result in total loss of funds. Only use money you can afford to lose. This is not financial, legal, or tax advice.
           </p>
         </section>
@@ -20,11 +20,11 @@
         <section>
           <h2 class="text-2xl font-bold text-kura-text mb-4">1. Open-Source Software, Not a Bank</h2>
           <p class="text-kura-text-secondary leading-relaxed">
-            Kura is open-source software operated by Kura Finance LLC, a Wyoming limited liability company (the “Operator”). The source code is copyright Kura Finance LLC. The Operator is not a bank, broker-dealer, money transmitter, exchange, custodian, or investment adviser. Crypto assets and tokenized securities are volatile and are not insured by the FDIC, SIPC, FSCS, or any government agency.
+            Kura is open-source software published by Kura Finance LLC, a Wyoming limited liability company that has been dissolved and has ceased operations (the “Operator”). The source code is copyright Kura Finance LLC. The Operator is not a bank, broker-dealer, money transmitter, exchange, custodian, or investment adviser. Crypto assets and tokenized securities are volatile and are not insured by the FDIC, SIPC, FSCS, or any government agency.
           </p>
           <p class="text-kura-text-secondary leading-relaxed mt-3">
             <span class="font-semibold text-kura-text">Unmaintained and discontinued services.</span>
-            Only basic wallet features are maintained, on a best-effort basis and without a support team. Bank transfers and fiat ramps, US stocks, cards, KYC, TrackFi, subscriptions, and referrals are permanently discontinued. Any remaining feature, server, or integration may stop working or be switched off at any time without notice, and bugs or vulnerabilities may never be fixed. If the integration with our authentication partner (Privy) stops, you may lose access through Kura; export your private keys and keep them safe while you can.
+            The wallet is not maintained and has no support team. Bank transfers and fiat ramps, US stocks, cards, KYC, TrackFi, subscriptions, and referrals are permanently discontinued. Any remaining feature, server, or integration may stop working or be switched off at any time without notice, and bugs or vulnerabilities may never be fixed. If the integration with our authentication partner (Privy) stops, you may lose access through Kura; export your private keys and keep them safe while you can.
           </p>
         </section>
 
