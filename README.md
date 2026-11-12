@@ -20,7 +20,7 @@ The **Kura Landing Page** is the browser-facing marketing and documentation site
 - Product narrative (account, card, TrackFi, Business & Team, pricing)
 - Legal / trust pages and partner coverage references
 - Blog (`@nuxt/content`)
-- Investor metrics UI (proxied to the Kura API)
+- Business report (static archive at `/investors`)
 
 The **web dashboard**, **mobile wallet**, and **API** are separate proprietary products. This Data Room covers the **landing site** only.
 

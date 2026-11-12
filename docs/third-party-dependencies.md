@@ -34,12 +34,8 @@ Country lists under `src/data/coverage/` reference official partner docs:
 
 Each file should keep `lastUpdated` and `sourceUrl` current. Lists are **marketing references**, not contractual eligibility guarantees.
 
-## Backend integrations (investor proxies only)
+## Backend integrations
 
-| Proxy prefix | Upstream |
-|--------------|----------|
-| `/api/platform-insights/*` | `api.kura-finance.com/api/platform-insights/*` |
-| `/api/lifi-analytics/*` | `api.kura-finance.com/api/lifi-analytics/*` |
-| `/api/privy-analytics/*` | `api.kura-finance.com/api/privy-analytics/*` |
+None. The site makes no calls to `api.kura-finance.com`; the former investor-metrics proxies were removed when the business report became a static page.
 
 Outbound CTAs (not integrations): App Store, Google Play, `app.kura-finance.com`.

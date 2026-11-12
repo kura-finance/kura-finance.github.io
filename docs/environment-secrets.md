@@ -28,11 +28,9 @@ Defined in `src/utils/site.ts` and related utils:
 |----------|----------------|
 | `WEB_APP_URL` | `https://app.kura-finance.com` |
 | `APP_STORE.ios` / `.android` | Store listing URLs |
-| `KURA_API_BASE` | `https://api.kura-finance.com` (server proxies) |
 
 ## Hygiene checklist
 
 1. No production tokens in git history for this repo’s active branch  
-2. Investor proxies only call the public API base over HTTPS  
-3. CSP `connect-src` limited to self + API + Cloudflare Insights domains  
-4. Rotate CF deploy tokens out-of-band if compromised
+2. CSP `connect-src` limited to self + Cloudflare Insights domains  
+3. Rotate CF deploy tokens out-of-band if compromised

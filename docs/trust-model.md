@@ -8,7 +8,6 @@
 |-------|--------|
 | Serve accurate marketing & legal copy | Static / prerendered pages |
 | Expose partner availability references | Curated lists in `src/data/coverage/` |
-| Proxy investor metrics under Kura control | Same-origin `/api/*` → backend |
 
 ## What this site is **not** trusted with
 
@@ -27,8 +26,6 @@ Public internet
     ▼
 Cloudflare Pages (edge) ──► prerendered assets (high trust for integrity of HTML/JS)
     │
-    ├──► Nitro Functions ──► api.kura-finance.com (authenticated server-to-server only as designed by backend)
-    │
     └──► Third-party CDNs (fonts.googleapis.com, Cloudflare Insights) — cosmetic / analytics
 ```
 
@@ -44,4 +41,4 @@ No first-party auth cookies are set by the marketing site for the consumer produ
 
 ## Investor page caveat
 
-`/investors` displays operational metrics. Treat the page as **internal / NDA-grade** even if the route is reachable: numbers reflect backend aggregates and should not be interpreted as audited financial statements.
+`/investors` is a static business report with operating data as of 30 October 2026. The figures are unaudited and should not be read as financial statements.
