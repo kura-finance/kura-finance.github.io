@@ -1,43 +1,50 @@
 <script setup lang="ts">
 import { dinariCoverage } from '~/data/coverage/dinari-countries'
+import { COUNTRY_NAMES_ZH_TW } from '~/data/coverage/country-names.zh-TW'
 
 definePageMeta({ layout: 'default' })
 
-const sections = [
+const { t, locale } = useI18n()
+const extraNotes = useCopy<string[]>('stockCountries.notes')
+
+const sections = computed(() => [
   {
-    title: 'Not available',
-    description: 'These jurisdictions cannot access Dinari stock trading through Kura at this time.',
+    title: t('stockCountries.sections.notAvailable.title'),
+    description: t('stockCountries.sections.notAvailable.description'),
     countries: dinariCoverage.notAvailable.map((item) => item.name),
     variant: 'warning' as const,
   },
   {
-    title: 'Restricted countries',
-    description: 'Dinari cannot support business activities in these countries due to OFAC, FATF, and other regulatory requirements.',
+    title: t('stockCountries.sections.restricted.title'),
+    description: t('stockCountries.sections.restricted.description'),
     countries: dinariCoverage.restricted,
     variant: 'warning' as const,
   },
-]
+])
 
-const notes = [
-  dinariCoverage.summary,
-  ...dinariCoverage.notAvailable.map((item) => `${item.name}: ${item.note}`),
-  'All Dinari users must complete KYC before trading tokenized US stocks and ETFs.',
-  'Availability outside restricted countries does not guarantee every security or order type is offered in your jurisdiction.',
-]
+const notes = computed(() => [
+  t('stockCountries.summary'),
+  ...dinariCoverage.notAvailable.map((item) => {
+    const name = locale.value === 'zh-TW' ? (COUNTRY_NAMES_ZH_TW[item.name] ?? item.name) : item.name
+    const separator = locale.value === 'zh-TW' ? '：' : ': '
+    return `${name}${separator}${t(`stockCountries.notAvailableNotes.${item.name}`)}`
+  }),
+  ...extraNotes.value,
+])
 
 usePageSeo({
-  title: 'Stock Trading Countries (Dinari)',
-  description: 'See which countries support tokenized US stock trading via Dinari in Kura, and which regions are restricted.',
+  title: () => t('stockCountries.seo.title'),
+  description: () => t('stockCountries.seo.description'),
   path: '/docs/stock-countries',
-  keywords: 'Dinari countries, US stock trading, dShares availability, Kura stocks',
+  keywords: () => t('stockCountries.seo.keywords'),
 })
 </script>
 
 <template>
   <CoverageCountriesPage
-    badge="Kura · Dinari"
-    title="Stock Trading Countries"
-    subtitle="Tokenized US stocks and ETFs via Dinari are available in 85+ jurisdictions outside the United States. This page lists regions where trading is not supported."
+    :badge="t('stockCountries.badge')"
+    :title="t('stockCountries.title')"
+    :subtitle="t('stockCountries.subtitle')"
     partner="Dinari"
     partner-url="https://dinari.com"
     docs-hub-path="/docs"

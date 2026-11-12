@@ -38,8 +38,8 @@ export function isExternalLink(url: string) {
 }
 
 /** Blog / marketing date-only formatter (UTC calendar day). */
-export function formatBlogDate(date: string) {
-  return new Date(date).toLocaleDateString('en-US', {
+export function formatBlogDate(date: string, locale = 'en') {
+  return new Date(date).toLocaleDateString(locale === 'en' ? 'en-US' : locale, {
     year: 'numeric',
     month: 'long',
     day: 'numeric',

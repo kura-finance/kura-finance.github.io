@@ -4,7 +4,7 @@
       <slot>
         <NuxtImg
           :src="screenshot"
-          :alt="alt"
+          :alt="alt ?? t('common.phoneAlt')"
           width="1206"
           height="2622"
           fetchpriority="high"
@@ -26,10 +26,12 @@ const props = withDefaults(
   }>(),
   {
     screenshot: '/screenshot.webp',
-    alt: 'Kura app home screen showing balance, spendable card, and recent activity',
+    alt: undefined,
     size: 'default',
   },
 )
+
+const { t } = useI18n()
 
 const sizeClass = computed(() =>
   props.size === 'large'

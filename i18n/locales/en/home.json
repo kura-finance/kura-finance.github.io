@@ -1,0 +1,63 @@
+{
+  "home": {
+    "seo": {
+      "title": "Kura — Modern Finance, Redesigned",
+      "description": "One account to save, spend, invest, earn, and move money globally. A premium financial experience with the simplicity of a bank and the freedom of modern finance.",
+      "keywords": "modern finance, fintech, global money, invest stocks, earn yield, financial account, Kura"
+    },
+    "hero": {
+      "titleLine1": "Modern finance,",
+      "titleLine2": "redesigned.",
+      "description": "One account to save, spend, invest, earn, and move money globally—with the simplicity of a bank and the freedom of modern finance.",
+      "source": "View source code",
+      "dashboard": "Pro Dashboard",
+      "learnMore": "Learn more"
+    },
+    "features": {
+      "label": "Product",
+      "title": "Everything your money needs.",
+      "items": [
+        { "number": "01", "title": "Cash", "description": "Move money globally with bank transfers and digital dollars." },
+        { "number": "02", "title": "Invest", "description": "Access US stocks and digital assets in one place." },
+        { "number": "03", "title": "Earn", "description": "Put idle cash to work with transparent yield strategies." },
+        { "number": "04", "title": "Borrow", "description": "Access liquidity through Morpho markets with clear rates and collateral terms." },
+        { "number": "05", "title": "Spend", "description": "Use your balance like a modern financial account." }
+      ]
+    },
+    "principles": {
+      "label": "Principles",
+      "title": "Designed for humans.",
+      "items": [
+        { "title": "Beautiful UI", "description": "A financial experience people actually enjoy using." },
+        { "title": "Privacy by default", "description": "Your assets and identity remain under your control." },
+        { "title": "Global access", "description": "Borderless finance without unnecessary complexity." }
+      ]
+    },
+    "ecosystem": {
+      "label": "Infrastructure",
+      "title": "One experience. Powered by the best infrastructure.",
+      "description": "Kura combines the best financial infrastructure behind one simple interface. You never need to think about what's happening behind the scenes."
+    },
+    "compare": {
+      "label": "Compare",
+      "title": "Finance without the complexity.",
+      "columns": [
+        { "title": "Traditional Banks", "items": ["Limited geography", "Slow settlement", "Multiple accounts", "Limited investment access"] },
+        { "title": "Exchange", "items": ["Trading only — no everyday account", "Complex, trader-first interfaces", "No bank transfers or card spending", "Assets held on platform"] },
+        { "title": "Wallet", "items": ["Digital assets only", "No US stocks or earn products", "No fiat on-ramps in one place", "Another app to manage"] },
+        { "title": "Kura", "items": ["Global by default", "Instant digital money", "One unified account", "Cash, investing and earning together"] }
+      ]
+    }
+  },
+  "comparePage": {
+    "seo": {
+      "title": "Compare Kura",
+      "description": "See how Kura stacks up against traditional banks, exchanges, and wallets — one account for cash, investing, and earning.",
+      "keywords": "compare Kura, vs banks, vs exchange, vs wallet, financial account"
+    },
+    "eyebrow": "Compare",
+    "title": "Finance without the complexity",
+    "description": "See how Kura stacks up against traditional banks, exchanges, and wallets — one unified account for cash, investing, and earning.",
+    "tags": ["Traditional banks", "Exchange", "Wallet", "Kura"]
+  }
+}

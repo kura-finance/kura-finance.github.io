@@ -1,19 +1,20 @@
 <template>
   <div class="w-full text-kura-text bg-white">
     <PageHero
-      eyebrow="Legal"
-      title="Privacy Policy"
-      description="Last updated: October 18, 2026. How Kura collects, uses, and protects information."
+      :eyebrow="t('legal.docs.privacy.eyebrow')"
+      :title="t('legal.docs.privacy.title')"
+      :description="t('legal.docs.privacy.description')"
     />
 
     <div class="marketing-container max-w-3xl pb-20 md:pb-28">
-      <div class="prose max-w-none space-y-8">
+      <PrivacyZhTw v-if="locale === 'zh-TW'" />
+      <div v-else class="prose max-w-none space-y-8">
         <section>
           <p class="text-kura-text-secondary leading-relaxed text-sm border border-kura-border rounded-xl p-4 bg-kura-background">
             This Privacy Policy explains how Kura Finance LLC, a Wyoming limited liability company that has been dissolved and has ceased operations (the “Operator,” “we,” “us,” or “our”), handles personal information when you use the Kura websites, applications, and related services (the “Service”). It should be read with our
-            <NuxtLink to="/tos" class="text-kura-primary hover:text-kura-accent">Terms of Service</NuxtLink>
+            <NuxtLinkLocale to="/tos" class="text-kura-primary hover:text-kura-accent">Terms of Service</NuxtLinkLocale>
             and
-            <NuxtLink to="/compliance" class="text-kura-primary hover:text-kura-accent">Trust &amp; Security Center</NuxtLink>.
+            <NuxtLinkLocale to="/compliance" class="text-kura-primary hover:text-kura-accent">Trust &amp; Security Center</NuxtLinkLocale>.
           </p>
         </section>
 
@@ -178,9 +179,9 @@
       </div>
 
       <div class="mt-16 pt-8 border-t border-kura-border">
-        <NuxtLink to="/" class="text-kura-primary hover:text-kura-accent transition-colors">
-          ← Back to Home
-        </NuxtLink>
+        <NuxtLinkLocale to="/" class="text-kura-primary hover:text-kura-accent transition-colors">
+          {{ t('legal.backHome') }}
+        </NuxtLinkLocale>
       </div>
     </div>
   </div>
@@ -191,11 +192,12 @@ definePageMeta({
   layout: 'default',
 })
 
+const { t, locale } = useI18n()
+
 usePageSeo({
-  title: 'Privacy Policy',
-  description:
-    'Kura privacy policy covering self-custody wallet, TrackFi encryption, partner integrations, retention, and zero-access data handling.',
+  title: () => t('legal.docs.privacy.seo.title'),
+  description: () => t('legal.docs.privacy.seo.description'),
   path: '/privacy',
-  keywords: 'privacy policy, GDPR, CCPA, zero-access, data protection, Kura open source',
+  keywords: () => t('legal.docs.privacy.seo.keywords'),
 })
 </script>

@@ -1,0 +1,57 @@
+{
+  "help": {
+    "seo": {
+      "title": "說明中心",
+      "description": "如有產品、帳單或帳戶問題，請寄信至 {support} 或 {hello} 聯絡 Kura。",
+      "keywords": "Kura 說明, 客服, 聯絡, 客戶服務"
+    },
+    "hero": {
+      "eyebrow": "支援",
+      "title": "說明中心",
+      "description": "產品、帳單和帳戶相關問題，都可以聯絡我們。"
+    },
+    "contactUs": "聯絡我們",
+    "docs": "瀏覽文件",
+    "home": "回到首頁"
+  },
+  "contact": {
+    "seo": {
+      "title": "聯絡我們",
+      "description": "與 Kura 團隊聯繫。歡迎一般洽詢、支援和合作相關問題。",
+      "keywords": "聯絡 Kura, 支援, hello, 說明"
+    },
+    "hero": {
+      "eyebrow": "支援",
+      "title": "聯絡我們",
+      "description": "我們很樂意協助。一般洽詢、帳戶支援或合作問題，都歡迎與我們聯繫。"
+    },
+    "channels": {
+      "general": { "title": "一般洽詢", "description": "關於 Kura、合作或媒體的問題。" },
+      "support": { "title": "支援", "description": "帳戶、App 或 TrackFi 設定相關的協助。" }
+    },
+    "more": {
+      "title": "更多聯繫方式",
+      "help": "說明中心 →",
+      "helpDesc": "：指南和常見問題",
+      "community": "社群 →",
+      "communityDesc": "：與其他 Kura 使用者交流",
+      "report": "商業報告 →",
+      "reportDesc": "：營運紀錄和學到的事"
+    }
+  },
+  "community": {
+    "seo": {
+      "title": "社群",
+      "description": "Kura 社群中心即將推出。在此之前，請先關注我們的部落格以取得產品更新。"
+    },
+    "hero": {
+      "eyebrow": "社群",
+      "title": "即將推出",
+      "description": "我們正在為 Kura 使用者和開發者打造社群中心。在此之前，請先關注部落格以取得產品更新。",
+      "tags": ["Discord", "活動", "開發者"]
+    },
+    "connect": "想現在就交流？在 X 上追蹤我們，或寄信到 {email}。",
+    "followX": "在 X 上追蹤",
+    "blog": "閱讀部落格"
+  }
+}

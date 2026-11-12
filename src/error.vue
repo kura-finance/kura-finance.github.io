@@ -7,26 +7,26 @@ const props = defineProps<{
 
 const isNotFound = computed(() => props.error?.statusCode === 404)
 
-const title = computed(() =>
-  isNotFound.value ? 'This page is off the map' : 'Something went wrong',
-)
+const { t } = useI18n()
+const localePath = useLocalePath()
+
+const title = computed(() => t(isNotFound.value ? 'error.notFoundTitle' : 'error.genericTitle'))
 
 const description = computed(() =>
   isNotFound.value
-    ? 'The link may be broken, or the page may have moved. Head home or browse a few places that still exist.'
-    : props.error?.statusMessage ||
-      'We hit an unexpected error. Try again, or go back to the homepage.',
+    ? t('error.notFoundDesc')
+    : props.error?.statusMessage || t('error.genericDesc'),
 )
 
 const statusLabel = computed(() => String(props.error?.statusCode || 500))
 
 useHead({
-  title: isNotFound.value ? 'Page not found | Kura' : 'Error | Kura',
+  title: () => t(isNotFound.value ? 'error.notFoundMeta' : 'error.genericMeta'),
   meta: [{ name: 'robots', content: 'noindex' }],
 })
 
 function goHome() {
-  clearError({ redirect: '/' })
+  clearError({ redirect: localePath('/') })
 }
 
 function goBack() {
@@ -48,7 +48,7 @@ function goBack() {
 
       <div class="marketing-container relative pt-28 pb-20 md:pt-36 md:pb-28">
         <div class="max-w-2xl">
-          <p class="section-label mb-6">Error {{ statusLabel }}</p>
+          <p class="section-label mb-6">{{ t('error.label', { code: statusLabel }) }}</p>
 
           <p class="error-page__code font-display text-kura-primary/20 select-none" aria-hidden="true">
             {{ statusLabel }}
@@ -64,39 +64,39 @@ function goBack() {
 
           <div class="flex flex-wrap gap-3 mb-14">
             <button type="button" class="btn-primary" @click="goHome">
-              Back to home
+              {{ t('error.home') }}
             </button>
             <button type="button" class="btn-secondary" @click="goBack">
-              Go back
+              {{ t('error.back') }}
             </button>
           </div>
 
           <div v-if="isNotFound" class="error-page__links">
-            <p class="section-label mb-4">Try these instead</p>
+            <p class="section-label mb-4">{{ t('error.tryThese') }}</p>
             <ul class="grid sm:grid-cols-2 gap-3">
               <li>
-                <NuxtLink to="/download" class="error-page__link" @click="clearError()">
-                  <span>Download</span>
-                  <span class="error-page__link-hint">Get the app</span>
-                </NuxtLink>
+                <NuxtLinkLocale to="/investors" class="error-page__link" @click="clearError()">
+                  <span>{{ t('error.links.report.title') }}</span>
+                  <span class="error-page__link-hint">{{ t('error.links.report.hint') }}</span>
+                </NuxtLinkLocale>
               </li>
               <li>
-                <NuxtLink to="/docs" class="error-page__link" @click="clearError()">
-                  <span>Docs</span>
-                  <span class="error-page__link-hint">Guides &amp; policies</span>
-                </NuxtLink>
+                <NuxtLinkLocale to="/docs" class="error-page__link" @click="clearError()">
+                  <span>{{ t('error.links.docs.title') }}</span>
+                  <span class="error-page__link-hint">{{ t('error.links.docs.hint') }}</span>
+                </NuxtLinkLocale>
               </li>
               <li>
-                <NuxtLink to="/help" class="error-page__link" @click="clearError()">
-                  <span>Help</span>
-                  <span class="error-page__link-hint">Support &amp; FAQs</span>
-                </NuxtLink>
+                <NuxtLinkLocale to="/help" class="error-page__link" @click="clearError()">
+                  <span>{{ t('error.links.help.title') }}</span>
+                  <span class="error-page__link-hint">{{ t('error.links.help.hint') }}</span>
+                </NuxtLinkLocale>
               </li>
               <li>
-                <NuxtLink to="/contact" class="error-page__link" @click="clearError()">
-                  <span>Contact</span>
-                  <span class="error-page__link-hint">Reach the team</span>
-                </NuxtLink>
+                <NuxtLinkLocale to="/contact" class="error-page__link" @click="clearError()">
+                  <span>{{ t('error.links.contact.title') }}</span>
+                  <span class="error-page__link-hint">{{ t('error.links.contact.hint') }}</span>
+                </NuxtLinkLocale>
               </li>
             </ul>
           </div>

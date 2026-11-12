@@ -1,30 +1,28 @@
 <script setup lang="ts">
 definePageMeta({ layout: 'default' })
 
+const { t } = useI18n()
+const tags = useCopy<string[]>('comparePage.tags')
+
 usePageSeo({
-  title: 'Compare Kura',
-  description:
-    'See how Kura stacks up against traditional banks, exchanges, and wallets — one account for cash, investing, and earning.',
+  title: () => t('comparePage.seo.title'),
+  description: () => t('comparePage.seo.description'),
   path: '/compare',
-  keywords: 'compare Kura, vs banks, vs exchange, vs wallet, financial account',
+  keywords: () => t('comparePage.seo.keywords'),
 })
 </script>
 
 <template>
   <div class="w-full text-kura-text bg-kura-background">
     <PageHero
-      eyebrow="Compare"
-      title="Finance without the complexity"
-      description="See how Kura stacks up against traditional banks, exchanges, and wallets — one unified account for cash, investing, and earning."
-      :tags="['Traditional banks', 'Exchange', 'Wallet', 'Kura']"
+      :eyebrow="t('comparePage.eyebrow')"
+      :title="t('comparePage.title')"
+      :description="t('comparePage.description')"
+      :tags="tags"
     />
 
     <ComparisonSection />
 
-    <CTASection
-      title="Ready for a better way to manage money?"
-      description="Download Kura and experience finance designed for the internet generation."
-      primary-label="Download Kura"
-    />
+    <CTASection />
   </div>
 </template>

@@ -1,0 +1,170 @@
+{
+  "nav": {
+    "logoAlt": "Kura 標誌",
+    "products": "產品",
+    "resources": "資源",
+    "about": "關於",
+    "pricing": "方案",
+    "sourceCode": "原始碼",
+    "toggleMenu": "開關選單",
+    "language": "切換語言",
+    "ourStory": "我們的故事",
+    "ourStoryDesc": "重新設計的現代金融：一個帳戶、Zero-Access 隱私，以及打造它的人。",
+    "financialAccount": "金融帳戶",
+    "financialAccountDesc": "在同一個精心設計的帳戶裡儲蓄、消費、投資和賺取收益，陪你走過每個財務階段。",
+    "readReport": "閱讀商業報告",
+    "compareTitle": "比較 Kura",
+    "compareDesc": "看看 Kura 和傳統銀行、交易所、錢包有什麼不同。",
+    "jumpTo": "前往",
+    "categories": {
+      "cash": {
+        "title": "現金與轉帳",
+        "description": "用銀行轉帳和數位美元在全球收付款。"
+      },
+      "cards": {
+        "title": "卡片與消費",
+        "description": "在任何接受 Visa 的地方使用你的餘額。"
+      },
+      "investing": {
+        "title": "投資與收益",
+        "description": "透過股票、數位資產、收益和借貸累積財富。"
+      },
+      "portfolio": {
+        "title": "資產與企業",
+        "description": "個人淨資產和公司共用資金，同屬一個產品家族。"
+      }
+    },
+    "resourceColumns": {
+      "blog": {
+        "title": "部落格",
+        "description": "新聞、產品更新，以及對現代金融的觀點。"
+      },
+      "documentation": {
+        "title": "文件",
+        "description": "政策、資安文件和支援地區。"
+      },
+      "support": {
+        "title": "支援",
+        "description": "說明、社群，以及聯絡我們的方式。"
+      }
+    },
+    "aboutColumns": {
+      "connect": {
+        "title": "交流",
+        "description": ""
+      },
+      "company": {
+        "title": "公司",
+        "description": ""
+      }
+    },
+    "links": {
+      "account": "帳戶",
+      "globalTransfers": "全球轉帳",
+      "multiCurrency": "多幣別",
+      "kuraCard": "Kura Card",
+      "invest": "投資",
+      "usStocks": "美股",
+      "earn": "收益",
+      "borrow": "借貸",
+      "trackfi": "TrackFi",
+      "connectedAccounts": "連結帳戶",
+      "netWorth": "淨資產",
+      "business": "企業與團隊",
+      "allPosts": "所有文章",
+      "productUpdates": "產品更新",
+      "companyNews": "公司消息",
+      "docsCenter": "文件中心",
+      "stockCountries": "美股支援國家",
+      "rampCountries": "出入金支援國家",
+      "compliance": "合規",
+      "privacy": "隱私權政策",
+      "helpCenter": "說明中心",
+      "community": "社群",
+      "contactUs": "聯絡我們",
+      "businessReport": "商業報告",
+      "blog": "部落格",
+      "x": "X"
+    }
+  },
+  "footer": {
+    "tagline": "一個帳戶就能儲蓄、消費、投資、賺取收益並在全球收付款，兼顧隱私、安全與設計。",
+    "product": "產品",
+    "company": "公司",
+    "legal": "法律",
+    "compare": "比較",
+    "about": "關於",
+    "contact": "聯絡",
+    "documentation": "文件",
+    "tos": "服務條款",
+    "privacy": "隱私權政策",
+    "disclaimer": "風險揭露",
+    "referralTerms": "推薦計畫條款",
+    "prohibited": "禁止行為",
+    "copyright": "© 2026 KURA FINANCE LLC。保留所有權利。"
+  },
+  "banner": {
+    "label": "服務公告",
+    "headline": "Kura Finance LLC 已解散並停止營運。",
+    "body": "本網站為存檔，所述功能已不再提供。",
+    "details": "詳情"
+  },
+  "notice": {
+    "label": "公告",
+    "title": "Kura Finance LLC 已解散並停止營運。",
+    "intro": "目前僅剩一個不再維護的開源錢包。在它仍可運作期間，你還能使用基本功能，包括但不限於：",
+    "items": [
+      "持有和發送數位美元及加密貨幣",
+      "透過公開聚合器兌換代幣",
+      "在 Morpho 市場賺取收益和借貸（利率會變動，你可能虧損）"
+    ],
+    "keys": "如需匯出私鑰，可以在 Privy 上操作。",
+    "openSourceLead": "整個專案已在 GitHub 上開源。",
+    "openSourceBody": "任何人都可以 fork 並執行自己的版本，包括 Bridge（法幣出入金）和 Dinari（美股）的整合。要執行這些功能，你需要自己的合作夥伴合約、牌照和 KYC。",
+    "close": "關閉"
+  },
+  "cta": {
+    "title": "Kura 已停止營運。",
+    "description": "本網站作為 Kura 曾經提供之服務的存檔。這裡描述的功能已不再提供，目前僅剩一個不再維護的開源錢包。",
+    "report": "閱讀商業報告",
+    "source": "查看原始碼"
+  },
+  "common": {
+    "published": "已發布",
+    "discontinued": "已終止",
+    "share": "佔比",
+    "noData": "此期間沒有資料。",
+    "lastUpdated": "最後更新：{date}",
+    "phoneAlt": "Kura App 首頁畫面，顯示餘額、可消費的卡片和近期活動"
+  },
+  "error": {
+    "notFoundTitle": "這個頁面不存在",
+    "genericTitle": "發生錯誤",
+    "notFoundDesc": "連結可能已失效，或頁面已經搬移。你可以回到首頁，或瀏覽下面幾個仍然存在的頁面。",
+    "genericDesc": "發生了未預期的錯誤。請再試一次，或回到首頁。",
+    "notFoundMeta": "找不到頁面 | Kura",
+    "genericMeta": "錯誤 | Kura",
+    "label": "錯誤 {code}",
+    "home": "回到首頁",
+    "back": "返回上一頁",
+    "tryThese": "可以試試這些",
+    "links": {
+      "report": {
+        "title": "商業報告",
+        "hint": "Kura 做了什麼"
+      },
+      "docs": {
+        "title": "文件",
+        "hint": "指南與政策"
+      },
+      "help": {
+        "title": "說明",
+        "hint": "支援與常見問題"
+      },
+      "contact": {
+        "title": "聯絡",
+        "hint": "聯絡我們"
+      }
+    }
+  }
+}

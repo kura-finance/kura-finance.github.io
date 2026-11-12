@@ -2,22 +2,22 @@
   <div class="about-mega">
     <div class="about-mega__layout">
       <aside class="about-mega__story">
-        <NuxtLink to="/about" class="about-mega__story-link group" @click="$emit('close')">
-          <h2 class="about-mega__story-title">Our story</h2>
+        <NuxtLinkLocale to="/about" class="about-mega__story-link group" @click="$emit('close')">
+          <h2 class="about-mega__story-title">{{ t('nav.ourStory') }}</h2>
           <p class="about-mega__story-desc">
-            Modern finance, redesigned — one account, Zero-Access privacy, and the people building it.
+            {{ t('nav.ourStoryDesc') }}
           </p>
-        </NuxtLink>
+        </NuxtLinkLocale>
       </aside>
 
       <div class="about-mega__columns">
         <div
           v-for="(column, index) in columns"
-          :key="column.label"
+          :key="column.key"
           class="about-mega__column"
           :class="index > 0 ? 'about-mega__column--bordered' : ''"
         >
-          <p class="about-mega__label">{{ column.label }}</p>
+          <p class="about-mega__label">{{ column.title }}</p>
           <ul class="about-mega__links">
             <li v-for="link in column.links" :key="link.name">
               <a
@@ -33,43 +33,31 @@
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 17L17 7M17 7H7M17 7v10" />
                 </svg>
               </a>
-              <NuxtLink v-else :to="link.to" class="about-mega__link" @click="$emit('close')">
+              <NuxtLinkLocale v-else :to="link.to" class="about-mega__link" @click="$emit('close')">
                 {{ link.name }}
-              </NuxtLink>
+              </NuxtLinkLocale>
             </li>
           </ul>
         </div>
       </div>
     </div>
 
-    <NuxtLink to="/contact" class="about-mega__footer" @click="$emit('close')">
+    <NuxtLinkLocale to="/contact" class="about-mega__footer" @click="$emit('close')">
       <span class="about-mega__footer-title">
-        Contact us
+        {{ t('nav.links.contactUs') }}
         <span class="about-mega__footer-arrow" aria-hidden="true">→</span>
       </span>
-    </NuxtLink>
+    </NuxtLinkLocale>
   </div>
 </template>
 
 <script setup lang="ts">
+import { ABOUT_COLUMNS, useNavGroups } from '~/utils/navigation'
+
 defineEmits<{ close: [] }>()
 
-const columns = [
-  {
-    label: 'Connect',
-    links: [
-      { name: 'Community', to: '/community' },
-      { name: 'Blog', to: '/blog' },
-      { name: 'X', to: 'https://x.com/kurafinance', external: true },
-    ],
-  },
-  {
-    label: 'Company',
-    links: [
-      { name: 'Compliance', to: '/compliance' },
-    ],
-  },
-]
+const { t } = useI18n()
+const columns = useNavGroups(ABOUT_COLUMNS, 'aboutColumns')
 </script>
 
 <style scoped>

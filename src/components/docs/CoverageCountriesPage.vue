@@ -1,7 +1,7 @@
 <template>
   <div class="w-full text-kura-text bg-white">
     <div class="marketing-container pt-28 pb-6 md:pt-32">
-      <NuxtLink
+      <NuxtLinkLocale
         v-if="docsHubPath"
         :to="docsHubPath"
         class="inline-flex items-center gap-2 text-sm text-kura-text-secondary hover:text-kura-primary transition-colors"
@@ -9,8 +9,8 @@
         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
         </svg>
-        Back to Documentation
-      </NuxtLink>
+        {{ t('coverage.back') }}
+      </NuxtLinkLocale>
     </div>
 
     <PageHero
@@ -22,33 +22,33 @@
     <main class="marketing-container pb-20 md:pb-28 -mt-4">
       <p class="text-sm text-kura-text-secondary text-center mb-10">
         <template v-if="partners?.length">
-          Partners:
+          {{ t('coverage.partners') }}
           <template v-for="(item, index) in partners" :key="item.name">
             <a :href="item.url" target="_blank" rel="noopener noreferrer" class="text-kura-primary hover:text-kura-primary-dark transition-colors">{{ item.name }}</a><span v-if="index < partners.length - 1"> · </span>
           </template>
         </template>
         <template v-else-if="partner">
-          Partner:
+          {{ t('coverage.partner') }}
           <a :href="partnerUrl" target="_blank" rel="noopener noreferrer" class="text-kura-primary hover:text-kura-primary-dark transition-colors">{{ partner }}</a>
         </template>
-        · Last updated {{ lastUpdated }}
+        · {{ t('coverage.lastUpdated', { date: lastUpdated }) }}
       </p>
 
       <section class="card-surface p-6 md:p-8 mb-10">
         <div class="flex flex-col md:flex-row md:items-center gap-4 md:gap-6">
           <div class="flex-1">
-            <label for="country-search" class="block text-sm font-semibold mb-2">Search countries</label>
+            <label for="country-search" class="block text-sm font-semibold mb-2">{{ t('coverage.searchLabel') }}</label>
             <input
               id="country-search"
               v-model="query"
               type="search"
-              placeholder="Type a country name..."
+              :placeholder="t('coverage.searchPlaceholder')"
               class="w-full px-4 py-3 rounded-xl border border-kura-border bg-kura-surface text-kura-text placeholder:text-kura-text-secondary/60 focus:outline-none focus:border-kura-primary/50 focus:ring-2 focus:ring-kura-primary/20"
             />
           </div>
           <div class="text-sm text-kura-text-secondary md:text-right">
-            <p>{{ totalListed }} countries listed</p>
-            <p v-if="query">{{ filteredSections.reduce((n, s) => n + s.countries.length, 0) }} matches</p>
+            <p>{{ t('coverage.listed', { count: totalListed }) }}</p>
+            <p v-if="query">{{ t('coverage.matches', { count: filteredSections.reduce((n, s) => n + s.countries.length, 0) }) }}</p>
           </div>
         </div>
       </section>
@@ -62,21 +62,21 @@
           <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-6 gap-y-2">
             <div
               v-for="country in section.countries"
-              :key="country"
+              :key="country.name"
               class="text-sm text-kura-text-secondary py-1"
             >
-              {{ country }}
+              {{ country.label }}
             </div>
           </div>
         </div>
       </section>
 
       <section v-if="query && filteredSections.length === 0" class="card-surface p-12 text-center mb-10">
-        <p class="text-kura-text-secondary">No countries match "{{ query }}".</p>
+        <p class="text-kura-text-secondary">{{ t('coverage.noMatches', { query }) }}</p>
       </section>
 
       <section v-if="notes?.length" class="rounded-2xl border border-kura-primary/20 bg-kura-primary/5 p-6 md:p-8 mb-10">
-        <h2 class="text-lg font-semibold mb-4">Important notes</h2>
+        <h2 class="text-lg font-semibold mb-4">{{ t('coverage.notesTitle') }}</h2>
         <ul class="space-y-2 text-sm text-kura-text-secondary">
           <li v-for="note in notes" :key="note" class="flex gap-2">
             <span class="text-kura-primary shrink-0">•</span>
@@ -87,17 +87,16 @@
 
       <section class="card-surface p-6 md:p-8 text-sm text-kura-text-secondary leading-relaxed bg-kura-surface">
         <p class="mb-3">
-          Country availability can change as partners update licensing, sanctions lists, and product coverage.
-          Kura displays partner-published lists for transparency — final eligibility is always confirmed during in-app KYC.
+          {{ t('coverage.disclaimer') }}
         </p>
         <p v-if="sourceLinks?.length">
-          Official sources:
+          {{ t('coverage.officialSources') }}
           <template v-for="(item, index) in sourceLinks" :key="item.url">
             <a :href="item.url" target="_blank" rel="noopener noreferrer" class="text-kura-primary hover:text-kura-primary-dark transition-colors">{{ item.label }}</a><span v-if="index < sourceLinks.length - 1"> · </span>
           </template>
         </p>
         <p v-else-if="sourceUrl">
-          Official source:
+          {{ t('coverage.officialSource') }}
           <a :href="sourceUrl" target="_blank" rel="noopener noreferrer" class="text-kura-primary hover:text-kura-primary-dark transition-colors">{{ sourceUrl }}</a>
         </p>
       </section>
@@ -107,6 +106,7 @@
 
 <script setup lang="ts">
 import { computed, ref } from 'vue'
+import { COUNTRY_NAMES_ZH_TW } from '~/data/coverage/country-names.zh-TW'
 
 export interface CoverageSection {
   title: string
@@ -130,16 +130,33 @@ const props = defineProps<{
   docsHubPath?: string
 }>()
 
+const { t, locale } = useI18n()
 const query = ref('')
+
+/** Country names arrive in English (partner data); show them in the active locale. */
+function localizedCountry(name: string) {
+  return locale.value === 'zh-TW' ? (COUNTRY_NAMES_ZH_TW[name] ?? name) : name
+}
+
+const localizedSections = computed(() =>
+  props.sections.map((section) => ({
+    ...section,
+    countries: section.countries.map((name) => ({ name, label: localizedCountry(name) })),
+  })),
+)
 
 const filteredSections = computed(() => {
   const q = query.value.trim().toLowerCase()
-  if (!q) return props.sections
+  const sections = localizedSections.value
+  if (!q) return sections
 
-  return props.sections
+  // Match either the English or the localized name.
+  return sections
     .map((section) => ({
       ...section,
-      countries: section.countries.filter((country) => country.toLowerCase().includes(q)),
+      countries: section.countries.filter(
+        (country) => country.name.toLowerCase().includes(q) || country.label.toLowerCase().includes(q),
+      ),
     }))
     .filter((section) => section.countries.length > 0)
 })

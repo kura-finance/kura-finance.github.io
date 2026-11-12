@@ -1,0 +1,47 @@
+{
+  "docs": {
+    "seo": {
+      "title": "Documentation",
+      "description": "Kura documentation: legal policies, legacy coverage pages, and the open-source code on GitHub.",
+      "keywords": "Kura documentation, privacy policy, compliance, open source, trust center"
+    },
+    "hero": {
+      "eyebrow": "Trust, security & architecture",
+      "title": "Documentation Center",
+      "description": "Policies, legacy coverage pages, and source code for Kura, now an open-source project."
+    },
+    "sections": {
+      "countries": "Supported countries",
+      "trust": "Trust & policy",
+      "investors": "Investors",
+      "source": "Source code"
+    },
+    "countryDocs": [
+      { "title": "Stock Trading Countries", "description": "Legacy reference: Dinari dShares coverage. US stock trading in Kura has been discontinued.", "category": "Dinari" },
+      { "title": "On/Off-Ramp Countries", "description": "Legacy reference: Bridge.xyz and MoonPay coverage. Fiat deposits and withdrawals in Kura have been discontinued.", "category": "Bridge & MoonPay" }
+    ],
+    "trustDocs": [
+      { "title": "Privacy Policy", "description": "How Kura collects, uses, and protects user data under a zero-access operating model.", "category": "Policy" },
+      { "title": "Trust & Security Center", "description": "Core security controls, cryptographic posture, and compliance operating framework.", "category": "Security" },
+      { "title": "Terms of Service", "description": "Legal terms for using Kura products, including arbitration and service boundaries.", "category": "Legal" },
+      { "title": "Risk Disclosure", "description": "Material risks of non-custodial wallets, DeFi, bridges, cards, and partner services.", "category": "Legal" },
+      { "title": "Referral Program Terms", "description": "Program discontinued. Rules that applied to past referral participation.", "category": "Legal" },
+      { "title": "Prohibited Activities", "description": "Sanctions, financial crime, platform abuse, and digital-asset misuse restrictions.", "category": "Legal" }
+    ],
+    "report": {
+      "title": "Business Report",
+      "description": "Operating record, business model, timeline, and lessons learned from Kura.",
+      "category": "Archive"
+    },
+    "github": {
+      "title": "Kura on GitHub",
+      "description": "The full Kura stack is open source. Read, fork, and run it yourself. Copyright Kura Finance LLC.",
+      "category": "Open source"
+    },
+    "legal": {
+      "title": "Legal or privacy question?",
+      "description": "Kura has no support team. For legal or privacy matters about the Service, email us.",
+      "button": "Contact legal"
+    }
+  }
+}

@@ -1,0 +1,69 @@
+{
+  "legal": {
+    "backHome": "← Back to Home",
+    "translationNote": "",
+    "docs": {
+      "tos": {
+        "eyebrow": "Legal",
+        "title": "Terms of Service",
+        "description": "Last updated: October 18, 2026. These Terms govern your use of Kura. Please read them carefully.",
+        "seo": {
+          "title": "Terms of Service",
+          "description": "Kura Terms of Service for the Kura open-source wallet, published by Kura Finance LLC (dissolved). Unmaintained, provided as is and used at your own risk.",
+          "keywords": "terms of service, user agreement, Kura open source, arbitration"
+        }
+      },
+      "privacy": {
+        "eyebrow": "Legal",
+        "title": "Privacy Policy",
+        "description": "Last updated: October 18, 2026. How Kura collects, uses, and protects information.",
+        "seo": {
+          "title": "Privacy Policy",
+          "description": "Kura privacy policy covering self-custody wallet, TrackFi encryption, partner integrations, retention, and zero-access data handling.",
+          "keywords": "privacy policy, GDPR, CCPA, zero-access, data protection, Kura open source"
+        }
+      },
+      "disclaimer": {
+        "eyebrow": "Legal",
+        "title": "Risk Disclosure",
+        "description": "Last updated: October 18, 2026. Important risks of using Kura and related digital-asset products.",
+        "seo": {
+          "title": "Risk Disclosure",
+          "description": "Kura risk disclosure covering non-custodial wallets, DeFi yield and borrow, bridges, tokenized securities, and partner services.",
+          "keywords": "risk disclosure, disclaimer, DeFi risk, non-custodial, Kura open source"
+        }
+      },
+      "compliance": {
+        "eyebrow": "Trust & security",
+        "title": "Trust & Security Center",
+        "description": "Kura is a non-custodial, open-source wallet built around Zero-Access privacy, so sensitive user data remains unreadable to operators by default. Last updated: October 2026",
+        "seo": {
+          "title": "Compliance & Trust Center",
+          "description": "Kura trust center: security architecture, partner disclosures, compliance framework, and zero-access privacy controls.",
+          "keywords": "compliance, trust center, security architecture, Kura partners"
+        }
+      },
+      "referralTerms": {
+        "eyebrow": "Legal",
+        "title": "Referral Program Terms",
+        "description": "Last updated: October 18, 2026. The Referral Program has been discontinued. These terms remain published for reference.",
+        "seo": {
+          "title": "Referral Program Terms",
+          "description": "Kura referral program terms (program discontinued) covering eligibility, eligible revenue, clawback, and payouts.",
+          "keywords": "referral program, revenue share, Kura open source"
+        }
+      },
+      "prohibited": {
+        "eyebrow": "Legal",
+        "title": "Prohibited Activities",
+        "description": "Last updated: October 18, 2026. Activities not allowed on Kura.",
+        "seo": {
+          "title": "Prohibited Activities",
+          "description": "Kura prohibited activities list covering sanctions, financial crime, platform abuse, and digital-asset misuse.",
+          "keywords": "prohibited activities, sanctions, AML, acceptable use, Kura open source"
+        }
+      }
+    },
+    "backTos": "← Back to Terms of Service"
+  }
+}

@@ -2,6 +2,9 @@
 import { ref, onMounted, onUnmounted } from 'vue'
 import { SHUTDOWN } from '~/utils/site'
 
+const { t } = useI18n()
+const items = useCopy<string[]>('notice.items')
+
 const STORAGE_KEY = 'kura-shutdown-notice-dismissed'
 const isOpen = ref(false)
 
@@ -56,30 +59,28 @@ onUnmounted(() => {
           class="flex flex-col w-full max-w-lg max-h-full rounded-xl bg-white shadow-device border border-kura-border"
         >
           <div class="overflow-y-auto p-6 sm:p-8 text-[15px] sm:text-base">
-            <p class="section-label mb-4">Notice</p>
+            <p class="section-label mb-4">{{ t('notice.label') }}</p>
             <h2 id="shutdown-notice-title" class="headline-xl text-2xl sm:text-3xl mb-5">
-              Kura Finance LLC has been dissolved and has ceased operations.
+              {{ t('notice.title') }}
             </h2>
             <p class="text-kura-text-secondary leading-relaxed mb-3">
-              What remains is an open-source wallet that is no longer maintained. While it keeps working, you can still use the basics, including but not limited to:
+              {{ t('notice.intro') }}
             </p>
             <ul class="list-disc pl-5 space-y-1 text-kura-text-secondary leading-relaxed mb-4">
-              <li>Holding and sending digital dollars and crypto</li>
-              <li>Swapping tokens through public aggregators</li>
-              <li>Earning and borrowing on Morpho markets (rates are variable and you can lose money)</li>
+              <li v-for="item in items" :key="item">{{ item }}</li>
             </ul>
             <p class="font-medium text-kura-text leading-relaxed mb-4">
-              If you need to export your private keys, you can do so on Privy.
+              {{ t('notice.keys') }}
             </p>
             <p class="text-kura-text-secondary leading-relaxed">
-              <strong class="font-medium text-kura-text">The entire project is open source on GitHub.</strong>
-              Anyone can fork it and run their own version, including the Bridge (fiat ramp) and Dinari (US stocks) integrations. To run those, you need your own partner contracts, licenses and KYC.
+              <strong class="font-medium text-kura-text">{{ t('notice.openSourceLead') }}</strong>
+              {{ t('notice.openSourceBody') }}
             </p>
           </div>
 
           <div class="flex flex-shrink-0 items-center justify-between gap-3 border-t border-kura-border px-6 py-4 sm:px-8">
             <button type="button" class="btn-secondary px-5 py-2.5" @click="close">
-              Close
+              {{ t('notice.close') }}
             </button>
             <div class="flex items-center gap-3">
               <a :href="SHUTDOWN.privyUrl" target="_blank" rel="noopener noreferrer" class="btn-secondary px-5 py-2.5">

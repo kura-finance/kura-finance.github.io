@@ -1,13 +1,14 @@
 <template>
   <div class="w-full text-kura-text bg-white">
     <PageHero
-      eyebrow="Legal"
-      title="Terms of Service"
-      description="Last updated: October 18, 2026. These Terms govern your use of Kura. Please read them carefully."
+      :eyebrow="t('legal.docs.tos.eyebrow')"
+      :title="t('legal.docs.tos.title')"
+      :description="t('legal.docs.tos.description')"
     />
 
     <div class="marketing-container max-w-3xl pb-20 md:pb-28">
-      <div class="prose max-w-none space-y-8">
+      <TosZhTw v-if="locale === 'zh-TW'" />
+      <div v-else class="prose max-w-none space-y-8">
         <section>
           <p class="text-kura-text-secondary leading-relaxed text-sm border border-kura-border rounded-xl p-4 bg-kura-background">
             <span class="font-semibold text-kura-text">Important.</span>
@@ -15,11 +16,11 @@
             These Terms include a binding arbitration agreement and class-action waiver in Section 19.
             By using the Service you agree to resolve disputes individually through arbitration, except where prohibited by law.
             Related documents:
-            <NuxtLink to="/privacy" class="text-kura-primary hover:text-kura-accent">Privacy Policy</NuxtLink>,
-            <NuxtLink to="/disclaimer" class="text-kura-primary hover:text-kura-accent">Risk Disclosure</NuxtLink>,
-            <NuxtLink to="/prohibited-activities" class="text-kura-primary hover:text-kura-accent">Prohibited Activities</NuxtLink>,
+            <NuxtLinkLocale to="/privacy" class="text-kura-primary hover:text-kura-accent">Privacy Policy</NuxtLinkLocale>,
+            <NuxtLinkLocale to="/disclaimer" class="text-kura-primary hover:text-kura-accent">Risk Disclosure</NuxtLinkLocale>,
+            <NuxtLinkLocale to="/prohibited-activities" class="text-kura-primary hover:text-kura-accent">Prohibited Activities</NuxtLinkLocale>,
             and
-            <NuxtLink to="/referral-terms" class="text-kura-primary hover:text-kura-accent">Referral Program Terms</NuxtLink>.
+            <NuxtLinkLocale to="/referral-terms" class="text-kura-primary hover:text-kura-accent">Referral Program Terms</NuxtLinkLocale>.
           </p>
         </section>
 
@@ -61,7 +62,7 @@
             <li><span class="font-semibold text-kura-text">TrackFi</span> — read-only aggregation of connected bank, brokerage, exchange, and on-chain accounts, protected with zero-access encryption.</li>
             <li><span class="font-semibold text-kura-text">Subscriptions</span> — optional paid tiers (Basic, Pro, Ultimate) that unlock additional features.</li>
             <li><span class="font-semibold text-kura-text">Referral Program</span> — optional revenue sharing governed by the
-              <NuxtLink to="/referral-terms" class="text-kura-primary hover:text-kura-accent">Referral Program Terms</NuxtLink>.</li>
+              <NuxtLinkLocale to="/referral-terms" class="text-kura-primary hover:text-kura-accent">Referral Program Terms</NuxtLinkLocale>.</li>
           </ul>
           <p class="text-kura-text-secondary leading-relaxed mt-3">
             Kura is a software provider. We are not a bank, broker-dealer, money transmitter, custodian, exchange, or investment adviser, and we do not provide financial, legal, or tax advice. Displayed balances are visualizations of assets in wallets or accounts you control or connect — not deposits held by Kura.
@@ -80,7 +81,7 @@
             <li>All information you provide is accurate and complete, and you will keep it updated.</li>
             <li>You are acting for yourself and not on behalf of any undisclosed third party, unless we expressly permit multi-user or business features.</li>
             <li>You understand digital assets, DeFi protocols, bridges, and tokenized securities involve substantial risk of loss, as described in our
-              <NuxtLink to="/disclaimer" class="text-kura-primary hover:text-kura-accent">Risk Disclosure</NuxtLink>.</li>
+              <NuxtLinkLocale to="/disclaimer" class="text-kura-primary hover:text-kura-accent">Risk Disclosure</NuxtLinkLocale>.</li>
           </ul>
           <p class="text-kura-text-secondary leading-relaxed mt-3">
             Certain features (including Card, fiat ramps, Dinari securities, Morpho Earn, and Morpho Borrow) are available only in supported regions and to users who complete partner verification. Waitlist enrollment does not guarantee access, timing, or benefits. We and our partners may refuse, suspend, or restrict access to comply with law or partner requirements.
@@ -114,7 +115,7 @@
           <h2 class="text-2xl font-bold text-kura-text mb-4">7. User Conduct; Prohibited Activities</h2>
           <p class="text-kura-text-secondary leading-relaxed">
             You agree not to misuse the Service. Without limitation, you must not engage in activities listed in our
-            <NuxtLink to="/prohibited-activities" class="text-kura-primary hover:text-kura-accent">Prohibited Activities List</NuxtLink>,
+            <NuxtLinkLocale to="/prohibited-activities" class="text-kura-primary hover:text-kura-accent">Prohibited Activities List</NuxtLinkLocale>,
             including unlawful activity, money laundering, sanctions evasion, fraud, market abuse, unauthorized access, or interference with the Service. We and our partners screen against sanctions lists and may decline, suspend, or restrict access to comply with legal obligations.
           </p>
         </section>
@@ -137,7 +138,7 @@
           <h2 class="text-2xl font-bold text-kura-text mb-4">10. Referrals</h2>
           <p class="text-kura-text-secondary leading-relaxed">
             If you participate in our referral program, the
-            <NuxtLink to="/referral-terms" class="text-kura-primary hover:text-kura-accent">Referral Program Terms</NuxtLink>
+            <NuxtLinkLocale to="/referral-terms" class="text-kura-primary hover:text-kura-accent">Referral Program Terms</NuxtLinkLocale>
             apply and control over these Terms for referral matters. Referral rewards are not interest, deposits, or guaranteed income, and are subject to eligibility, clawback, and fraud review.
           </p>
         </section>
@@ -267,9 +268,9 @@
       </div>
 
       <div class="mt-16 pt-8 border-t border-kura-border">
-        <NuxtLink to="/" class="text-kura-primary hover:text-kura-accent transition-colors">
-          ← Back to Home
-        </NuxtLink>
+        <NuxtLinkLocale to="/" class="text-kura-primary hover:text-kura-accent transition-colors">
+          {{ t('legal.backHome') }}
+        </NuxtLinkLocale>
       </div>
     </div>
   </div>
@@ -280,11 +281,12 @@ definePageMeta({
   layout: 'default',
 })
 
+const { t, locale } = useI18n()
+
 usePageSeo({
-  title: 'Terms of Service',
-  description:
-    'Kura Terms of Service for the Kura open-source wallet, published by Kura Finance LLC (dissolved). Unmaintained, provided as is and used at your own risk.',
+  title: () => t('legal.docs.tos.seo.title'),
+  description: () => t('legal.docs.tos.seo.description'),
   path: '/tos',
-  keywords: 'terms of service, user agreement, Kura open source, arbitration',
+  keywords: () => t('legal.docs.tos.seo.keywords'),
 })
 </script>

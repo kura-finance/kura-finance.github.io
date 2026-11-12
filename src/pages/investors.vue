@@ -4,137 +4,98 @@ import { SHUTDOWN } from '~/utils/site'
 
 definePageMeta({ layout: 'default' })
 
+const { t } = useI18n()
+
 usePageSeo({
-  title: 'Business Report',
-  description:
-    'Kura business report: what was built, operating data as of 30 October 2026, the business model, the timeline, and why it stopped.',
+  title: () => t('report.seo.title'),
+  description: () => t('report.seo.description'),
   path: '/investors',
-  keywords: 'Kura business report, operating data, post-mortem, lessons learned, fintech',
+  keywords: () => t('report.seo.keywords'),
 })
 
-const summaryFacts = [
-  { label: 'Operating period', value: 'April – September 2026 (about 5 months from first commit to wind-down)' },
-  { label: 'Team', value: 'Solo founder-engineer' },
-  { label: 'Platforms', value: 'iOS and Android app, web app, internal ops console, marketing site' },
-  { label: 'Fiat coverage', value: 'US (ACH/wire), EU (SEPA), UK (Faster Payments), Mexico (SPEI), Brazil (PIX)' },
-  { label: 'Where users came from', value: 'Southeast Asia 46% · Latin America 18% · Africa 17% · Europe 12% · US 1%' },
-  { label: 'Codebase', value: 'About 148K lines of TypeScript across 5 repositories' },
-  { label: 'Infrastructure cost', value: 'About US$30 per month on Google Cloud' },
-]
+type Fact = { label: string; value: string }
 
-const kycRows: BreakdownRow[] = [
-  { key: 'approved', label: 'Approved', primary: '68', share: 68 / 249 },
-  { key: 'rejected', label: 'Rejected', primary: '64', share: 64 / 249 },
-  { key: 'paused', label: 'Paused', primary: '16', share: 16 / 249 },
-  { key: 'incomplete', label: 'Incomplete', primary: '9', share: 9 / 249 },
-  { key: 'not-started', label: 'Not started', primary: '92', share: 92 / 249 },
-  { key: 'total', label: 'Total', primary: '249', secondary: '248 individuals, 1 business' },
-]
+const summaryFacts = useCopy<Fact[]>('report.summary.facts')
+const revenueFacts = useCopy<Fact[]>('report.operating.revenueFacts')
+const businessModel = useCopy<Fact[]>('report.model.items')
+const timeline = useCopy<Fact[]>('report.timeline.items')
+const lessons = useCopy<{ title: string; text: string }[]>('report.lessons.items')
 
-const newUserRows: BreakdownRow[] = [
-  { key: 'jun', label: 'June 2026', primary: '8' },
-  { key: 'jul', label: 'July 2026', primary: '83' },
-  { key: 'aug', label: 'August 2026', primary: '50' },
-  { key: 'sep', label: 'September 2026', primary: '2' },
-  { key: 'oct', label: 'October 2026', primary: '106', secondary: 'Sign-ups after the shutdown notice' },
-]
+const kycLabels = useCopy<string[]>('report.operating.kyc.rows')
+const regionLabels = useCopy<string[]>('report.operating.regions.rows')
+const monthLabels = useCopy<string[]>('report.operating.monthly.rows')
 
-const regionRows: BreakdownRow[] = [
-  { key: 'sea', label: 'Southeast Asia', primary: '71', share: 0.458 },
-  { key: 'latam', label: 'Latin America', primary: '28', share: 0.181 },
-  { key: 'africa', label: 'Africa', primary: '27', share: 0.174 },
-  { key: 'europe', label: 'Europe', primary: '18', share: 0.116 },
-  { key: 'other-asia', label: 'Other Asia', primary: '7', share: 0.045 },
-  { key: 'na', label: 'North America', primary: '3', share: 0.019 },
-  { key: 'oceania', label: 'Oceania', primary: '1', share: 0.006 },
-]
+// Figures as of 30 October 2026. Labels come from the locale messages.
+const KYC = [68, 64, 16, 9, 92]
+const REGIONS = [
+  [71, 0.458],
+  [28, 0.181],
+  [27, 0.174],
+  [18, 0.116],
+  [7, 0.045],
+  [3, 0.019],
+  [1, 0.006],
+] as const
+const MONTHLY = [8, 83, 50, 2, 106]
 
-const depositRows: BreakdownRow[] = [
+const kycRows = computed<BreakdownRow[]>(() => [
+  ...KYC.map((count, index) => ({
+    key: `kyc-${index}`,
+    label: kycLabels.value[index],
+    primary: String(count),
+    share: count / 249,
+  })),
+  { key: 'kyc-total', label: kycLabels.value[5], primary: '249', secondary: t('report.operating.kyc.totalDetail') },
+])
+
+const regionRows = computed<BreakdownRow[]>(() =>
+  REGIONS.map(([count, share], index) => ({
+    key: `region-${index}`,
+    label: regionLabels.value[index],
+    primary: String(count),
+    share,
+  })),
+)
+
+const newUserRows = computed<BreakdownRow[]>(() =>
+  MONTHLY.map((count, index) => ({
+    key: `month-${index}`,
+    label: monthLabels.value[index],
+    primary: String(count),
+    ...(index === MONTHLY.length - 1 ? { secondary: t('report.operating.monthly.octoberDetail') } : {}),
+  })),
+)
+
+function approx(amount: string) {
+  return t('report.operating.deposits.approx', { amount })
+}
+
+const depositRows = computed<BreakdownRow[]>(() => [
   { key: 'usd', label: 'USD', primary: '27,067.57' },
-  { key: 'mxn', label: 'MXN', primary: '37,208.34', secondary: 'About US$2.0K' },
-  { key: 'eur', label: 'EUR', primary: '4,208.18', secondary: 'About US$4.5K' },
-  { key: 'gbp', label: 'GBP', primary: '285.29', secondary: 'About US$0.4K' },
-  { key: 'total', label: 'Total', primary: '≈ US$34K', secondary: '75 deposits from 18 users across 182 virtual accounts' },
-]
+  { key: 'mxn', label: 'MXN', primary: '37,208.34', secondary: approx('US$2.0K') },
+  { key: 'eur', label: 'EUR', primary: '4,208.18', secondary: approx('US$4.5K') },
+  { key: 'gbp', label: 'GBP', primary: '285.29', secondary: approx('US$0.4K') },
+  {
+    key: 'total',
+    label: t('report.operating.deposits.total'),
+    primary: '≈ US$34K',
+    secondary: t('report.operating.deposits.totalDetail'),
+  },
+])
 
-const refundRows: BreakdownRow[] = [
+const refundRows = computed<BreakdownRow[]>(() => [
   { key: 'usd', label: 'USD', primary: '17,123.00', share: 0.63 },
-  { key: 'eur', label: 'EUR', primary: '904.64', secondary: 'About US$1.0K', share: 0.21 },
-  { key: 'mxn', label: 'MXN', primary: '4,400.00', secondary: 'About US$0.2K', share: 0.12 },
+  { key: 'eur', label: 'EUR', primary: '904.64', secondary: approx('US$1.0K'), share: 0.21 },
+  { key: 'mxn', label: 'MXN', primary: '4,400.00', secondary: approx('US$0.2K'), share: 0.12 },
   { key: 'gbp', label: 'GBP', primary: '5.00', share: 0.02 },
-  { key: 'total', label: 'Total', primary: '≈ US$18.3K', secondary: '21 deposits refunded', share: 0.54 },
-]
-
-const revenueFacts = [
-  { label: 'Fiat-ramp fees', value: '381.32 USDC, earned on 54 converted deposits' },
   {
-    label: 'Subscriptions',
-    value: 'US$0. Three Pro monthly subscriptions were all invoiced at $0 and later canceled. No charges, refunds, or disputes.',
+    key: 'total',
+    label: t('report.operating.deposits.total'),
+    primary: '≈ US$18.3K',
+    secondary: t('report.operating.refunds.totalDetail'),
+    share: 0.54,
   },
-  { label: 'Swap and Earn fees', value: 'Not measured in this report' },
-  {
-    label: 'Wire-return fees',
-    value: 'Exceeded the 381.32 USDC of ramp fees, so net fiat-ramp revenue was negative',
-  },
-  { label: 'Cloud hosting', value: 'About US$30 per month (Google Cloud Run and Cloud SQL)' },
-  {
-    label: 'Not itemized',
-    value: 'Fixed monthly fees for each open virtual account and third-party API subscriptions',
-  },
-  {
-    label: 'Risk',
-    value: 'One fraud incident (about 992.5 USDC, 27 July 2026), traced on-chain and remediated',
-  },
-]
-
-const businessModel = [
-  { label: 'Subscriptions', value: 'Basic free · Pro $12.99/mo or $129.99/yr · Ultimate $29.99/mo or $299.99/yr' },
-  { label: 'On/off-ramp', value: 'A 0.25% margin on top of the ramp partner’s wholesale cost' },
-  { label: 'Swaps and bridges', value: 'A 0.25% integrator fee' },
-  { label: 'Earn', value: 'A 10% performance fee on Morpho fee-wrapper vaults' },
-  { label: 'Referrals', value: 'A cashback program settled from ramp events' },
-]
-
-const timeline = [
-  { label: 'April 2026', value: 'API and database go live; web app deployed' },
-  { label: 'May 2026', value: 'Mobile app development begins' },
-  { label: 'June 2026', value: 'First fiat-account customers; on/off-ramp live' },
-  { label: 'July 2026', value: 'Public launch; peak sign-ups (83); marketing site rebuilt; fraud incident and risk tooling' },
-  { label: 'August 2026', value: 'Internal admin console; Business & Team treasuries' },
-  { label: 'September 2026', value: 'Development stops; code open-sourced' },
-  { label: 'October 2026', value: 'Shutdown notice published' },
-]
-
-const lessons = [
-  {
-    title: 'Too broad, too early.',
-    body: 'Wallet, card, stocks, DeFi, aggregation, and business treasuries all shipped before a single wedge found product-market fit. The card alone went through three partner approaches without launching.',
-  },
-  {
-    title: 'The ramp margin could not absorb returns.',
-    body: 'Ramp fees earned 381.32 USDC on about US$34K of gross deposits, but about 54% of that money was sent back, and the wire-return fees on those refunds wiped out all fiat-ramp revenue. The cost could not be passed on: fees are only collected when a deposit converts, converted funds land in the user’s own wallet where they cannot be clawed back, and every workaround either made successful deposits subsidize failed ones, cut off the core user base, or broke the non-custodial promise.',
-  },
-  {
-    title: 'Regulated money movement is an operations business.',
-    body: 'KYC rejections (64 of 249), fraud-rate thresholds, recalls, refunds, and per-account fees demand dedicated compliance capacity that a solo founder cannot sustain next to engineering.',
-  },
-  {
-    title: 'Activation is the real funnel.',
-    body: '249 KYC starts led to 68 approvals and 18 funded accounts. Onboarding friction, not features, was the constraint.',
-  },
-  {
-    title: 'The users were not the ones the product was designed for.',
-    body: 'Kura was built for US-style multi-asset users, but 81% of users came from Southeast Asia, Latin America, and Africa, looking for USD and EUR receiving accounts. Only 2 were in the US. Cross-border wires into those accounts are the likely cause of the high refund rate.',
-  },
-  {
-    title: 'Subscriptions were never validated.',
-    body: 'No one paid for Pro or Ultimate; the three Pro subscriptions were all invoiced at $0.',
-  },
-  {
-    title: 'What worked.',
-    body: 'Shipping speed (519 production deploys), a security architecture that holds up to scrutiny, and a clean, documented codebase that others can fork.',
-  },
-]
+])
 
 const githubUrl = SHUTDOWN.githubUrl
 </script>
@@ -145,61 +106,39 @@ const githubUrl = SHUTDOWN.githubUrl
       <header class="ir-masthead">
         <div class="ir-masthead__brand-row">
           <p class="ir-masthead__brand">Kura</p>
-          <p class="ir-masthead__doc-type">Archive</p>
+          <p class="ir-masthead__doc-type">{{ t('report.docType') }}</p>
         </div>
 
         <div class="ir-masthead__title-row">
           <div class="ir-masthead__titles">
-            <h1 class="ir-masthead__title">Business Report</h1>
+            <h1 class="ir-masthead__title">{{ t('report.title') }}</h1>
             <p class="ir-masthead__subtitle">
-              What Kura built, how it performed, and why it stopped. Kura Finance LLC has been dissolved and has ceased operations.
+              {{ t('report.subtitle') }}
             </p>
           </div>
         </div>
 
         <dl class="ir-masthead__meta">
-          <div class="ir-masthead__meta-item">
-            <dt>Operating period</dt>
-            <dd>April – September 2026</dd>
-          </div>
-          <div class="ir-masthead__meta-item">
-            <dt>Data as of</dt>
-            <dd>30 October 2026</dd>
-          </div>
-          <div class="ir-masthead__meta-item">
-            <dt>Document status</dt>
-            <dd>Final · archived</dd>
+          <div v-for="key in ['period', 'asOf', 'status']" :key="key" class="ir-masthead__meta-item">
+            <dt>{{ t(`report.meta.${key}.label`) }}</dt>
+            <dd>{{ t(`report.meta.${key}.value`) }}</dd>
           </div>
         </dl>
       </header>
 
-      <InvestorReportSection
-        index="01"
-        title="Summary"
-        lede="Kura was a consumer fintech app built around one idea: you keep custody of your money and your data."
-      >
+      <InvestorReportSection index="01" :title="t('report.summary.title')" :lede="t('report.summary.lede')">
         <div class="ir-highlights">
           <InvestorMetricCard
+            v-for="key in ['users', 'deposits', 'revenue']"
+            :key="key"
             featured
-            label="Users in KYC"
-            value="249"
-            detail="68 approved · 18 funded"
-          />
-          <InvestorMetricCard
-            featured
-            label="Gross deposits"
-            value="≈ US$34K"
-            detail="≈ US$18.3K (54%) refunded"
-          />
-          <InvestorMetricCard
-            featured
-            label="Revenue"
-            value="381.32 USDC"
-            detail="Ramp fees · US$0 from subscriptions"
+            :label="t(`report.summary.kpis.${key}.label`)"
+            :value="t(`report.summary.kpis.${key}.value`)"
+            :detail="t(`report.summary.kpis.${key}.detail`)"
           />
         </div>
         <p class="ir-prose">
-          A single account let users hold stablecoins in a self-custody smart wallet, move money in and out of bank accounts in five regions, buy tokenized US stocks, earn DeFi yield, and see their net worth across banks, brokers, exchanges, and wallets. The server could not decrypt that financial data.
+          {{ t('report.summary.prose') }}
         </p>
         <dl class="ir-facts">
           <div v-for="fact in summaryFacts" :key="fact.label" class="ir-facts__row">
@@ -209,51 +148,47 @@ const githubUrl = SHUTDOWN.githubUrl
         </dl>
       </InvestorReportSection>
 
-      <InvestorReportSection
-        index="02"
-        title="Operating data"
-        lede="Full disclosure of users, deposits, refunds, revenue, and expenses as of 30 October 2026."
-      >
+      <InvestorReportSection index="02" :title="t('report.operating.title')" :lede="t('report.operating.lede')">
         <div class="ir-composition">
           <div class="ir-composition__stack">
             <InvestorBreakdownCard
-              title="Users by KYC status"
-              name-header="Status"
-              value-header="Users"
+              :title="t('report.operating.kyc.title')"
+              :name-header="t('report.operating.kyc.name')"
+              :value-header="t('report.operating.kyc.value')"
               :rows="kycRows"
             />
             <InvestorBreakdownCard
-              title="Users by region (155 users with a country on file)"
-              name-header="Region"
-              value-header="Users"
+              :title="t('report.operating.regions.title')"
+              :name-header="t('report.operating.regions.name')"
+              :value-header="t('report.operating.regions.value')"
               :rows="regionRows"
             />
           </div>
           <div class="ir-composition__stack">
             <InvestorBreakdownCard
-              title="New users by month"
-              name-header="Month"
-              value-header="Users"
+              :title="t('report.operating.monthly.title')"
+              :name-header="t('report.operating.monthly.name')"
+              :value-header="t('report.operating.monthly.value')"
               :rows="newUserRows"
             />
             <InvestorBreakdownCard
-              title="Gross deposits by currency"
-              name-header="Currency"
-              value-header="Deposits"
+              :title="t('report.operating.deposits.title')"
+              :name-header="t('report.operating.deposits.name')"
+              :value-header="t('report.operating.deposits.value')"
               :rows="depositRows"
             />
             <InvestorBreakdownCard
-              title="Refunds (share of gross deposits in that currency)"
-              name-header="Currency"
-              value-header="Refunded"
+              :title="t('report.operating.refunds.title')"
+              :name-header="t('report.operating.refunds.name')"
+              :value-header="t('report.operating.refunds.value')"
               :rows="refundRows"
             />
           </div>
         </div>
         <p class="ir-footnote-inline">
-          Net deposits kept on the platform: about US$15.6K. October sign-ups and deposits arrived after the shutdown notice.
+          {{ t('report.operating.footnote') }}
         </p>
-        <h3 class="ir-subhead">Revenue, expenses, and risk</h3>
+        <h3 class="ir-subhead">{{ t('report.operating.revenueTitle') }}</h3>
         <dl class="ir-facts">
           <div v-for="fact in revenueFacts" :key="fact.label" class="ir-facts__row">
             <dt>{{ fact.label }}</dt>
@@ -262,11 +197,7 @@ const githubUrl = SHUTDOWN.githubUrl
         </dl>
       </InvestorReportSection>
 
-      <InvestorReportSection
-        index="03"
-        title="Business model"
-        lede="How Kura intended to earn revenue."
-      >
+      <InvestorReportSection index="03" :title="t('report.model.title')" :lede="t('report.model.lede')">
         <dl class="ir-facts">
           <div v-for="item in businessModel" :key="item.label" class="ir-facts__row">
             <dt>{{ item.label }}</dt>
@@ -275,7 +206,7 @@ const githubUrl = SHUTDOWN.githubUrl
         </dl>
       </InvestorReportSection>
 
-      <InvestorReportSection index="04" title="Timeline">
+      <InvestorReportSection index="04" :title="t('report.timeline.title')">
         <dl class="ir-facts">
           <div v-for="item in timeline" :key="item.label" class="ir-facts__row">
             <dt>{{ item.label }}</dt>
@@ -284,39 +215,35 @@ const githubUrl = SHUTDOWN.githubUrl
         </dl>
       </InvestorReportSection>
 
-      <InvestorReportSection
-        index="05"
-        title="Why it stopped"
-        lede="Lessons learned."
-      >
+      <InvestorReportSection index="05" :title="t('report.lessons.title')" :lede="t('report.lessons.lede')">
         <ol class="ir-notes">
           <li v-for="(lesson, index) in lessons" :key="lesson.title">
             <span class="ir-notes__mark">{{ index + 1 }}</span>
             <span>
               <strong>{{ lesson.title }}</strong>
-              {{ lesson.body }}
+              {{ lesson.text }}
             </span>
           </li>
         </ol>
       </InvestorReportSection>
 
-      <InvestorReportSection index="06" title="Further reading">
+      <InvestorReportSection index="06" :title="t('report.reading.title')">
         <ul class="ir-links">
           <li>
-            <NuxtLink to="/about">A note from the founder</NuxtLink>
-            <span>Why Kura was built.</span>
+            <NuxtLinkLocale to="/about">{{ t('report.reading.founder.link') }}</NuxtLinkLocale>
+            <span>{{ t('report.reading.founder.text') }}</span>
           </li>
           <li>
-            <NuxtLink to="/blog">Blog</NuxtLink>
-            <span>Articles published while Kura was operating.</span>
+            <NuxtLinkLocale to="/blog">{{ t('report.reading.blog.link') }}</NuxtLinkLocale>
+            <span>{{ t('report.reading.blog.text') }}</span>
           </li>
           <li>
-            <a :href="githubUrl" target="_blank" rel="noopener noreferrer">Source code</a>
-            <span>The repositories, with architecture and security documentation.</span>
+            <a :href="githubUrl" target="_blank" rel="noopener noreferrer">{{ t('report.reading.source.link') }}</a>
+            <span>{{ t('report.reading.source.text') }}</span>
           </li>
           <li>
-            <NuxtLink to="/docs">Documentation</NuxtLink>
-            <span>Policies and legacy coverage pages.</span>
+            <NuxtLinkLocale to="/docs">{{ t('report.reading.docs.link') }}</NuxtLinkLocale>
+            <span>{{ t('report.reading.docs.text') }}</span>
           </li>
         </ul>
       </InvestorReportSection>
@@ -324,10 +251,10 @@ const githubUrl = SHUTDOWN.githubUrl
       <footer class="ir-correspondence">
         <div class="ir-correspondence__grid">
           <div>
-            <p class="ir-correspondence__label">Correspondence</p>
-            <h2 class="ir-correspondence__title">Legal contact</h2>
+            <p class="ir-correspondence__label">{{ t('report.correspondence.label') }}</p>
+            <h2 class="ir-correspondence__title">{{ t('report.correspondence.title') }}</h2>
             <p class="ir-correspondence__body">
-              Kura is not raising capital and has no investor relations or support team. For legal matters, email us.
+              {{ t('report.correspondence.text') }}
             </p>
           </div>
           <div class="ir-correspondence__contact">

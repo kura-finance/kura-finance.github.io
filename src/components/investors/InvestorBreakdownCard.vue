@@ -8,7 +8,7 @@
       <div class="ir-table__header" role="row">
         <span class="ir-table__col ir-table__col--name" role="columnheader">{{ nameHeader }}</span>
         <span class="ir-table__col ir-table__col--value" role="columnheader">{{ valueHeader }}</span>
-        <span class="ir-table__col ir-table__col--share" role="columnheader">Share</span>
+        <span class="ir-table__col ir-table__col--share" role="columnheader">{{ t('common.share') }}</span>
       </div>
 
       <div
@@ -39,7 +39,7 @@
       </div>
     </div>
 
-    <p v-else class="ir-table-block__empty">No data for this period.</p>
+    <p v-else class="ir-table-block__empty">{{ t('common.noData') }}</p>
   </section>
 </template>
 
@@ -64,6 +64,8 @@ withDefaults(
     valueHeader: 'Amount',
   },
 )
+
+const { t } = useI18n()
 
 function formatShare(share: number) {
   return `${(share * 100).toFixed(1)}%`

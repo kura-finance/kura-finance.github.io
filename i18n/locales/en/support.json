@@ -1,0 +1,57 @@
+{
+  "help": {
+    "seo": {
+      "title": "Help Center",
+      "description": "Contact Kura support at {support} or {hello} for product, billing, and account help.",
+      "keywords": "Kura help, support, contact, customer service"
+    },
+    "hero": {
+      "eyebrow": "Support",
+      "title": "Help Center",
+      "description": "Reach our team for product, billing, and account questions."
+    },
+    "contactUs": "Contact us",
+    "docs": "Browse documentation",
+    "home": "Back home"
+  },
+  "contact": {
+    "seo": {
+      "title": "Contact Us",
+      "description": "Get in touch with the Kura team. General inquiries, support, and partnership questions welcome.",
+      "keywords": "contact Kura, support, hello, help"
+    },
+    "hero": {
+      "eyebrow": "Support",
+      "title": "Contact us",
+      "description": "We are here to help. Reach out for general inquiries, account support, or partnership questions."
+    },
+    "channels": {
+      "general": { "title": "General inquiries", "description": "Questions about Kura, partnerships, or press." },
+      "support": { "title": "Support", "description": "Help with your account, app, or TrackFi setup." }
+    },
+    "more": {
+      "title": "More ways to connect",
+      "help": "Help center →",
+      "helpDesc": "— guides and FAQs",
+      "community": "Community →",
+      "communityDesc": "— connect with other Kura users",
+      "report": "Business Report →",
+      "reportDesc": "— operating record and lessons learned"
+    }
+  },
+  "community": {
+    "seo": {
+      "title": "Community",
+      "description": "The Kura community hub is coming soon. Follow our blog for product updates in the meantime."
+    },
+    "hero": {
+      "eyebrow": "Community",
+      "title": "Coming soon",
+      "description": "We're building a community hub for Kura users and builders. Follow the blog for product updates in the meantime.",
+      "tags": ["Discord", "Events", "Builders"]
+    },
+    "connect": "Want to connect now? Follow us on X or reach out at {email}.",
+    "followX": "Follow on X",
+    "blog": "Read the blog"
+  }
+}

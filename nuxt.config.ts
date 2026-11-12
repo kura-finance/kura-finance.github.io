@@ -3,6 +3,9 @@ import { join, dirname } from 'node:path'
 
 const rootDir = dirname(fileURLToPath(import.meta.url))
 
+/** Message files under i18n/locales/<locale>/, merged per locale. */
+const LOCALE_FILES = ['layout', 'home', 'about', 'pricing', 'download', 'products', 'support', 'docs', 'coverage', 'blog', 'report', 'legal']
+
 export default defineNuxtConfig({
   srcDir: 'src',
   serverDir: 'src/server',
@@ -11,7 +14,23 @@ export default defineNuxtConfig({
   },
   ssr: true,
   compatibilityDate: '2026-04-18',
-  modules: ['@nuxtjs/tailwindcss', '@nuxt/image', '@nuxt/content'],
+  modules: ['@nuxtjs/tailwindcss', '@nuxt/image', '@nuxt/content', '@nuxtjs/i18n'],
+  i18n: {
+    baseUrl: 'https://kura-finance.com',
+    defaultLocale: 'en',
+    strategy: 'prefix_except_default',
+    locales: [
+      { code: 'en', language: 'en-US', name: 'English', files: LOCALE_FILES.map((name) => `en/${name}.json`) },
+      { code: 'zh-TW', language: 'zh-TW', name: '繁體中文', files: LOCALE_FILES.map((name) => `zh-TW/${name}.json`) },
+    ],
+    detectBrowserLanguage: {
+      useCookie: true,
+      cookieKey: 'kura_locale',
+      redirectOn: 'root',
+      alwaysRedirect: false,
+    },
+    vueI18n: './i18n.config.ts',
+  },
   css: ['~/styles/globals.css'],
   components: [
     {
@@ -31,7 +50,6 @@ export default defineNuxtConfig({
   },
   app: {
     head: {
-      htmlAttrs: { lang: 'en' },
       title: 'Kura — Modern Finance, Redesigned',
       meta: [
         { charset: 'utf-8' },
@@ -77,7 +95,7 @@ export default defineNuxtConfig({
   nitro: {
     prerender: {
       crawlLinks: true,
-      routes: ['/sitemap.xml', '/feed.xml'],
+      routes: ['/sitemap.xml', '/feed.xml', '/zh-TW'],
       autoSubfolderIndex: false,
     },
     compressPublicAssets: true,
@@ -90,7 +108,7 @@ export default defineNuxtConfig({
         defaultRoutes: false,
         routes: {
           version: 1,
-          include: ['/api/*', '/investors', '/investors/*'],
+          include: ['/api/*'],
           exclude: [],
         },
       },
@@ -150,17 +168,60 @@ export default defineNuxtConfig({
     '/resources/on-off-ramp-countries': { redirect: { to: '/docs/on-off-ramp-countries', statusCode: 301 } },
     '/business': { prerender: true },
     '/community': { prerender: true },
-    // Missing /_nuxt/*.js must 404 (server/middleware/01-static-asset-404.ts), not HTML.
-    '/investors': {
-      prerender: false,
-      headers: { 'cache-control': 'public, max-age=0, must-revalidate' },
-    },
+    // The business report is static since Kura ceased operations.
+    '/investors': { prerender: true },
     '/privacy': { prerender: true },
     '/tos': { prerender: true },
     '/disclaimer': { prerender: true },
     '/referral-terms': { prerender: true },
     '/prohibited-activities': { prerender: true },
     '/compliance': { prerender: true },
+    // Traditional Chinese (zh-TW) mirrors of the routes above.
+    '/zh-TW': { prerender: true },
+    '/zh-TW/about': { prerender: true },
+    '/zh-TW/pricing': { prerender: true },
+    '/zh-TW/download': { prerender: true },
+    '/zh-TW/account': { prerender: true },
+    '/zh-TW/financial-account': { prerender: true },
+    '/zh-TW/global-transfers': { prerender: true },
+    '/zh-TW/multi-currency': { prerender: true },
+    '/zh-TW/card-waitlist': { prerender: true },
+    '/zh-TW/invest': { prerender: true },
+    '/zh-TW/us-stocks': { prerender: true },
+    '/zh-TW/earn': { prerender: true },
+    '/zh-TW/borrow': { prerender: true },
+    '/zh-TW/connected-accounts': { prerender: true },
+    '/zh-TW/net-worth': { prerender: true },
+    '/zh-TW/banking': { prerender: true },
+    '/zh-TW/investments': { prerender: true },
+    '/zh-TW/digital-assets': { prerender: true },
+    '/zh-TW/compare': { prerender: true },
+    '/zh-TW/contact': { prerender: true },
+    '/zh-TW/open-source': { redirect: { to: '/zh-TW', statusCode: 301 } },
+    '/zh-TW/kura-wallet': { redirect: { to: '/zh-TW/account', statusCode: 301 } },
+    '/zh-TW/kura-card': { prerender: true },
+    '/zh-TW/trackfi': { prerender: true },
+    '/zh-TW/help': { prerender: true },
+    '/zh-TW/docs': { prerender: true },
+    '/zh-TW/blog': { prerender: true },
+    '/zh-TW/blog/**': { prerender: true },
+    '/zh-TW/blog/product-updates': { prerender: true },
+    '/zh-TW/blog/company-news': { prerender: true },
+    '/zh-TW/docs/stock-countries': { prerender: true },
+    '/zh-TW/docs/on-off-ramp-countries': { prerender: true },
+    '/zh-TW/docs/card-countries': { redirect: { to: '/zh-TW/kura-card', statusCode: 301 } },
+    '/zh-TW/resources/stock-countries': { redirect: { to: '/zh-TW/docs/stock-countries', statusCode: 301 } },
+    '/zh-TW/resources/card-countries': { redirect: { to: '/zh-TW/kura-card', statusCode: 301 } },
+    '/zh-TW/resources/on-off-ramp-countries': { redirect: { to: '/zh-TW/docs/on-off-ramp-countries', statusCode: 301 } },
+    '/zh-TW/business': { prerender: true },
+    '/zh-TW/community': { prerender: true },
+    '/zh-TW/investors': { prerender: true },
+    '/zh-TW/privacy': { prerender: true },
+    '/zh-TW/tos': { prerender: true },
+    '/zh-TW/disclaimer': { prerender: true },
+    '/zh-TW/referral-terms': { prerender: true },
+    '/zh-TW/prohibited-activities': { prerender: true },
+    '/zh-TW/compliance': { prerender: true },
     '/_nuxt/**': { headers: { 'cache-control': 'public, max-age=31536000, immutable' } },
     '/icon.webp': { headers: { 'cache-control': 'public, max-age=31536000, immutable' } },
     '/icon_background.webp': { headers: { 'cache-control': 'public, max-age=31536000, immutable' } },

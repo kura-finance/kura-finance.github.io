@@ -1,15 +1,15 @@
 <template>
   <div class="w-full text-kura-text bg-kura-background">
     <PageHero
-      eyebrow="Trust, security & architecture"
-      title="Documentation Center"
-      description="Policies, legacy coverage pages, and source code for Kura, now an open-source project."
+      :eyebrow="t('docs.hero.eyebrow')"
+      :title="t('docs.hero.title')"
+      :description="t('docs.hero.description')"
       :divider="false"
     />
 
     <main class="marketing-container pb-20 md:pb-28 space-y-14 md:space-y-16 pt-2 md:pt-4">
       <section>
-        <h2 class="text-2xl font-bold tracking-tight mb-5">Supported countries</h2>
+        <h2 class="text-2xl font-bold tracking-tight mb-5">{{ t('docs.sections.countries') }}</h2>
         <div class="grid md:grid-cols-2 gap-5">
           <DocLinkCard
             v-for="doc in countryDocs"
@@ -20,7 +20,7 @@
       </section>
 
       <section>
-        <h2 class="text-2xl font-bold tracking-tight mb-5">Trust & policy</h2>
+        <h2 class="text-2xl font-bold tracking-tight mb-5">{{ t('docs.sections.trust') }}</h2>
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
           <DocLinkCard
             v-for="doc in trustDocs"
@@ -31,36 +31,36 @@
       </section>
 
       <section>
-        <h2 class="text-2xl font-bold tracking-tight mb-5">Investors</h2>
+        <h2 class="text-2xl font-bold tracking-tight mb-5">{{ t('docs.sections.investors') }}</h2>
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
           <DocLinkCard
-            title="Business Report"
-            description="Operating record, business model, timeline, and lessons learned from Kura."
-            category="Archive"
+            :title="t('docs.report.title')"
+            :description="t('docs.report.description')"
+            :category="t('docs.report.category')"
             to="/investors"
           />
         </div>
       </section>
 
       <section>
-        <h2 class="text-2xl font-bold tracking-tight mb-5">Source code</h2>
+        <h2 class="text-2xl font-bold tracking-tight mb-5">{{ t('docs.sections.source') }}</h2>
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
           <DocLinkCard
-            title="Kura on GitHub"
-            description="The full Kura stack is open source. Read, fork, and run it yourself. Copyright Kura Finance LLC."
-            category="Open source"
+            :title="t('docs.github.title')"
+            :description="t('docs.github.description')"
+            :category="t('docs.github.category')"
             to="https://github.com/Kura-Finance"
           />
         </div>
       </section>
 
       <section class="card-surface p-8 md:p-10 text-center bg-kura-surface">
-        <h2 class="text-2xl md:text-3xl font-bold mb-4">Legal or privacy question?</h2>
+        <h2 class="text-2xl md:text-3xl font-bold mb-4">{{ t('docs.legal.title') }}</h2>
         <p class="text-kura-text-secondary max-w-2xl mx-auto mb-6 text-sm leading-relaxed">
-          Kura has no support team. For legal or privacy matters about the Service, email us.
+          {{ t('docs.legal.description') }}
         </p>
         <a href="mailto:legal@kura-finance.com" class="btn-primary">
-          Contact legal
+          {{ t('docs.legal.button') }}
         </a>
       </section>
     </main>
@@ -72,66 +72,25 @@ definePageMeta({
   layout: 'default',
 })
 
-const countryDocs = [
-  {
-    title: 'Stock Trading Countries',
-    description: 'Legacy reference: Dinari dShares coverage. US stock trading in Kura has been discontinued.',
-    category: 'Dinari',
-    status: 'Discontinued',
-    to: '/docs/stock-countries',
-  },
-  {
-    title: 'On/Off-Ramp Countries',
-    description: 'Legacy reference: Bridge.xyz and MoonPay coverage. Fiat deposits and withdrawals in Kura have been discontinued.',
-    category: 'Bridge & MoonPay',
-    status: 'Discontinued',
-    to: '/docs/on-off-ramp-countries',
-  },
-]
+const { t } = useI18n()
 
-const trustDocs = [
-  {
-    title: 'Privacy Policy',
-    description: 'How Kura collects, uses, and protects user data under a zero-access operating model.',
-    category: 'Policy',
-    to: '/privacy',
-  },
-  {
-    title: 'Trust & Security Center',
-    description: 'Core security controls, cryptographic posture, and compliance operating framework.',
-    category: 'Security',
-    to: '/compliance',
-  },
-  {
-    title: 'Terms of Service',
-    description: 'Legal terms for using Kura products, including arbitration and service boundaries.',
-    category: 'Legal',
-    to: '/tos',
-  },
-  {
-    title: 'Risk Disclosure',
-    description: 'Material risks of non-custodial wallets, DeFi, bridges, cards, and partner services.',
-    category: 'Legal',
-    to: '/disclaimer',
-  },
-  {
-    title: 'Referral Program Terms',
-    description: 'Program discontinued. Rules that applied to past referral participation.',
-    category: 'Legal',
-    to: '/referral-terms',
-  },
-  {
-    title: 'Prohibited Activities',
-    description: 'Sanctions, financial crime, platform abuse, and digital-asset misuse restrictions.',
-    category: 'Legal',
-    to: '/prohibited-activities',
-  },
-]
+const COUNTRY_LINKS = ['/docs/stock-countries', '/docs/on-off-ramp-countries']
+const TRUST_LINKS = ['/privacy', '/compliance', '/tos', '/disclaimer', '/referral-terms', '/prohibited-activities']
+
+type DocCopy = { title: string; description: string; category: string }
+
+const countryCopy = useCopy<DocCopy[]>('docs.countryDocs')
+const trustCopy = useCopy<DocCopy[]>('docs.trustDocs')
+
+const countryDocs = computed(() =>
+  countryCopy.value.map((doc, index) => ({ ...doc, status: t('common.discontinued'), to: COUNTRY_LINKS[index] })),
+)
+const trustDocs = computed(() => trustCopy.value.map((doc, index) => ({ ...doc, to: TRUST_LINKS[index] })))
 
 usePageSeo({
-  title: 'Documentation',
-  description: 'Kura documentation: legal policies, legacy coverage pages, and the open-source code on GitHub.',
+  title: () => t('docs.seo.title'),
+  description: () => t('docs.seo.description'),
   path: '/docs',
-  keywords: 'Kura documentation, privacy policy, compliance, open source, trust center',
+  keywords: () => t('docs.seo.keywords'),
 })
 </script>

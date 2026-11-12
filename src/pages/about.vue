@@ -1,112 +1,38 @@
 <script setup lang="ts">
 definePageMeta({ layout: 'default' })
 
+const { t } = useI18n()
+
 usePageSeo({
-  title: 'About',
-  description:
-    'Kura is modern finance, redesigned — one account to save, spend, invest, earn, and move money globally, with privacy by default and the simplicity of a bank.',
+  title: () => t('about.seo.title'),
+  description: () => t('about.seo.description'),
   path: '/about',
-  keywords:
-    'about Kura, modern finance, zero-access, non-custodial, financial account, TrackFi, Kura Card',
+  keywords: () => t('about.seo.keywords'),
 })
 
-const principles = [
-  {
-    title: 'Beautiful by default',
-    description:
-      'Finance should feel calm and intentional — not like a terminal. We obsess over clarity so everyday money decisions feel simple.',
-  },
-  {
-    title: 'Privacy by architecture',
-    description:
-      'Zero-Access design and non-custodial control mean we do not need to hold your keys or read your connected financial life to operate the product.',
-  },
-  {
-    title: 'Global without the friction',
-    description:
-      'On / off ramps, multi-currency balances, Trade, Earn, and US markets — through regulated partners — so borders feel less like barriers.',
-  },
-]
-
-const pillars = [
-  {
-    label: 'Account',
-    title: 'One place for cash',
-    description: 'Hold, send, and receive with bank-like clarity — multi-currency and global transfers included.',
-  },
-  {
-    label: 'Grow',
-    title: 'Invest, earn, borrow',
-    description: 'US stocks via Dinari, optional Morpho yield, and on-demand liquidity — when you want them, not because you must.',
-  },
-  {
-    label: 'Spend',
-    title: 'Kura Card',
-    description: 'Spend from your balance anywhere Visa is accepted. Virtual card today; physical card on the waitlist.',
-  },
-  {
-    label: 'See everything',
-    title: 'TrackFi',
-    description: 'Encrypted portfolio tracking for banks, brokerages, and on-chain positions — without giving us plaintext visibility.',
-  },
-]
-
-const milestones = [
-  {
-    phase: '01',
-    title: 'TrackFi',
-    time: 'Privacy foundation',
-    content:
-      'Encrypted portfolio tracking for banking, investments, and digital assets — Zero-Access so readable financial data stays off our servers.',
-  },
-  {
-    phase: '02',
-    title: 'Unified financial account',
-    time: 'One home screen',
-    content:
-      'Cash, transfers, and a calm bank-like experience in one place — add money, send globally, and see balance and history clearly.',
-  },
-  {
-    phase: '03',
-    title: 'Invest, Earn & Borrow',
-    time: 'Grow & access',
-    content:
-      'US equities, transparent yield, and Morpho liquidity — powered by regulated and protocol partners with terms you can read.',
-  },
-  {
-    phase: '04',
-    title: 'Kura Card',
-    time: 'Spend',
-    content:
-      'Turn balance into everyday spend: virtual card live, physical Kura Card waitlist for cashback and fee-free international use.',
-  },
-  {
-    phase: '05',
-    title: 'Business & Team',
-    time: 'Pro web dashboard',
-    content:
-      'Shared Treasury, Approvals, Team roles, and Reports on the Pro web dashboard — company cash without a second stack of tools.',
-  },
-]
+const principles = useCopy<{ title: string; description: string }[]>('about.principles')
+const pillars = useCopy<{ label: string; title: string; description: string }[]>('about.pillars')
+const milestones = useCopy<{ phase: string; title: string; time: string; content: string }[]>('about.milestones')
+const founderParagraphs = useCopy<string[]>('about.founder.paragraphs')
 </script>
 
 <template>
   <div class="w-full text-kura-text bg-kura-background">
     <PageHero
-      eyebrow="About Kura"
-      title="Modern finance, redesigned."
-      description="One account to save, spend, invest, earn, and move money globally — with the simplicity of a bank and the freedom of modern finance."
+      :eyebrow="t('about.hero.eyebrow')"
+      :title="t('about.hero.title')"
+      :description="t('about.hero.description')"
     />
 
     <section class="section-padding border-t border-kura-border">
       <div class="marketing-container">
         <div class="max-w-2xl mb-14 md:mb-20">
-          <p class="section-label mb-5">Mission</p>
+          <p class="section-label mb-5">{{ t('about.mission.label') }}</p>
           <h2 class="headline-xl text-display-sm md:text-display-md mb-6">
-            A financial life that stays yours.
+            {{ t('about.mission.title') }}
           </h2>
           <p class="prose-lead max-w-xl">
-            We build software, not a vault. Kura is non-custodial and Zero-Access by design: you authorize moves, partners handle regulated rails, and we never need universal plaintext access to your money or TrackFi connections to ship a beautiful product.
+            {{ t('about.mission.description') }}
           </p>
         </div>
 
@@ -131,12 +57,12 @@ const milestones = [
     <section class="section-padding bg-kura-surface border-t border-kura-border">
       <div class="marketing-container">
         <div class="max-w-2xl mb-14 md:mb-20">
-          <p class="section-label mb-5">Product</p>
+          <p class="section-label mb-5">{{ t('about.product.label') }}</p>
           <h2 class="headline-xl text-display-sm md:text-display-md mb-6">
-            One account. Pick what you need.
+            {{ t('about.product.title') }}
           </h2>
           <p class="prose-lead max-w-xl">
-            Cash, Trade, On / Off Ramps, Earn, US stocks, card spend, and portfolio tracking work better together — and never force you to take the whole stack.
+            {{ t('about.product.description') }}
           </p>
         </div>
 
@@ -159,7 +85,7 @@ const milestones = [
         <div class="about-founder">
           <NuxtImg
             src="/avatar.webp"
-            alt="Rick Weng, Founder of Kura"
+            :alt="t('about.founder.avatarAlt')"
             width="160"
             height="160"
             loading="lazy"
@@ -167,19 +93,16 @@ const milestones = [
             class="about-founder__avatar"
           />
           <div class="about-founder__body">
-            <p class="section-label mb-4">Founder</p>
-            <h2 class="headline-xl text-display-sm mb-6">A note from Rick</h2>
+            <p class="section-label mb-4">{{ t('about.founder.label') }}</p>
+            <h2 class="headline-xl text-display-sm mb-6">{{ t('about.founder.title') }}</h2>
             <div class="space-y-5 text-kura-text-secondary leading-relaxed">
-              <p>
-                I am not a trader, and I am not an arbitrageur. I wanted a simple place to manage bank accounts, card spending, stocks, crypto, and on-chain yield — without juggling five apps or surrendering privacy for convenience.
-              </p>
-              <p>
-                I could not find that product. So I built Kura: modern finance with a bank-like calm, Zero-Access privacy, and partners for the rails that must be regulated.
+              <p v-for="paragraph in founderParagraphs" :key="paragraph">
+                {{ paragraph }}
               </p>
             </div>
             <div class="about-founder__sign">
-              <span class="about-founder__name">Rick Weng</span>
-              <span class="about-founder__role">Founder, Kura Finance LLC</span>
+              <span class="about-founder__name">{{ t('about.founder.name') }}</span>
+              <span class="about-founder__role">{{ t('about.founder.role') }}</span>
             </div>
           </div>
         </div>
@@ -189,9 +112,9 @@ const milestones = [
     <section class="section-padding bg-white border-t border-kura-border">
       <div class="marketing-container">
         <div class="max-w-2xl mb-14 md:mb-16">
-          <p class="section-label mb-5">Evolution</p>
+          <p class="section-label mb-5">{{ t('about.evolution.label') }}</p>
           <h2 class="headline-xl text-display-sm md:text-display-md">
-            How Kura grew into one account.
+            {{ t('about.evolution.title') }}
           </h2>
         </div>
 
@@ -214,28 +137,25 @@ const milestones = [
       <div class="marketing-container">
         <div class="about-trust">
           <div class="about-trust__copy">
-            <p class="section-label mb-4">Trust</p>
-            <h2 class="headline-xl text-display-sm mb-4">Built in the open where it matters.</h2>
+            <p class="section-label mb-4">{{ t('about.trust.label') }}</p>
+            <h2 class="headline-xl text-display-sm mb-4">{{ t('about.trust.title') }}</h2>
             <p class="text-kura-text-secondary leading-relaxed max-w-lg">
-              Corporate details, Zero-Access posture, and the partner stack that powers regulated functions live in our Trust &amp; Security Center.
+              {{ t('about.trust.description') }}
             </p>
           </div>
           <div class="about-trust__actions">
-            <NuxtLink to="/compliance" class="btn-primary">
-              Trust Center
-            </NuxtLink>
-            <NuxtLink to="/investors" class="btn-secondary">
-              Business Report
-            </NuxtLink>
+            <NuxtLinkLocale to="/compliance" class="btn-primary">
+              {{ t('about.trust.center') }}
+            </NuxtLinkLocale>
+            <NuxtLinkLocale to="/investors" class="btn-secondary">
+              {{ t('about.trust.report') }}
+            </NuxtLinkLocale>
           </div>
         </div>
       </div>
     </section>
 
-    <CTASection
-      title="Start with one account"
-      description="Download Kura for iPhone or Android — or open the Pro web dashboard when your team is ready."
-    />
+    <CTASection />
   </div>
 </template>
 

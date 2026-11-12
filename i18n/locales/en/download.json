@@ -1,0 +1,33 @@
+{
+  "download": {
+    "seo": {
+      "title": "Download",
+      "description": "Kura has ceased operations. The open-source wallet app is no longer maintained, and store listings may be removed at any time.",
+      "keywords": "download Kura, Kura app iOS, App Store, Kura Android, Google Play"
+    },
+    "hero": {
+      "eyebrow": "Archive",
+      "title": "Download Kura",
+      "description": "Kura has ceased operations. The app is an open-source wallet that is no longer maintained. It accepts no new sign-ups or deposits, and the store listings below may be removed at any time."
+    },
+    "storeListings": "Store listings",
+    "dashboard": "Pro Dashboard",
+    "ios": {
+      "title": "Download for iPhone",
+      "description": "The App Store listing for the unmaintained wallet app. It may be removed at any time.",
+      "button": "Download on the App Store"
+    },
+    "android": {
+      "title": "Download for Android",
+      "description": "The Google Play listing for the unmaintained wallet app. It may be removed at any time.",
+      "button": "Get it on Google Play"
+    },
+    "web": {
+      "label": "Web",
+      "title": "Prefer the desktop experience?",
+      "description": "Open the Pro Dashboard for markets, Business & Team, and the full web workspace. Requires Pro or Ultimate."
+    },
+    "disclaimer": "Kura was a product of Kura Finance LLC, a software company — not a bank. The company has been dissolved and has ceased operations. Card, payment, and investing services are no longer available, and the remaining wallet is not maintained.",
+    "help": "Help center →"
+  }
+}

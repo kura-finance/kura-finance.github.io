@@ -1,0 +1,133 @@
+{
+  "report": {
+    "seo": {
+      "title": "Business Report",
+      "description": "Kura business report: what was built, operating data as of 30 October 2026, the business model, the timeline, and why it stopped.",
+      "keywords": "Kura business report, operating data, post-mortem, lessons learned, fintech"
+    },
+    "docType": "Archive",
+    "title": "Business Report",
+    "subtitle": "What Kura built, how it performed, and why it stopped. Kura Finance LLC has been dissolved and has ceased operations.",
+    "meta": {
+      "period": { "label": "Operating period", "value": "April – September 2026" },
+      "asOf": { "label": "Data as of", "value": "30 October 2026" },
+      "status": { "label": "Document status", "value": "Final · archived" }
+    },
+    "summary": {
+      "title": "Summary",
+      "lede": "Kura was a consumer fintech app built around one idea: you keep custody of your money and your data.",
+      "kpis": {
+        "users": { "label": "Users in KYC", "value": "249", "detail": "68 approved · 18 funded" },
+        "deposits": { "label": "Gross deposits", "value": "≈ US$34K", "detail": "≈ US$18.3K (54%) refunded" },
+        "revenue": { "label": "Revenue", "value": "381.32 USDC", "detail": "Ramp fees · US$0 from subscriptions" }
+      },
+      "prose": "A single account let users hold stablecoins in a self-custody smart wallet, move money in and out of bank accounts in five regions, buy tokenized US stocks, earn DeFi yield, and see their net worth across banks, brokers, exchanges, and wallets. The server could not decrypt that financial data.",
+      "facts": [
+        { "label": "Operating period", "value": "April – September 2026 (about 5 months from first commit to wind-down)" },
+        { "label": "Team", "value": "Solo founder-engineer" },
+        { "label": "Platforms", "value": "iOS and Android app, web app, internal ops console, marketing site" },
+        { "label": "Fiat coverage", "value": "US (ACH/wire), EU (SEPA), UK (Faster Payments), Mexico (SPEI), Brazil (PIX)" },
+        { "label": "Where users came from", "value": "Southeast Asia 46% · Latin America 18% · Africa 17% · Europe 12% · US 1%" },
+        { "label": "Codebase", "value": "About 148K lines of TypeScript across 5 repositories" },
+        { "label": "Infrastructure cost", "value": "About US$30 per month on Google Cloud" }
+      ]
+    },
+    "operating": {
+      "title": "Operating data",
+      "lede": "Full disclosure of users, deposits, refunds, revenue, and expenses as of 30 October 2026.",
+      "kyc": {
+        "title": "Users by KYC status",
+        "name": "Status",
+        "value": "Users",
+        "rows": ["Approved", "Rejected", "Paused", "Incomplete", "Not started", "Total"],
+        "totalDetail": "248 individuals, 1 business"
+      },
+      "regions": {
+        "title": "Users by region (155 users with a country on file)",
+        "name": "Region",
+        "value": "Users",
+        "rows": ["Southeast Asia", "Latin America", "Africa", "Europe", "Other Asia", "North America", "Oceania"]
+      },
+      "monthly": {
+        "title": "New users by month",
+        "name": "Month",
+        "value": "Users",
+        "rows": ["June 2026", "July 2026", "August 2026", "September 2026", "October 2026"],
+        "octoberDetail": "Sign-ups after the shutdown notice"
+      },
+      "deposits": {
+        "title": "Gross deposits by currency",
+        "name": "Currency",
+        "value": "Deposits",
+        "approx": "About {amount}",
+        "total": "Total",
+        "totalDetail": "75 deposits from 18 users across 182 virtual accounts"
+      },
+      "refunds": {
+        "title": "Refunds (share of gross deposits in that currency)",
+        "name": "Currency",
+        "value": "Refunded",
+        "totalDetail": "21 deposits refunded"
+      },
+      "footnote": "Net deposits kept on the platform: about US$15.6K. October sign-ups and deposits arrived after the shutdown notice.",
+      "revenueTitle": "Revenue, expenses, and risk",
+      "revenueFacts": [
+        { "label": "Fiat-ramp fees", "value": "381.32 USDC, earned on 54 converted deposits" },
+        { "label": "Subscriptions", "value": "US$0. Three Pro monthly subscriptions were all invoiced at $0 and later canceled. No charges, refunds, or disputes." },
+        { "label": "Swap and Earn fees", "value": "Not measured in this report" },
+        { "label": "Wire-return fees", "value": "Exceeded the 381.32 USDC of ramp fees, so net fiat-ramp revenue was negative" },
+        { "label": "Cloud hosting", "value": "About US$30 per month (Google Cloud Run and Cloud SQL)" },
+        { "label": "Not itemized", "value": "Fixed monthly fees for each open virtual account and third-party API subscriptions" },
+        { "label": "Risk", "value": "One fraud incident (about 992.5 USDC, 27 July 2026), traced on-chain and remediated" }
+      ]
+    },
+    "model": {
+      "title": "Business model",
+      "lede": "How Kura intended to earn revenue.",
+      "items": [
+        { "label": "Subscriptions", "value": "Basic free · Pro $12.99/mo or $129.99/yr · Ultimate $29.99/mo or $299.99/yr" },
+        { "label": "On/off-ramp", "value": "A 0.25% margin on top of the ramp partner’s wholesale cost" },
+        { "label": "Swaps and bridges", "value": "A 0.25% integrator fee" },
+        { "label": "Earn", "value": "A 10% performance fee on Morpho fee-wrapper vaults" },
+        { "label": "Referrals", "value": "A cashback program settled from ramp events" }
+      ]
+    },
+    "timeline": {
+      "title": "Timeline",
+      "items": [
+        { "label": "April 2026", "value": "API and database go live; web app deployed" },
+        { "label": "May 2026", "value": "Mobile app development begins" },
+        { "label": "June 2026", "value": "First fiat-account customers; on/off-ramp live" },
+        { "label": "July 2026", "value": "Public launch; peak sign-ups (83); marketing site rebuilt; fraud incident and risk tooling" },
+        { "label": "August 2026", "value": "Internal admin console; Business & Team treasuries" },
+        { "label": "September 2026", "value": "Development stops; code open-sourced" },
+        { "label": "October 2026", "value": "Shutdown notice published" }
+      ]
+    },
+    "lessons": {
+      "title": "Why it stopped",
+      "lede": "Lessons learned.",
+      "items": [
+        { "title": "Too broad, too early.", "text": "Wallet, card, stocks, DeFi, aggregation, and business treasuries all shipped before a single wedge found product-market fit. The card alone went through three partner approaches without launching." },
+        { "title": "The ramp margin could not absorb returns.", "text": "Ramp fees earned 381.32 USDC on about US$34K of gross deposits, but about 54% of that money was sent back, and the wire-return fees on those refunds wiped out all fiat-ramp revenue. The cost could not be passed on: fees are only collected when a deposit converts, converted funds land in the user’s own wallet where they cannot be clawed back, and every workaround either made successful deposits subsidize failed ones, cut off the core user base, or broke the non-custodial promise." },
+        { "title": "Regulated money movement is an operations business.", "text": "KYC rejections (64 of 249), fraud-rate thresholds, recalls, refunds, and per-account fees demand dedicated compliance capacity that a solo founder cannot sustain next to engineering." },
+        { "title": "Activation is the real funnel.", "text": "249 KYC starts led to 68 approvals and 18 funded accounts. Onboarding friction, not features, was the constraint." },
+        { "title": "The users were not the ones the product was designed for.", "text": "Kura was built for US-style multi-asset users, but 81% of users came from Southeast Asia, Latin America, and Africa, looking for USD and EUR receiving accounts. Only 2 were in the US. Cross-border wires into those accounts are the likely cause of the high refund rate." },
+        { "title": "Subscriptions were never validated.", "text": "No one paid for Pro or Ultimate; the three Pro subscriptions were all invoiced at $0." },
+        { "title": "What worked.", "text": "Shipping speed (519 production deploys), a security architecture that holds up to scrutiny, and a clean, documented codebase that others can fork." }
+      ]
+    },
+    "reading": {
+      "title": "Further reading",
+      "founder": { "link": "A note from the founder", "text": "Why Kura was built." },
+      "blog": { "link": "Blog", "text": "Articles published while Kura was operating." },
+      "source": { "link": "Source code", "text": "The repositories, with architecture and security documentation." },
+      "docs": { "link": "Documentation", "text": "Policies and legacy coverage pages." }
+    },
+    "correspondence": {
+      "label": "Correspondence",
+      "title": "Legal contact",
+      "text": "Kura is not raising capital and has no investor relations or support team. For legal matters, email us."
+    }
+  }
+}

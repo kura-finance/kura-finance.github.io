@@ -2,9 +2,9 @@
   <section id="features" class="section-padding section-divider bg-kura-background">
     <div class="marketing-container">
       <div class="max-w-xl mb-20 md:mb-24">
-        <p class="section-label mb-5">Product</p>
+        <p class="section-label mb-5">{{ t('home.features.label') }}</p>
         <h2 class="headline-xl text-display-sm md:text-display-md">
-          Everything your money needs.
+          {{ t('home.features.title') }}
         </h2>
       </div>
 
@@ -29,33 +29,8 @@
 </template>
 
 <script setup lang="ts">
-const features = [
-  {
-    number: '01',
-    title: 'Cash',
-    description: 'Move money globally with bank transfers and digital dollars.',
-  },
-  {
-    number: '02',
-    title: 'Invest',
-    description: 'Access US stocks and digital assets in one place.',
-  },
-  {
-    number: '03',
-    title: 'Earn',
-    description: 'Put idle cash to work with transparent yield strategies.',
-  },
-  {
-    number: '04',
-    title: 'Borrow',
-    description: 'Access liquidity through Morpho markets with clear rates and collateral terms.',
-  },
-  {
-    number: '05',
-    title: 'Spend',
-    description: 'Use your balance like a modern financial account.',
-  },
-]
+const { t } = useI18n()
+const features = useCopy<{ number: string; title: string; description: string }[]>('home.features.items')
 
 function featureGridClass(index: number, total: number) {
   if (index < 3) return 'xl:col-span-2'

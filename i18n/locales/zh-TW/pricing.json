@@ -1,0 +1,65 @@
+{
+  "pricing": {
+    "seo": {
+      "title": "方案與價格",
+      "description": "簡單透明的價格。Basic 免費；Pro 加上網頁儀表板、企業與團隊工具、更長的歷史紀錄和優先同步；Ultimate 再加上進階卡片權益。",
+      "keywords": "Kura 價格, 金融帳戶方案, TrackFi, 企業與團隊, Kura Card 訂閱"
+    },
+    "hero": {
+      "eyebrow": "方案與價格",
+      "title": "簡單透明的價格",
+      "description": "免費開始使用。升級 Pro 可使用網頁儀表板和企業與團隊功能，Ultimate 再享進階卡片權益。沒有隱藏費用。"
+    },
+    "monthly": "月繳",
+    "annual": "年繳",
+    "save": "約省 17%",
+    "popular": "熱門",
+    "free": "免費",
+    "perYear": "／年",
+    "perMonth": "／月",
+    "billedAnnually": "每月 {price}，按年計費",
+    "unavailable": "已不再提供",
+    "plans": {
+      "basic": {
+        "name": "Basic",
+        "description": "管理資金所需的一切，完全免費",
+        "features": [
+          { "title": "金融帳戶", "description": "在一個整合帳戶裡收款、付款、投資和賺取收益。" },
+          { "title": "Kura Card 資格", "description": "加入卡片候補名單，推出後即可在全球消費。" },
+          { "title": "TrackFi 儀表板", "description": "以 zero-access 加密連結帳戶，保留 30 天歷史紀錄。" },
+          { "title": "全球轉帳", "description": "用銀行轉帳和數位美元跨境轉移資金。" },
+          { "title": "預設保護隱私", "description": "沒有廣告，不販售資料，你的財務始終屬於你。" }
+        ]
+      },
+      "pro": {
+        "name": "Pro",
+        "description": "網頁儀表板、企業與團隊，以及優先同步",
+        "features": [
+          { "title": "包含 Basic 所有功能", "description": "完整帳戶、卡片候補名單和 TrackFi。" },
+          { "title": "更長的歷史紀錄", "description": "365 天的加密財務歷史紀錄。" },
+          { "title": "優先同步", "description": "每天 5 次手動同步，資料隨時保持最新。" },
+          { "title": "網頁儀表板", "description": "完整使用市場、研究工具和桌面網頁體驗。" },
+          { "title": "企業與團隊", "description": "在網頁上使用共用資金庫、核准、團隊角色和報表。" }
+        ]
+      },
+      "ultimate": {
+        "name": "Ultimate",
+        "description": "完整的 Kura 體驗，外加進階權益",
+        "features": [
+          { "title": "包含 Pro 所有功能", "description": "Pro 的所有歷史紀錄、同步、網頁儀表板和企業與團隊功能。" },
+          { "title": "加強版卡片權益", "description": "卡片推出後享有 Kura Card 進階禮遇。" }
+        ]
+      }
+    },
+    "faq": {
+      "title": "常見問題",
+      "switchQ": "可以隨時更換方案嗎？",
+      "switchA": "可以。需要時隨時升級或降級，你的資料和帳戶始終由你掌控。",
+      "businessQ": "哪些方案包含企業與團隊功能？",
+      "businessA": "Pro 和 Ultimate。資金庫、核准、團隊和報表都屬於網頁儀表板的功能。詳情請見{link}頁面。",
+      "businessLink": "企業與團隊",
+      "secureQ": "我的資料安全嗎？",
+      "secureA": "安全。TrackFi 採用 zero-access 加密：你的財務紀錄在同步前就已在裝置上加密，Kura 無法讀取。"
+    }
+  }
+}

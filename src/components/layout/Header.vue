@@ -10,10 +10,10 @@
     <div class="marketing-container">
       <div class="flex items-center justify-between h-16">
         <div class="flex-shrink-0 flex items-center">
-          <NuxtLink to="/" class="flex items-center gap-2.5 group w-fit" @click="closeAll">
+          <NuxtLinkLocale to="/" class="flex items-center gap-2.5 group w-fit" @click="closeAll">
             <img
               :src="isMenuDark ? brandIconOnDarkUrl : brandIconUrl"
-              alt="Kura Logo"
+              :alt="t('nav.logoAlt')"
               width="32"
               height="32"
               fetchpriority="high"
@@ -24,7 +24,7 @@
               class="hidden sm:inline font-medium text-[17px] tracking-[-0.01em]"
               :class="isMenuDark ? 'text-white' : 'text-kura-text'"
             >Kura</span>
-          </NuxtLink>
+          </NuxtLinkLocale>
         </div>
 
         <nav class="hidden md:flex items-center gap-1 flex-1 justify-center h-full">
@@ -43,7 +43,7 @@
                     : 'text-kura-text-secondary hover:text-kura-primary'
               "
             >
-              Products
+              {{ t('nav.products') }}
               <svg
                 class="w-3.5 h-3.5 transition-transform duration-200 opacity-60"
                 :class="activeDropdown === 'products' ? 'rotate-180' : ''"
@@ -71,7 +71,7 @@
                     : 'text-kura-text-secondary hover:text-kura-primary'
               "
             >
-              Resources
+              {{ t('nav.resources') }}
               <svg
                 class="w-3.5 h-3.5 transition-transform duration-200 opacity-60"
                 :class="activeDropdown === 'resources' ? 'rotate-180' : ''"
@@ -99,7 +99,7 @@
                     : 'text-kura-text-secondary hover:text-kura-primary'
               "
             >
-              About
+              {{ t('nav.about') }}
               <svg
                 class="w-3.5 h-3.5 transition-transform duration-200 opacity-60"
                 :class="activeDropdown === 'about' ? 'rotate-180' : ''"
@@ -112,15 +112,16 @@
             </button>
           </div>
 
-          <NuxtLink
+          <NuxtLinkLocale
             to="/pricing"
             class="px-3 py-2 text-sm transition-colors"
             :class="isMenuDark ? 'text-white/60 hover:text-white' : 'text-kura-text-secondary hover:text-kura-primary'"
             @click="closeAll"
-          >Pricing</NuxtLink>
+          >{{ t('nav.pricing') }}</NuxtLinkLocale>
         </nav>
 
         <div class="flex items-center justify-end gap-2 sm:gap-3 flex-shrink-0">
+          <LanguageSwitcher :dark="isMenuDark" @navigate="closeAll" />
           <a
             :href="SHUTDOWN.githubUrl"
             target="_blank"
@@ -128,7 +129,7 @@
             class="hidden md:inline-flex header-cta"
             @click="closeAll"
           >
-            Source code
+            {{ t('nav.sourceCode') }}
           </a>
 
           <button
@@ -138,7 +139,7 @@
             :class="isMenuDark ? 'text-white hover:bg-white/10' : 'text-kura-text hover:bg-kura-surface'"
             :aria-expanded="isMobileMenuOpen"
             aria-controls="mobile-menu"
-            aria-label="Toggle menu"
+            :aria-label="t('nav.toggleMenu')"
           >
             <svg v-if="!isMobileMenuOpen" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
@@ -202,7 +203,7 @@
                 class="w-full flex items-center justify-between py-2 text-kura-text font-medium"
                 @click.stop="toggleMobileSubmenu('products')"
               >
-                <span>Products</span>
+                <span>{{ t('nav.products') }}</span>
                 <svg
                   class="w-5 h-5 transition-transform duration-300"
                   :class="activeMobileSubmenu === 'products' ? 'rotate-180' : ''"
@@ -215,12 +216,12 @@
               </button>
               <transition name="slide-down">
                 <div v-if="activeMobileSubmenu === 'products'" class="pl-2 mt-3 space-y-4">
-                  <div v-for="category in mobileProductCategories" :key="category.title">
+                  <div v-for="category in mobileProductCategories" :key="category.key">
                     <p class="text-[11px] font-semibold uppercase tracking-widest text-kura-primary mb-2">
                       {{ category.title }}
                     </p>
                     <div class="pl-2 space-y-1">
-                      <NuxtLink
+                      <NuxtLinkLocale
                         v-for="link in category.links"
                         :key="link.name"
                         :to="link.to"
@@ -228,7 +229,7 @@
                         @click="closeMobile"
                       >
                         {{ link.name }}
-                      </NuxtLink>
+                      </NuxtLinkLocale>
                     </div>
                   </div>
                 </div>
@@ -241,7 +242,7 @@
                 class="w-full flex items-center justify-between py-2 text-kura-text font-medium"
                 @click.stop="toggleMobileSubmenu('resources')"
               >
-                <span>Resources</span>
+                <span>{{ t('nav.resources') }}</span>
                 <svg
                   class="w-5 h-5 transition-transform duration-300"
                   :class="activeMobileSubmenu === 'resources' ? 'rotate-180' : ''"
@@ -254,12 +255,12 @@
               </button>
               <transition name="slide-down">
                 <div v-if="activeMobileSubmenu === 'resources'" class="pl-2 mt-3 space-y-4">
-                  <div v-for="column in mobileResourceColumns" :key="column.title">
+                  <div v-for="column in mobileResourceColumns" :key="column.key">
                     <p class="text-[11px] font-semibold uppercase tracking-widest text-kura-primary mb-2">
                       {{ column.title }}
                     </p>
                     <div class="pl-2 space-y-1">
-                      <NuxtLink
+                      <NuxtLinkLocale
                         v-for="link in column.links"
                         :key="link.name"
                         :to="link.to"
@@ -267,7 +268,7 @@
                         @click="closeMobile"
                       >
                         {{ link.name }}
-                      </NuxtLink>
+                      </NuxtLinkLocale>
                     </div>
                   </div>
                 </div>
@@ -280,7 +281,7 @@
                 class="w-full flex items-center justify-between py-2 text-kura-text font-medium"
                 @click.stop="toggleMobileSubmenu('about')"
               >
-                <span>About</span>
+                <span>{{ t('nav.about') }}</span>
                 <svg
                   class="w-5 h-5 transition-transform duration-300"
                   :class="activeMobileSubmenu === 'about' ? 'rotate-180' : ''"
@@ -293,19 +294,19 @@
               </button>
               <transition name="slide-down">
                 <div v-if="activeMobileSubmenu === 'about'" class="pl-2 mt-3 space-y-4">
-                  <NuxtLink
+                  <NuxtLinkLocale
                     to="/about"
                     class="block py-1.5 text-sm font-medium text-kura-text hover:text-kura-primary transition-colors"
                     @click="closeMobile"
                   >
-                    Our story
-                  </NuxtLink>
-                  <div v-for="column in mobileAboutColumns" :key="column.label">
+                    {{ t('nav.ourStory') }}
+                  </NuxtLinkLocale>
+                  <div v-for="column in mobileAboutColumns" :key="column.key">
                     <p class="text-[11px] font-semibold uppercase tracking-widest text-kura-primary mb-2">
-                      {{ column.label }}
+                      {{ column.title }}
                     </p>
                     <div class="pl-2 space-y-1">
-                      <NuxtLink
+                      <NuxtLinkLocale
                         v-for="link in column.links"
                         :key="link.name"
                         :to="link.to"
@@ -313,25 +314,25 @@
                         @click="closeMobile"
                       >
                         {{ link.name }}
-                      </NuxtLink>
+                      </NuxtLinkLocale>
                     </div>
                   </div>
-                  <NuxtLink
+                  <NuxtLinkLocale
                     to="/contact"
                     class="block py-1.5 text-sm text-kura-text-secondary hover:text-kura-primary transition-colors"
                     @click="closeMobile"
                   >
-                    Contact us
-                  </NuxtLink>
+                    {{ t('nav.links.contactUs') }}
+                  </NuxtLinkLocale>
                 </div>
               </transition>
             </div>
 
-            <NuxtLink
+            <NuxtLinkLocale
               to="/pricing"
               class="block py-2 text-kura-text font-medium border-b border-kura-border pb-3"
               @click="closeMobile"
-            >Pricing</NuxtLink>
+            >{{ t('nav.pricing') }}</NuxtLinkLocale>
 
             <div class="pt-4">
               <a
@@ -341,7 +342,7 @@
                 class="header-cta header-cta--mobile"
                 @click="closeMobile"
               >
-                Source code
+                {{ t('nav.sourceCode') }}
               </a>
             </div>
           </nav>
@@ -355,6 +356,7 @@
 import { ref, computed, watch, onMounted, onUnmounted } from 'vue'
 import { brandIconOnDarkUrl, brandIconUrl } from '~/utils/brand'
 import { SHUTDOWN } from '~/utils/site'
+import { ABOUT_COLUMNS, PRODUCT_CATEGORIES, RESOURCE_COLUMNS, useNavGroups } from '~/utils/navigation'
 const isMobileMenuOpen = ref(false)
 const activeDropdown = ref<string | null>(null)
 const activeMobileSubmenu = ref<string | null>(null)
@@ -363,86 +365,10 @@ const isMenuDark = computed(
   () => activeDropdown.value === 'products' && !isMobileMenuOpen.value,
 )
 
-const mobileProductCategories = [
-  {
-    title: 'Cash & Transfers',
-    links: [
-      { name: 'Account', to: '/account' },
-      { name: 'Global Transfers', to: '/global-transfers' },
-      { name: 'Multi-Currency', to: '/multi-currency' },
-    ],
-  },
-  {
-    title: 'Cards & Spending',
-    links: [
-      { name: 'Kura Card', to: '/kura-card' },
-    ],
-  },
-  {
-    title: 'Investing & Earn',
-    links: [
-      { name: 'Invest', to: '/invest' },
-      { name: 'US Stocks', to: '/us-stocks' },
-      { name: 'Earn', to: '/earn' },
-      { name: 'Borrow', to: '/borrow' },
-    ],
-  },
-  {
-    title: 'Portfolio & Business',
-    links: [
-      { name: 'TrackFi', to: '/trackfi' },
-      { name: 'Connected Accounts', to: '/connected-accounts' },
-      { name: 'Net Worth', to: '/net-worth' },
-      { name: 'Business & Team', to: '/business' },
-    ],
-  },
-]
-
-const mobileResourceColumns = [
-  {
-    title: 'Blog',
-    links: [
-      { name: 'All posts', to: '/blog' },
-      { name: 'Product updates', to: '/blog/product-updates' },
-      { name: 'Company news', to: '/blog/company-news' },
-    ],
-  },
-  {
-    title: 'Documentation',
-    links: [
-      { name: 'Documentation center', to: '/docs' },
-      { name: 'Stock countries', to: '/docs/stock-countries' },
-      { name: 'On & off-ramp countries', to: '/docs/on-off-ramp-countries' },
-      { name: 'Compliance', to: '/compliance' },
-      { name: 'Privacy policy', to: '/privacy' },
-    ],
-  },
-  {
-    title: 'Support',
-    links: [
-      { name: 'Help center', to: '/help' },
-      { name: 'Community', to: '/community' },
-      { name: 'Contact us', to: '/contact' },
-      { name: 'Business Report', to: '/investors' },
-    ],
-  },
-]
-
-const mobileAboutColumns = [
-  {
-    label: 'Connect',
-    links: [
-      { name: 'Community', to: '/community' },
-      { name: 'Blog', to: '/blog' },
-    ],
-  },
-  {
-    label: 'Company',
-    links: [
-      { name: 'Compliance', to: '/compliance' },
-    ],
-  },
-]
+const { t } = useI18n()
+const mobileProductCategories = useNavGroups(PRODUCT_CATEGORIES, 'categories')
+const mobileResourceColumns = useNavGroups(RESOURCE_COLUMNS, 'resourceColumns')
+const mobileAboutColumns = useNavGroups(ABOUT_COLUMNS, 'aboutColumns')
 
 function toggleMobileMenu() {
   isMobileMenuOpen.value = !isMobileMenuOpen.value

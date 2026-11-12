@@ -5,25 +5,26 @@ definePageMeta({
   layout: 'default',
 })
 
+const { t } = useI18n()
+
 usePageSeo({
-  title: 'Download',
-  description:
-    'Kura has ceased operations. The open-source wallet app is no longer maintained, and store listings may be removed at any time.',
+  title: () => t('download.seo.title'),
+  description: () => t('download.seo.description'),
   path: '/download',
-  keywords: 'download Kura, Kura app iOS, App Store, Kura Android, Google Play',
+  keywords: () => t('download.seo.keywords'),
 })
 </script>
 
 <template>
   <div class="w-full text-kura-text bg-kura-background">
     <PageHero
-      eyebrow="Archive"
-      title="Download Kura"
-      description="Kura has ceased operations. The app is an open-source wallet that is no longer maintained. It accepts no new sign-ups or deposits, and the store listings below may be removed at any time."
+      :eyebrow="t('download.hero.eyebrow')"
+      :title="t('download.hero.title')"
+      :description="t('download.hero.description')"
     >
       <div class="flex flex-wrap gap-3">
         <NuxtLink to="#stores" class="btn-primary">
-          Store listings
+          {{ t('download.storeListings') }}
         </NuxtLink>
         <a
           :href="WEB_APP_URL"
@@ -31,7 +32,7 @@ usePageSeo({
           rel="noopener noreferrer"
           class="btn-secondary"
         >
-          Pro Dashboard
+          {{ t('download.dashboard') }}
         </a>
       </div>
     </PageHero>
@@ -49,12 +50,12 @@ usePageSeo({
               <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z" />
             </svg>
           </div>
-          <h2 class="text-xl font-bold mb-2 group-hover:text-kura-primary transition-colors">Download for iPhone</h2>
+          <h2 class="text-xl font-bold mb-2 group-hover:text-kura-primary transition-colors">{{ t('download.ios.title') }}</h2>
           <p class="text-sm text-kura-text-secondary mb-6 leading-relaxed">
-            The App Store listing for the unmaintained wallet app. It may be removed at any time.
+            {{ t('download.ios.description') }}
           </p>
           <span class="btn-primary text-sm gap-2">
-            Download on the App Store
+            {{ t('download.ios.button') }}
             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
             </svg>
@@ -72,12 +73,12 @@ usePageSeo({
               <path d="M3.609 1.814L13.792 12 3.61 22.186a1.002 1.002 0 01-.61-.92V2.734a1 1 0 01.609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.198l2.807 1.626a1 1 0 010 1.73l-2.808 1.626L15.206 12l2.492-2.491zM5.864 2.658L16.802 8.99l-2.303 2.303-8.635-8.635z" />
             </svg>
           </div>
-          <h2 class="text-xl font-bold mb-2 group-hover:text-kura-primary transition-colors">Download for Android</h2>
+          <h2 class="text-xl font-bold mb-2 group-hover:text-kura-primary transition-colors">{{ t('download.android.title') }}</h2>
           <p class="text-sm text-kura-text-secondary mb-6 leading-relaxed">
-            The Google Play listing for the unmaintained wallet app. It may be removed at any time.
+            {{ t('download.android.description') }}
           </p>
           <span class="btn-primary text-sm gap-2">
-            Get it on Google Play
+            {{ t('download.android.button') }}
             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
             </svg>
@@ -86,10 +87,10 @@ usePageSeo({
       </section>
 
       <section class="card-surface rounded-3xl p-8 md:p-10 mb-10 text-center">
-        <p class="section-label mb-3">Web</p>
-        <h2 class="text-2xl md:text-3xl font-bold mb-3 tracking-tight">Prefer the desktop experience?</h2>
+        <p class="section-label mb-3">{{ t('download.web.label') }}</p>
+        <h2 class="text-2xl md:text-3xl font-bold mb-3 tracking-tight">{{ t('download.web.title') }}</h2>
         <p class="text-sm text-kura-text-secondary leading-relaxed max-w-xl mx-auto mb-6">
-          Open the Pro Dashboard for markets, Business &amp; Team, and the full web workspace. Requires Pro or Ultimate.
+          {{ t('download.web.description') }}
         </p>
         <a
           :href="WEB_APP_URL"
@@ -97,17 +98,17 @@ usePageSeo({
           rel="noopener noreferrer"
           class="btn-primary"
         >
-          Pro Dashboard
+          {{ t('download.dashboard') }}
         </a>
       </section>
 
       <section class="card-surface rounded-3xl p-8 md:p-10 text-center bg-kura-surface">
         <p class="text-sm text-kura-text-secondary leading-relaxed max-w-2xl mx-auto">
-          Kura was a product of Kura Finance LLC, a software company — not a bank. The company has been dissolved and has ceased operations. Card, payment, and investing services are no longer available, and the remaining wallet is not maintained.
+          {{ t('download.disclaimer') }}
         </p>
-        <NuxtLink to="/help" class="inline-block mt-6 text-kura-primary hover:text-kura-primary-dark transition-colors font-semibold text-sm">
-          Need help? Contact support →
-        </NuxtLink>
+        <NuxtLinkLocale to="/help" class="inline-block mt-6 text-kura-primary hover:text-kura-primary-dark transition-colors font-semibold text-sm">
+          {{ t('download.help') }}
+        </NuxtLinkLocale>
       </section>
     </main>
   </div>

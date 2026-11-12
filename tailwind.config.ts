@@ -36,8 +36,8 @@ export default {
         },
       },
       fontFamily: {
-        sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', '"Segoe UI"', 'sans-serif'],
-        display: ['Newsreader', 'Georgia', '"Times New Roman"', 'serif'],
+        sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', '"Segoe UI"', '"PingFang TC"', '"Noto Sans TC"', '"Microsoft JhengHei"', 'sans-serif'],
+        display: ['Newsreader', 'Georgia', '"Times New Roman"', '"Noto Serif TC"', '"Songti TC"', '"PMingLiU"', 'serif'],
       },
       fontSize: {
         'display-lg': ['4.5rem', { lineHeight: '1.02', letterSpacing: '-0.03em' }],
